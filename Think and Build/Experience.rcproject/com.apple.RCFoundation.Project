@@ -10,7 +10,76 @@
                 "name" : "surface"
               },
               "behaviors" : [
-
+                {
+                  "__content" : [
+                    {
+                      "actionGroups" : [
+                        {
+                          "__content" : [
+                            {
+                              "configurations" : [
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
+                                          "target" : [
+                                            "4E817B08-96A6-4BC5-96DF-07DE45B1C80E"
+                                          ],
+                                          "userIdentifier" : "Pulsacion sobre casilla (3, 3)"
+                                        },
+                                        "name" : {
+                                          "type" : "custom"
+                                        }
+                                      },
+                                      "identifier" : "B95A33BA-A6C3-44AC-B5D1-9CA864C9A1FE",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
+                                }
+                              ],
+                              "identifier" : "5FDE6A1F-5128-4D80-B120-6D744BE65DAE",
+                              "isEnabled" : true
+                            }
+                          ],
+                          "__version" : 1
+                        }
+                      ],
+                      "color" : [
+                        0.364705890417099,
+                        0.74117648601531982,
+                        0.69019609689712524,
+                        1
+                      ],
+                      "identifier" : "677328DC-8BC6-4B2B-8D02-8751D128EB71",
+                      "isEnabled" : true,
+                      "isLooping" : false,
+                      "isModal" : false,
+                      "name" : "Comportamiento",
+                      "triggers" : [
+                        {
+                          "__content" : [
+                            {
+                              "configurationBox" : {
+                                "configuration" : {
+                                  "target" : [
+                                    "4E817B08-96A6-4BC5-96DF-07DE45B1C80E"
+                                  ]
+                                },
+                                "name" : "tapTarget"
+                              },
+                              "identifier" : "8E98E552-DC70-4A51-94A5-74D81B2D42EA",
+                              "isEnabled" : true
+                            }
+                          ],
+                          "__version" : 1
+                        }
+                      ]
+                    }
+                  ],
+                  "__version" : 2
+                }
               ],
               "gravity" : [
                 0,
@@ -719,6 +788,94 @@
                       ]
                     }
                   },
+                  "6D7564C4-2149-45C6-8E0B-ADC003FB1889" : {
+                    "overrides" : {
+                      "arguments" : [
+                        [
+                          "bevelRadius",
+                          {
+                            "typeName" : "Double",
+                            "value" : 0.0050000000000000001
+                          }
+                        ],
+                        [
+                          "depth",
+                          {
+                            "typeName" : "Double",
+                            "value" : 0.14999999999999999
+                          }
+                        ],
+                        [
+                          "height",
+                          {
+                            "typeName" : "Double",
+                            "value" : 0.01
+                          }
+                        ],
+                        [
+                          "material",
+                          {
+                            "typeName" : "String",
+                            "value" : "steel"
+                          }
+                        ],
+                        [
+                          "type",
+                          {
+                            "typeName" : "String",
+                            "value" : "box"
+                          }
+                        ],
+                        [
+                          "width",
+                          {
+                            "typeName" : "Double",
+                            "value" : 0.14999999999999999
+                          }
+                        ]
+                      ],
+                      "factory" : {
+                        "identifier" : "com.apple.rc.af.CoreAssetFactories.PrimitiveShapeAssetFactory",
+                        "version" : "1.0"
+                      },
+                      "runtimeAttributes" : [
+                        [
+                          "RuntimeIdentifier",
+                          {
+                            "typeName" : "UUID",
+                            "value" : "70C212CD-3E5C-4F75-99DC-48AC7D3F1DD3"
+                          }
+                        ],
+                        [
+                          "entityName",
+                          {
+                            "typeName" : "String",
+                            "value" : "Casilla (-1, 3)"
+                          }
+                        ]
+                      ]
+                    },
+                    "transform" : {
+                      "matrix" : [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        -0.14970012009143829,
+                        0.0050000003539025784,
+                        -0.45000007748603821,
+                        1
+                      ]
+                    }
+                  },
                   "7F5F1ADC-E5E4-4EF5-A5B5-FC43B071FFA5" : null,
                   "47D49DFD-7F32-49D2-8B70-5387FBC22AFD" : {
                     "overrides" : {
@@ -959,7 +1116,7 @@
                           "entityName",
                           {
                             "typeName" : "String",
-                            "value" : "Steel Box"
+                            "value" : "Casilla (2, 3)"
                           }
                         ]
                       ]
@@ -1690,6 +1847,94 @@
                       ]
                     }
                   },
+                  "24737AD4-6981-4028-87BB-4711A6539C56" : {
+                    "overrides" : {
+                      "arguments" : [
+                        [
+                          "bevelRadius",
+                          {
+                            "typeName" : "Double",
+                            "value" : 0.0050000000000000001
+                          }
+                        ],
+                        [
+                          "depth",
+                          {
+                            "typeName" : "Double",
+                            "value" : 0.14999999999999999
+                          }
+                        ],
+                        [
+                          "height",
+                          {
+                            "typeName" : "Double",
+                            "value" : 0.01
+                          }
+                        ],
+                        [
+                          "material",
+                          {
+                            "typeName" : "String",
+                            "value" : "steel"
+                          }
+                        ],
+                        [
+                          "type",
+                          {
+                            "typeName" : "String",
+                            "value" : "box"
+                          }
+                        ],
+                        [
+                          "width",
+                          {
+                            "typeName" : "Double",
+                            "value" : 0.14999999999999999
+                          }
+                        ]
+                      ],
+                      "factory" : {
+                        "identifier" : "com.apple.rc.af.CoreAssetFactories.PrimitiveShapeAssetFactory",
+                        "version" : "1.0"
+                      },
+                      "runtimeAttributes" : [
+                        [
+                          "RuntimeIdentifier",
+                          {
+                            "typeName" : "UUID",
+                            "value" : "3E75757B-BA15-4DD1-A083-5AF0FBBF32AF"
+                          }
+                        ],
+                        [
+                          "entityName",
+                          {
+                            "typeName" : "String",
+                            "value" : "Casilla (-2, 3)"
+                          }
+                        ]
+                      ]
+                    },
+                    "transform" : {
+                      "matrix" : [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        -0.29990005493164062,
+                        0.0050000003539025784,
+                        -0.45000013709068298,
+                        1
+                      ]
+                    }
+                  },
                   "50632C40-7E20-4109-B7EC-665826683CC8" : {
                     "overrides" : {
                       "arguments" : [
@@ -1840,7 +2085,7 @@
                           "entityName",
                           {
                             "typeName" : "String",
-                            "value" : "Steel Box"
+                            "value" : "Casilla (1, 3)"
                           }
                         ]
                       ]
@@ -2571,7 +2816,8 @@
                       ]
                     }
                   },
-                  "BCC9F4D8-C649-4EBD-A405-D2D758843B43" : {
+                  "BCC9F4D8-C649-4EBD-A405-D2D758843B43" : null,
+                  "BFE7686D-8A61-484C-A930-5B344C2DC351" : {
                     "overrides" : {
                       "arguments" : [
                         [
@@ -2626,14 +2872,14 @@
                           "RuntimeIdentifier",
                           {
                             "typeName" : "UUID",
-                            "value" : "14995AA1-D103-40D4-A388-963C16C6E32F"
+                            "value" : "5F0E9FDB-97D2-4EF9-B5B5-B1FFC8032924"
                           }
                         ],
                         [
                           "entityName",
                           {
                             "typeName" : "String",
-                            "value" : "Steel Box"
+                            "value" : "Casilla (0, 3)"
                           }
                         ]
                       ]
@@ -2652,9 +2898,9 @@
                         0,
                         1,
                         0,
-                        -0.14989432692527771,
+                        0.00039988759090192616,
                         0.0050000003539025784,
-                        -0.45000013709068298,
+                        -0.44999992847442627,
                         1
                       ]
                     }
@@ -3249,7 +3495,7 @@
                           "entityName",
                           {
                             "typeName" : "String",
-                            "value" : "Steel Box"
+                            "value" : "Casilla (3, 3)"
                           }
                         ]
                       ]
@@ -3601,7 +3847,7 @@
                           "entityName",
                           {
                             "typeName" : "String",
-                            "value" : "Steel Box"
+                            "value" : "Casilla (-3, 3)"
                           }
                         ]
                       ]
@@ -3715,94 +3961,7 @@
                       ]
                     }
                   },
-                  "E8F86E8B-B4CC-4C74-A7C1-BD0C2E392FEF" : {
-                    "overrides" : {
-                      "arguments" : [
-                        [
-                          "bevelRadius",
-                          {
-                            "typeName" : "Double",
-                            "value" : 0.0050000000000000001
-                          }
-                        ],
-                        [
-                          "depth",
-                          {
-                            "typeName" : "Double",
-                            "value" : 0.14999999999999999
-                          }
-                        ],
-                        [
-                          "height",
-                          {
-                            "typeName" : "Double",
-                            "value" : 0.01
-                          }
-                        ],
-                        [
-                          "material",
-                          {
-                            "typeName" : "String",
-                            "value" : "steel"
-                          }
-                        ],
-                        [
-                          "type",
-                          {
-                            "typeName" : "String",
-                            "value" : "box"
-                          }
-                        ],
-                        [
-                          "width",
-                          {
-                            "typeName" : "Double",
-                            "value" : 0.14999999999999999
-                          }
-                        ]
-                      ],
-                      "factory" : {
-                        "identifier" : "com.apple.rc.af.CoreAssetFactories.PrimitiveShapeAssetFactory",
-                        "version" : "1.0"
-                      },
-                      "runtimeAttributes" : [
-                        [
-                          "RuntimeIdentifier",
-                          {
-                            "typeName" : "UUID",
-                            "value" : "E8A75BA2-131E-4B3D-8C10-5CFA9764B926"
-                          }
-                        ],
-                        [
-                          "entityName",
-                          {
-                            "typeName" : "String",
-                            "value" : "Steel Box"
-                          }
-                        ]
-                      ]
-                    },
-                    "transform" : {
-                      "matrix" : [
-                        1,
-                        0,
-                        0,
-                        0,
-                        0,
-                        1,
-                        0,
-                        0,
-                        0,
-                        0,
-                        1,
-                        0,
-                        -0.29999494552612305,
-                        0.0050000003539025784,
-                        -0.45000013709068298,
-                        1
-                      ]
-                    }
-                  },
+                  "E8F86E8B-B4CC-4C74-A7C1-BD0C2E392FEF" : null,
                   "E63B2E1C-45B8-4D53-9E8E-1061A5E4D781" : {
                     "overrides" : {
                       "arguments" : [
@@ -4243,115 +4402,28 @@
                       ]
                     }
                   },
-                  "FE94AE75-21CF-4326-AC9E-E959936F375B" : {
-                    "overrides" : {
-                      "arguments" : [
-                        [
-                          "bevelRadius",
-                          {
-                            "typeName" : "Double",
-                            "value" : 0.0050000000000000001
-                          }
-                        ],
-                        [
-                          "depth",
-                          {
-                            "typeName" : "Double",
-                            "value" : 0.14999999999999999
-                          }
-                        ],
-                        [
-                          "height",
-                          {
-                            "typeName" : "Double",
-                            "value" : 0.01
-                          }
-                        ],
-                        [
-                          "material",
-                          {
-                            "typeName" : "String",
-                            "value" : "steel"
-                          }
-                        ],
-                        [
-                          "type",
-                          {
-                            "typeName" : "String",
-                            "value" : "box"
-                          }
-                        ],
-                        [
-                          "width",
-                          {
-                            "typeName" : "Double",
-                            "value" : 0.14999999999999999
-                          }
-                        ]
-                      ],
-                      "factory" : {
-                        "identifier" : "com.apple.rc.af.CoreAssetFactories.PrimitiveShapeAssetFactory",
-                        "version" : "1.0"
-                      },
-                      "runtimeAttributes" : [
-                        [
-                          "RuntimeIdentifier",
-                          {
-                            "typeName" : "UUID",
-                            "value" : "5CA857D8-6033-45F4-867F-5F1D5221F389"
-                          }
-                        ],
-                        [
-                          "entityName",
-                          {
-                            "typeName" : "String",
-                            "value" : "Steel Box"
-                          }
-                        ]
-                      ]
-                    },
-                    "transform" : {
-                      "matrix" : [
-                        1,
-                        0,
-                        0,
-                        0,
-                        0,
-                        1,
-                        0,
-                        0,
-                        0,
-                        0,
-                        1,
-                        0,
-                        0.0003059548616874963,
-                        0.0050000031478703022,
-                        -0.45000013709068298,
-                        1
-                      ]
-                    }
-                  }
+                  "FE94AE75-21CF-4326-AC9E-E959936F375B" : null
                 },
                 "factory" : null
               },
               "title" : "Box",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.99999994039535522,
+                  0.99741160869598389,
+                  -3.0151568353176117e-08,
+                  -0.071902662515640259,
                   0,
+                  -0.071858778595924377,
+                  0.034899730235338211,
+                  -0.99680399894714355,
                   0,
+                  0.0025094652082771063,
+                  0.99939078092575073,
+                  0.034809242933988571,
                   0,
-                  0,
-                  0.80754852294921875,
-                  -0.58980095386505127,
-                  0,
-                  0,
-                  0.58980095386505127,
-                  0.80754852294921875,
-                  0,
-                  0,
-                  1.135667085647583,
-                  1.5549418926239014,
+                  -0.013844072818756104,
+                  3.5055139064788818,
+                  0.0917377769947052,
                   1
                 ],
                 "sceneTransform" : [
