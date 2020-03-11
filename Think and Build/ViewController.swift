@@ -12,14 +12,17 @@ import RealityKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet var arView: ARView!
+    
+    @IBOutlet weak var arView: ARView!
+    
+    let superficiePlana = ARWorldTrackingConfiguration()
     
     var tableroJuego = try! EscenasJuego.loadTableroPrincipalDeJuego()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let superficiePlana = ARWorldTrackingConfiguration()
+        
         superficiePlana.planeDetection = .horizontal
         arView.session.run(superficiePlana)
         self.arView.scene.anchors.append(tableroJuego)
