@@ -19,10 +19,17 @@ class ViewController: UIViewController {
     
     var tableroJuego: EscenasJuego.TableroPrincipalDeJuego!
     
+    func crearCubo() -> ModelEntity {
+        let cubo = ModelEntity.init(mesh: .generateBox(size: SIMD3(x: 0.075, y: 0.075, z: 0.075)), materials: [Material].init(arrayLiteral: SimpleMaterial.init(color: SimpleMaterial.Color.blue, isMetallic: false)))
+        return cubo
+    }
+    
     func handleTapOnEntity(_ entity: Entity?) {
         guard entity != nil else { return }
            print("HEYYYY")
-        tableroJuego.cubo?.position = SIMD3(x: (entity?.position.x)!, y: (entity?.position.y)! + 0.035, z: (entity?.position.z)!)
+        let cuboNuevo = crearCubo()
+        cuboNuevo.position = SIMD3(x: (entity?.position.x)!, y: (entity?.position.y)! + 0.035, z: (entity?.position.z)!)
+        tableroJuego.addChild(cuboNuevo)
        }
     
     override func viewDidLoad() {
@@ -34,7 +41,6 @@ class ViewController: UIViewController {
         tableroJuego = try! EscenasJuego.loadTableroPrincipalDeJuego()
         
         self.arView.scene.anchors.append(tableroJuego)
-       
         
         
         for i in 1...49 {
