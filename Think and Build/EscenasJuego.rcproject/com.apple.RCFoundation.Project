@@ -13,6 +13,14 @@
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -78,11 +86,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -148,11 +164,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -218,11 +242,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -288,11 +320,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -358,11 +398,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -428,11 +476,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -498,11 +554,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -568,11 +632,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -638,11 +710,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -708,11 +788,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -778,11 +866,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -848,11 +944,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -918,11 +1022,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -988,11 +1100,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -1058,11 +1178,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -1128,11 +1256,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -1198,11 +1334,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -1268,11 +1412,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -1338,11 +1490,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -1408,11 +1568,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -1478,11 +1646,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -1548,11 +1724,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -1618,11 +1802,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -1688,11 +1880,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -1758,11 +1958,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -1828,11 +2036,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -1898,11 +2114,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -1968,11 +2192,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -2038,11 +2270,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -2108,11 +2348,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -2178,11 +2426,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -2248,11 +2504,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -2318,11 +2582,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -2388,11 +2660,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -2458,11 +2738,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -2528,11 +2816,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -2598,11 +2894,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -2668,11 +2972,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -2738,11 +3050,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -2808,11 +3128,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -2878,11 +3206,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -2948,11 +3284,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -2964,7 +3308,7 @@
                                       "configurationBox" : {
                                         "configuration" : {
                                           "target" : [
-
+                                            "73ED662D-C216-4E63-9CDC-DADDC75FA1F7"
                                           ],
                                           "userIdentifier" : "Pulsacion casilla Z3X3"
                                         },
@@ -3018,11 +3362,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -3088,11 +3440,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -3158,11 +3518,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -3228,11 +3596,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -3298,11 +3674,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -3368,11 +3752,19 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
                 },
                 {
                   "__content" : [
                     {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
                       "actionGroups" : [
                         {
                           "__content" : [
@@ -3438,7 +3830,83 @@
                       ]
                     }
                   ],
-                  "__version" : 2
+                  "__version" : 3
+                },
+                {
+                  "__content" : [
+                    {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
+                      "actionGroups" : [
+                        {
+                          "__content" : [
+                            {
+                              "configurations" : [
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
+                                          "target" : [
+
+                                          ],
+                                          "userIdentifier" : "bloqueLadrillo"
+                                        },
+                                        "name" : {
+                                          "type" : "custom"
+                                        }
+                                      },
+                                      "identifier" : "4BB3D6B1-30F9-4203-8385-A4E3D09A24CE",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
+                                }
+                              ],
+                              "identifier" : "32D8A6A9-D306-4C2F-B351-AD125A9D037D",
+                              "isEnabled" : true
+                            }
+                          ],
+                          "__version" : 1
+                        }
+                      ],
+                      "color" : [
+                        0.87450981140136719,
+                        0.47058823704719543,
+                        0.31764706969261169,
+                        1
+                      ],
+                      "identifier" : "5700B00F-7F98-46DE-879F-40183C087E29",
+                      "isEnabled" : true,
+                      "isLooping" : false,
+                      "isModal" : false,
+                      "name" : "Comportamiento",
+                      "triggers" : [
+                        {
+                          "__content" : [
+                            {
+                              "configurationBox" : {
+                                "configuration" : {
+                                  "userIdentifier" : "bloqueLadrillo"
+                                },
+                                "name" : "custom"
+                              },
+                              "identifier" : "06DDBA2F-390B-40C8-8F33-49432558DE78",
+                              "isEnabled" : true
+                            }
+                          ],
+                          "__version" : 1
+                        }
+                      ]
+                    }
+                  ],
+                  "__version" : 3
                 }
               ],
               "gravity" : [
@@ -3446,7 +3914,6 @@
                 -9.8000001907348633,
                 0
               ],
-              "hasGroundPlane" : false,
               "identifier" : "F9610871-0955-494F-A5C3-51D1A281BAB3",
               "material" : "concrete",
               "overrides" : {
@@ -8530,26 +8997,36 @@
                   },
                   "FE94AE75-21CF-4326-AC9E-E959936F375B" : null
                 },
-                "factory" : null
+                "factory" : null,
+                "runtimeAttributes" : [
+                  [
+                    "isAccessibilityEnabled",
+                    {
+                      "typeName" : "Bool",
+                      "value" : false
+                    }
+                  ]
+                ]
               },
+              "physicsMode" : "none",
               "title" : "Tablero Principal de Juego",
               "viewTransform" : {
                 "cameraTransform" : [
-                  -0.060282517224550247,
-                  -2.3469331722481002e-07,
-                  0.99818140268325806,
+                  -0.060282513499259949,
+                  -2.346933030139553e-07,
+                  0.99818134307861328,
                   0,
-                  0.62282347679138184,
-                  0.78145772218704224,
-                  0.03761407732963562,
+                  0.62282341718673706,
+                  0.78145766258239746,
+                  0.037614073604345322,
                   0,
-                  -0.78003644943237305,
-                  0.62395840883255005,
-                  -0.04710792750120163,
+                  -0.78003638982772827,
+                  0.6239582896232605,
+                  -0.047107923775911331,
                   0,
-                  -0.453203946352005,
-                  0.56535863876342773,
-                  -0.062109634280204773,
+                  -1.0521998405456543,
+                  0.55090147256851196,
+                  -0.22161102294921875,
                   1
                 ],
                 "sceneTransform" : [
@@ -8573,7 +9050,7 @@
               }
             }
           ],
-          "__version" : 4
+          "__version" : 5
         }
       ],
       "tags" : {
