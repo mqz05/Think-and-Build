@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e77-QE-NCc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e77-QE-NCc">
     <device id="ipad11_0rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,18 +43,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <arView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hPD-Za-99h">
+                            <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPD-Za-99h">
                                 <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <viewLayoutGuide key="safeArea" id="gbf-23-gS6"/>
                             </arView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="qGJ-J4-JVA">
+                                <rect key="frame" x="40" y="40" width="417" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBW-qH-hkf">
+                                        <rect key="frame" x="0.0" y="0.0" width="31" height="30"/>
+                                        <state key="normal" title="Blue"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUh-5h-XRd">
+                                        <rect key="frame" x="121" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="Red"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtO-hn-bV4">
+                                        <rect key="frame" x="241" y="0.0" width="42" height="30"/>
+                                        <state key="normal" title="Green"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7z-dx-yI3">
+                                        <rect key="frame" x="373" y="0.0" width="44" height="30"/>
+                                        <state key="normal" title="Yellow"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Sm4-cB-Mc1"/>
+                                    <constraint firstAttribute="width" constant="417" id="as1-kB-Zuq"/>
+                                </constraints>
+                            </stackView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nfi-3G-Hgz">
+                                <rect key="frame" x="1119" y="36" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="1Se-uS-63E"/>
+                                    <constraint firstAttribute="width" constant="49" id="d2m-9Z-JGr"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="acciónModoQuitarBloques:" destination="cT5-JQ-hdH" eventType="valueChanged" id="jU6-33-l56"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Blocks Mode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajH-sO-1VY">
+                                <rect key="frame" x="942" y="40" width="169" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="7da-qv-r94"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hPD-Za-99h" firstAttribute="centerX" secondItem="MAA-FH-5H2" secondAttribute="centerX" id="13E-9Q-98r"/>
+                            <constraint firstItem="ajH-sO-1VY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qGJ-J4-JVA" secondAttribute="trailing" constant="8" symbolic="YES" id="9aQ-vm-nbf"/>
+                            <constraint firstItem="hPD-Za-99h" firstAttribute="centerY" secondItem="MAA-FH-5H2" secondAttribute="centerY" id="IGb-LG-lqY"/>
+                            <constraint firstItem="hPD-Za-99h" firstAttribute="leading" secondItem="u0y-bD-Wf8" secondAttribute="leading" id="O2q-3p-bem"/>
+                            <constraint firstItem="hPD-Za-99h" firstAttribute="top" secondItem="u0y-bD-Wf8" secondAttribute="top" id="VAX-nE-C4A"/>
+                            <constraint firstItem="u0y-bD-Wf8" firstAttribute="trailing" secondItem="nfi-3G-Hgz" secondAttribute="trailing" constant="26" id="Vbh-kf-gs9"/>
+                            <constraint firstItem="nfi-3G-Hgz" firstAttribute="top" secondItem="u0y-bD-Wf8" secondAttribute="top" constant="36" id="g0q-Lb-rpU"/>
+                            <constraint firstItem="qGJ-J4-JVA" firstAttribute="top" secondItem="u0y-bD-Wf8" secondAttribute="top" constant="40" id="hic-a1-inD"/>
+                            <constraint firstItem="qGJ-J4-JVA" firstAttribute="top" secondItem="ajH-sO-1VY" secondAttribute="top" id="poW-Cr-U9r"/>
+                            <constraint firstItem="qGJ-J4-JVA" firstAttribute="leading" secondItem="u0y-bD-Wf8" secondAttribute="leading" constant="40" id="rdd-bu-JCu"/>
+                            <constraint firstItem="nfi-3G-Hgz" firstAttribute="leading" secondItem="ajH-sO-1VY" secondAttribute="trailing" constant="8" id="wIk-uK-FEO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="u0y-bD-Wf8"/>
                     </view>
                     <navigationItem key="navigationItem" id="b9u-vN-dLy"/>
                     <connections>
                         <outlet property="arView" destination="hPD-Za-99h" id="8GS-MU-vwb"/>
+                        <outlet property="switchModoQuitarBloques" destination="nfi-3G-Hgz" id="f29-Of-YHO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P8h-h1-j4o" sceneMemberID="firstResponder"/>

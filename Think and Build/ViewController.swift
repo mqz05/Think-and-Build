@@ -12,8 +12,11 @@ import RealityKit
 
 class ViewController: UIViewController {
     
-    
     @IBOutlet weak var arView: ARView!
+    
+    @IBOutlet weak var switchModoQuitarBloques: UISwitch!
+    
+    var modoQuitarBloques = false
     
     let superficiePlana = ARWorldTrackingConfiguration()
     
@@ -24,7 +27,6 @@ class ViewController: UIViewController {
     var arrayDePosicionesDeBloquesTotales: Array<SIMD3<Float>> = []
     
     var arrayDePosicionesDeBloquesLadrillos: Array<SIMD3<Float>> = []
-    
     
     // Arrays de Soluciones (PONER POSICIONES CORRECTAS DE CADA BLOQUE EN EL ARRAY)
     var arrayDeSolucionesDeBloquesLadrillos: Array<SIMD3<Float>> = []
@@ -42,14 +44,13 @@ class ViewController: UIViewController {
         for i in 1...49 {
             tableroJuego.actions.allActions[i - 1].onAction = colocarBloqueSobreTablero(_:)
         }
-        
-        print((tableroJuego.casilla00?.position.z)! - (tableroJuego.casilla01?.position.z)!)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if seHaCreadoPanel == true {
-            guard let touchLocation = (touches.first?.location(in: arView)), let tappedEntity = arView.hitTest(touchLocation, query: .nearest, mask: .default).first?.entity else { return }
-            
+        
+        guard let touchLocation = (touches.first?.location(in: arView)), let tappedEntity = arView.hitTest(touchLocation, query: .nearest, mask: .default).first?.entity else { return }
+        
+        if seHaCreadoPanel == true && modoQuitarBloques == false {
             if tappedEntity.name == "Panel Encima del Bloque" {
                 colocarBloqueEncimaDelBloque(_: tappedEntity)
                 
@@ -66,17 +67,65 @@ class ViewController: UIViewController {
                 colocarBloqueLateralIzquierdaDelBloque(_: tappedEntity)
                 
             }
+        } else if modoQuitarBloques == true {
+            if tappedEntity.name == "Bloque Ladrillo" /*|| tappedEntity.name == "Bloque Cristal" || tappedEntity.name == "Bloque Tejado" || tappedEntity.name == "Bloque Valla" */{
+                for panelesDeBloques in 1...tableroJuego.children.count {
+                    let objeto = tableroJuego.children[panelesDeBloques - 1]
+                    if (objeto.name == "Panel Lateral Izquierda del Bloque" && objeto.position.z == tappedEntity.position.z && objeto.position.y == tappedEntity.position.y + 10000 && objeto.position.x == tappedEntity.position.x - 0.038) || (objeto.name == "Panel Lateral Derecha del Bloque" && objeto.position.z == tappedEntity.position.z && objeto.position.y == tappedEntity.position.y + 10000 && objeto.position.x == tappedEntity.position.x + 0.038) || (objeto.name == "Panel Lateral Trasera del Bloque" && objeto.position.x == tappedEntity.position.x && objeto.position.y == tappedEntity.position.y + 10000 && objeto.position.z == tappedEntity.position.z + 0.038) || (objeto.name == "Panel Lateral Frontal del Bloque" && objeto.position.x == tappedEntity.position.x && objeto.position.y == tappedEntity.position.y + 10000 && objeto.position.z == tappedEntity.position.z - 0.038) || (objeto.name == "Panel Encima del Bloque" && objeto.position.z == tappedEntity.position.z && objeto.position.x == tappedEntity.position.x && (round(objeto.position.y * 100) / 100 == round((tappedEntity.position.y + 10000.038) * 100) / 100)) {
+                        
+                        objeto.isEnabled = false
+                    }
+                }
+                
+                tappedEntity.isEnabled = false
+                tappedEntity.removeFromParent()
+                
+                for (index, valor) in arrayDePosicionesDeBloquesTotales.enumerated() {
+                    if valor == tappedEntity.position {
+                        arrayDePosicionesDeBloquesTotales.remove(at: index)
+                    }
+                }
+                print("Bro it is working!")
+            }
+            print("Hey! You are removing blocks! Change your mode if you want to place blocks")
+            
         }
     }
     
+    @IBAction func acciónModoQuitarBloques(_ sender: Any) {
+        if (sender as AnyObject).isOn {
+            modoQuitarBloques = true
+            
+            for panelesDeBloques in 1...tableroJuego.children.count {
+                let objeto = tableroJuego.children[panelesDeBloques - 1]
+                if objeto.name == "Panel Lateral Izquierda del Bloque" || objeto.name == "Panel Lateral Derecha del Bloque" || objeto.name == "Panel Lateral Trasera del Bloque" || objeto.name == "Panel Lateral Frontal del Bloque" || objeto.name == "Panel Encima del Bloque" {
+                    objeto.position = SIMD3(x: objeto.position.x, y: objeto.position.y + 10000, z: objeto.position.z)
+                }
+            }
+            print("Hey! Now you are removing blocks!")
+            
+        } else {
+            modoQuitarBloques = false
+            
+            for panelesDeBloques in 1...tableroJuego.children.count {
+                let objeto = tableroJuego.children[panelesDeBloques - 1]
+                if objeto.name == "Panel Lateral Izquierda del Bloque" || objeto.name == "Panel Lateral Derecha del Bloque" || objeto.name == "Panel Lateral Trasera del Bloque" || objeto.name == "Panel Lateral Frontal del Bloque" || objeto.name == "Panel Encima del Bloque" {
+                    objeto.position = SIMD3(x: objeto.position.x, y: objeto.position.y - 10000, z: objeto.position.z)
+                }
+            }
+            print("Hey! Now you are placing blocks!")
+            
+        }
+        
+    }
     
     //
     // Creación de los Tipos de Bloques
     //
     
     func crearBloqueLadrillo() -> ModelEntity {
-        let cubo = ModelEntity.init(mesh: .generateBox(size: SIMD3(x: 0.075, y: 0.075, z: 0.075)), materials: [Material].init(arrayLiteral: SimpleMaterial.init(color: SimpleMaterial.Color.blue, isMetallic: false)))
-        return cubo
+        let bloqueLadrillo = ModelEntity.init(mesh: .generateBox(size: SIMD3(x: 0.075, y: 0.075, z: 0.075)), materials: [Material].init(arrayLiteral: SimpleMaterial.init(color: SimpleMaterial.Color.blue, isMetallic: false)))
+        return bloqueLadrillo
     }
     
     
@@ -87,21 +136,29 @@ class ViewController: UIViewController {
     func colocarBloqueSobreTablero(_ entity: Entity?) {
            guard entity != nil else { return }
            
-        let nuevoBloqueLadrillo = crearBloqueLadrillo()
-        let posicionBloqueLadrillo = SIMD3(x: (entity?.position.x)!, y: (entity?.position.y)! + 0.04, z: (entity?.position.z)!)
-        nuevoBloqueLadrillo.position = posicionBloqueLadrillo
-        tableroJuego.addChild(nuevoBloqueLadrillo)
+        if modoQuitarBloques == false {
+            let nuevoBloqueLadrillo = crearBloqueLadrillo()
+            let posicionBloqueLadrillo = SIMD3(x: (entity?.position.x)!, y: (entity?.position.y)! + 0.04, z: (entity?.position.z)!)
+            nuevoBloqueLadrillo.position = posicionBloqueLadrillo
+            nuevoBloqueLadrillo.name = "Bloque Ladrillo"
+            nuevoBloqueLadrillo.generateCollisionShapes(recursive: true)
+            tableroJuego.addChild(nuevoBloqueLadrillo)
+            
+            print("Posicion Casilla Tablero: \(String(describing: entity?.position))")
 
-        if arrayDePosicionesDeBloquesTotales.contains(posicionBloqueLadrillo) {
-            print("¡Ya hay un bloque ahí!")
-            tableroJuego.removeChild(nuevoBloqueLadrillo)
+            if arrayDePosicionesDeBloquesTotales.contains(posicionBloqueLadrillo) {
+                print("¡Ya hay un bloque ahí!")
+                tableroJuego.removeChild(nuevoBloqueLadrillo)
             
+            } else {
+                print("¡Un nuevo bloque de ladrillo ha sido colocado con éxito!")
+                arrayDePosicionesDeBloquesTotales.append(posicionBloqueLadrillo)
+                arrayDePosicionesDeBloquesLadrillos.append(posicionBloqueLadrillo)
+                
+                crearTodosLosPanelesDelBloque(bloque: nuevoBloqueLadrillo)
+            }
         } else {
-            print("¡Un nuevo bloque de ladrillo ha sido colocado con éxito!")
-            arrayDePosicionesDeBloquesTotales.append(posicionBloqueLadrillo)
-            arrayDePosicionesDeBloquesLadrillos.append(posicionBloqueLadrillo)
-            
-            crearTodosLosPanelesDelBloque(bloque: nuevoBloqueLadrillo)
+            print("Hey! You are removing blocks! Change your mode if you want to place blocks")
         }
     }
     
@@ -110,6 +167,8 @@ class ViewController: UIViewController {
         let nuevoBloqueLadrillo = crearBloqueLadrillo()
         let posicionBloqueLadrillo = SIMD3(x: (entity?.position.x)!, y: (entity?.position.y)! + 0.037, z: (entity?.position.z)!)
         nuevoBloqueLadrillo.position = posicionBloqueLadrillo
+        nuevoBloqueLadrillo.name = "Bloque Ladrillo"
+        nuevoBloqueLadrillo.generateCollisionShapes(recursive: true)
         tableroJuego.addChild(nuevoBloqueLadrillo)
         
         if arrayDePosicionesDeBloquesTotales.contains(posicionBloqueLadrillo) {
@@ -130,6 +189,8 @@ class ViewController: UIViewController {
         let nuevoBloqueLadrillo = crearBloqueLadrillo()
         let posicionBloqueLadrillo = SIMD3(x: (entity?.position.x)!, y: (entity?.position.y)!, z: (entity?.position.z)! - 0.037)
         nuevoBloqueLadrillo.position = posicionBloqueLadrillo
+        nuevoBloqueLadrillo.name = "Bloque Ladrillo"
+        nuevoBloqueLadrillo.generateCollisionShapes(recursive: true)
         tableroJuego.addChild(nuevoBloqueLadrillo)
         
         if arrayDePosicionesDeBloquesTotales.contains(posicionBloqueLadrillo) {
@@ -150,6 +211,8 @@ class ViewController: UIViewController {
         let nuevoBloqueLadrillo = crearBloqueLadrillo()
         let posicionBloqueLadrillo = SIMD3(x: (entity?.position.x)!, y: (entity?.position.y)!, z: (entity?.position.z)! + 0.037)
         nuevoBloqueLadrillo.position = posicionBloqueLadrillo
+        nuevoBloqueLadrillo.name = "Bloque Ladrillo"
+        nuevoBloqueLadrillo.generateCollisionShapes(recursive: true)
         tableroJuego.addChild(nuevoBloqueLadrillo)
         
         if arrayDePosicionesDeBloquesTotales.contains(posicionBloqueLadrillo) {
@@ -170,6 +233,8 @@ class ViewController: UIViewController {
         let nuevoBloqueLadrillo = crearBloqueLadrillo()
         let posicionBloqueLadrillo = SIMD3(x: (entity?.position.x)! + 0.037, y: (entity?.position.y)!, z: (entity?.position.z)!)
         nuevoBloqueLadrillo.position = posicionBloqueLadrillo
+        nuevoBloqueLadrillo.name = "Bloque Ladrillo"
+        nuevoBloqueLadrillo.generateCollisionShapes(recursive: true)
         tableroJuego.addChild(nuevoBloqueLadrillo)
         
         if arrayDePosicionesDeBloquesTotales.contains(posicionBloqueLadrillo) {
@@ -190,6 +255,8 @@ class ViewController: UIViewController {
         let nuevoBloqueLadrillo = crearBloqueLadrillo()
         let posicionBloqueLadrillo = SIMD3(x: (entity?.position.x)! - 0.037, y: (entity?.position.y)!, z: (entity?.position.z)!)
         nuevoBloqueLadrillo.position = posicionBloqueLadrillo
+        nuevoBloqueLadrillo.name = "Bloque Ladrillo"
+        nuevoBloqueLadrillo.generateCollisionShapes(recursive: true)
         tableroJuego.addChild(nuevoBloqueLadrillo)
         
         if arrayDePosicionesDeBloquesTotales.contains(posicionBloqueLadrillo) {
