@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         
         self.arView.scene.anchors.append(tableroJuego)
         
-        for i in 1...49 {
+        for i in 1...64 {
             tableroJuego.actions.allActions[i - 1].onAction = colocarBloqueSobreTablero(_:)
         }
     }
@@ -237,7 +237,7 @@ class ViewController: UIViewController {
                 tableroJuego.removeChild(nuevoBloque)
             
             } else {
-                print("¡Un nuevo bloque de ladrillo ha sido colocado con éxito!")
+                print("¡Un nuevo bloque ha sido colocado con éxito!")
                 crearTodosLosPanelesDelBloque(bloque: nuevoBloque)
                 
                 introducirPosicionDelBloqueNuevo(posicionBloqueNuevo: posicionBloqueNuevo)
@@ -260,7 +260,7 @@ class ViewController: UIViewController {
                 tableroJuego.removeChild(nuevoBloque)
             
             } else {
-                print("¡Un nuevo bloque de ladrillo ha sido colocado con éxito!")
+                print("¡Un nuevo bloque ha sido colocado con éxito!")
                 crearTodosLosPanelesDelBloque(bloque: nuevoBloque)
                 
                 introducirPosicionDelBloqueNuevo(posicionBloqueNuevo: posicionBloqueNuevo)
@@ -282,7 +282,7 @@ class ViewController: UIViewController {
                 tableroJuego.removeChild(nuevoBloque)
             
             } else {
-                print("¡Un nuevo bloque de ladrillo ha sido colocado con éxito!")
+                print("¡Un nuevo bloque ha sido colocado con éxito!")
                 crearTodosLosPanelesDelBloque(bloque: nuevoBloque)
                 
                 introducirPosicionDelBloqueNuevo(posicionBloqueNuevo: posicionBloqueNuevo)
@@ -304,7 +304,7 @@ class ViewController: UIViewController {
                 tableroJuego.removeChild(nuevoBloque)
             
             } else {
-                print("¡Un nuevo bloque de ladrillo ha sido colocado con éxito!")
+                print("¡Un nuevo bloque ha sido colocado con éxito!")
                 crearTodosLosPanelesDelBloque(bloque: nuevoBloque)
                 
                 introducirPosicionDelBloqueNuevo(posicionBloqueNuevo: posicionBloqueNuevo)
@@ -326,7 +326,7 @@ class ViewController: UIViewController {
                 tableroJuego.removeChild(nuevoBloque)
             
             } else {
-                print("¡Un nuevo bloque de ladrillo ha sido colocado con éxito!")
+                print("¡Un nuevo bloque ha sido colocado con éxito!")
                 crearTodosLosPanelesDelBloque(bloque: nuevoBloque)
                 
                 introducirPosicionDelBloqueNuevo(posicionBloqueNuevo: posicionBloqueNuevo)
@@ -348,7 +348,7 @@ class ViewController: UIViewController {
                 tableroJuego.removeChild(nuevoBloque)
             
             } else {
-                print("¡Un nuevo bloque de ladrillo ha sido colocado con éxito!")
+                print("¡Un nuevo bloque ha sido colocado con éxito!")
                 crearTodosLosPanelesDelBloque(bloque: nuevoBloque)
                 
                 introducirPosicionDelBloqueNuevo(posicionBloqueNuevo: posicionBloqueNuevo)
