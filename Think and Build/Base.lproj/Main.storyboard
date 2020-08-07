@@ -19,16 +19,16 @@
                                 <rect key="frame" x="574" y="700" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="cT5-JQ-hdH" kind="showDetail" id="doC-SD-tKE"/>
+                                    <segue destination="cT5-JQ-hdH" kind="showDetail" id="NsR-qJ-tiH"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="vfO-5Z-wxs" firstAttribute="top" secondItem="R0w-Rx-Ga5" secondAttribute="top" constant="700" id="F5E-Ax-si3"/>
-                            <constraint firstItem="vfO-5Z-wxs" firstAttribute="centerX" secondItem="c1M-co-suJ" secondAttribute="centerX" id="aTj-0f-eaI"/>
+                            <constraint firstItem="vfO-5Z-wxs" firstAttribute="top" secondItem="uzl-L7-oUe" secondAttribute="top" constant="700" id="F5E-Ax-si3"/>
+                            <constraint firstItem="vfO-5Z-wxs" firstAttribute="centerX" secondItem="uzl-L7-oUe" secondAttribute="centerX" id="aTj-0f-eaI"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="R0w-Rx-Ga5"/>
+                        <viewLayoutGuide key="safeArea" id="uzl-L7-oUe"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGO-IT-Umf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -38,14 +38,13 @@
         <!--ARView-->
         <scene sceneID="rDe-oG-I7o">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="cT5-JQ-hdH" userLabel="ARView" customClass="ViewController" customModule="Think_and_Build" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="cT5-JQ-hdH" userLabel="ARView" customClass="MainViewController" customModule="Think_and_Build" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFill" id="MAA-FH-5H2">
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPD-Za-99h">
                                 <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
-                                <viewLayoutGuide key="safeArea" id="gbf-23-gS6"/>
                             </arView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="qGJ-J4-JVA">
                                 <rect key="frame" x="40" y="40" width="420" height="30"/>
@@ -76,7 +75,7 @@
                                         <rect key="frame" x="375" y="0.0" width="45" height="30"/>
                                         <state key="normal" title="Purple"/>
                                         <connections>
-                                            <action selector="accionTipoDeBloqueMorado:" destination="cT5-JQ-hdH" eventType="touchUpInside" id="nqN-ar-CkB"/>
+                                            <action selector="accionTipoDeBloqueVerde:" destination="cT5-JQ-hdH" eventType="touchUpInside" id="nqN-ar-CkB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -92,7 +91,7 @@
                                     <constraint firstAttribute="width" constant="49" id="d2m-9Z-JGr"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="acciónModoQuitarBloques:" destination="cT5-JQ-hdH" eventType="valueChanged" id="jU6-33-l56"/>
+                                    <action selector="acciónModoQuitarBloques:" destination="cT5-JQ-hdH" eventType="valueChanged" id="aih-Ij-w7Z"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Blocks Mode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajH-sO-1VY">
@@ -104,36 +103,58 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVg-Uf-qMB">
+                                <rect key="frame" x="1103" y="784" width="72" height="30"/>
+                                <state key="normal" title="Next Level"/>
+                                <connections>
+                                    <action selector="pasarDeNivel:" destination="cT5-JQ-hdH" eventType="touchUpInside" id="Nu5-TO-DFH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4YP-Aq-QZP">
+                                <rect key="frame" x="1007" y="784" width="39" height="30"/>
+                                <state key="normal" title="Build!"/>
+                                <connections>
+                                    <action selector="activarModoBuild:" destination="cT5-JQ-hdH" eventType="touchUpInside" id="v7T-mM-azq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="hPD-Za-99h" firstAttribute="centerX" secondItem="MAA-FH-5H2" secondAttribute="centerX" id="13E-9Q-98r"/>
+                            <constraint firstItem="hPD-Za-99h" firstAttribute="centerX" secondItem="Ngd-a0-EAX" secondAttribute="centerX" id="13E-9Q-98r"/>
+                            <constraint firstItem="4YP-Aq-QZP" firstAttribute="baseline" secondItem="lVg-Uf-qMB" secondAttribute="baseline" id="9Yl-rq-bg4"/>
                             <constraint firstItem="ajH-sO-1VY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qGJ-J4-JVA" secondAttribute="trailing" constant="8" symbolic="YES" id="9aQ-vm-nbf"/>
                             <constraint firstItem="hPD-Za-99h" firstAttribute="centerY" secondItem="MAA-FH-5H2" secondAttribute="centerY" id="IGb-LG-lqY"/>
-                            <constraint firstItem="hPD-Za-99h" firstAttribute="leading" secondItem="u0y-bD-Wf8" secondAttribute="leading" id="O2q-3p-bem"/>
-                            <constraint firstItem="hPD-Za-99h" firstAttribute="top" secondItem="u0y-bD-Wf8" secondAttribute="top" id="VAX-nE-C4A"/>
-                            <constraint firstItem="u0y-bD-Wf8" firstAttribute="trailing" secondItem="nfi-3G-Hgz" secondAttribute="trailing" constant="26" id="Vbh-kf-gs9"/>
-                            <constraint firstItem="nfi-3G-Hgz" firstAttribute="top" secondItem="u0y-bD-Wf8" secondAttribute="top" constant="36" id="g0q-Lb-rpU"/>
-                            <constraint firstItem="qGJ-J4-JVA" firstAttribute="top" secondItem="u0y-bD-Wf8" secondAttribute="top" constant="40" id="hic-a1-inD"/>
+                            <constraint firstItem="lVg-Uf-qMB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ngd-a0-EAX" secondAttribute="leading" id="IvE-DJ-pWs"/>
+                            <constraint firstItem="lVg-Uf-qMB" firstAttribute="bottom" secondItem="Ngd-a0-EAX" secondAttribute="bottom" id="Jav-iS-eby"/>
+                            <constraint firstItem="hPD-Za-99h" firstAttribute="leading" secondItem="Ngd-a0-EAX" secondAttribute="leading" id="O2q-3p-bem"/>
+                            <constraint firstItem="hPD-Za-99h" firstAttribute="top" secondItem="Ngd-a0-EAX" secondAttribute="top" id="VAX-nE-C4A"/>
+                            <constraint firstItem="Ngd-a0-EAX" firstAttribute="trailing" secondItem="nfi-3G-Hgz" secondAttribute="trailing" constant="26" id="Vbh-kf-gs9"/>
+                            <constraint firstItem="nfi-3G-Hgz" firstAttribute="top" secondItem="Ngd-a0-EAX" secondAttribute="top" constant="36" id="g0q-Lb-rpU"/>
+                            <constraint firstItem="4YP-Aq-QZP" firstAttribute="centerX" secondItem="ajH-sO-1VY" secondAttribute="centerX" id="g7g-eT-KXA"/>
+                            <constraint firstItem="qGJ-J4-JVA" firstAttribute="top" secondItem="Ngd-a0-EAX" secondAttribute="top" constant="40" id="hic-a1-inD"/>
                             <constraint firstItem="qGJ-J4-JVA" firstAttribute="top" secondItem="ajH-sO-1VY" secondAttribute="top" id="poW-Cr-U9r"/>
-                            <constraint firstItem="qGJ-J4-JVA" firstAttribute="leading" secondItem="u0y-bD-Wf8" secondAttribute="leading" constant="40" id="rdd-bu-JCu"/>
+                            <constraint firstItem="qGJ-J4-JVA" firstAttribute="leading" secondItem="Ngd-a0-EAX" secondAttribute="leading" constant="40" id="rdd-bu-JCu"/>
                             <constraint firstItem="nfi-3G-Hgz" firstAttribute="leading" secondItem="ajH-sO-1VY" secondAttribute="trailing" constant="8" id="wIk-uK-FEO"/>
+                            <constraint firstItem="Ngd-a0-EAX" firstAttribute="trailing" secondItem="lVg-Uf-qMB" secondAttribute="trailing" constant="19" id="zlv-jO-Vrg"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="u0y-bD-Wf8"/>
+                        <viewLayoutGuide key="safeArea" id="Ngd-a0-EAX"/>
                     </view>
                     <navigationItem key="navigationItem" id="b9u-vN-dLy"/>
                     <connections>
                         <outlet property="arView" destination="hPD-Za-99h" id="8GS-MU-vwb"/>
                         <outlet property="botonModoBloqueAmarillo" destination="dtO-hn-bV4" id="MGH-L0-3al"/>
                         <outlet property="botonModoBloqueAzul" destination="WBW-qH-hkf" id="wf7-ve-nYj"/>
-                        <outlet property="botonModoBloqueMorado" destination="W7z-dx-yI3" id="Ofw-jt-ubF"/>
                         <outlet property="botonModoBloqueRojo" destination="fUh-5h-XRd" id="Eyx-Tg-eAX"/>
-                        <outlet property="switchModoQuitarBloques" destination="nfi-3G-Hgz" id="f29-Of-YHO"/>
+                        <outlet property="botonModoBloqueVerde" destination="W7z-dx-yI3" id="Ofw-jt-ubF"/>
+                        <outlet property="botonModoBuild" destination="4YP-Aq-QZP" id="FGv-SN-QL1"/>
+                        <outlet property="botonNextLevel" destination="lVg-Uf-qMB" id="Tye-YF-lYX"/>
+                        <outlet property="labelModoQuitarBloques" destination="ajH-sO-1VY" id="Bq0-gU-SXw"/>
+                        <outlet property="switchModoQuitarBloques" destination="nfi-3G-Hgz" id="dVs-5X-Yzv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P8h-h1-j4o" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="66.834170854271363" y="132.37410071942446"/>
+            <point key="canvasLocation" x="80" y="133"/>
         </scene>
     </scenes>
 </document>

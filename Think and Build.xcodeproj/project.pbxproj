@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA3EE60424A4CD410027F772 /* Cubo Rojo Prueba.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CA3EE60324A4CD410027F772 /* Cubo Rojo Prueba.usdz */; };
+		CAE7CA10249A80E30092AAD1 /* EscenasPrototiposConSoluciones.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE7CA0F249A80E30092AAD1 /* EscenasPrototiposConSoluciones.swift */; };
 		EDC8D62B23F455AF00154CC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8D62A23F455AF00154CC9 /* AppDelegate.swift */; };
-		EDC8D62D23F455AF00154CC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8D62C23F455AF00154CC9 /* ViewController.swift */; };
+		EDC8D62D23F455AF00154CC9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8D62C23F455AF00154CC9 /* MainViewController.swift */; };
 		EDC8D62F23F455AF00154CC9 /* EscenasJuego.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = EDC8D62E23F455AF00154CC9 /* EscenasJuego.rcproject */; };
 		EDC8D63223F455AF00154CC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDC8D63023F455AF00154CC9 /* Main.storyboard */; };
 		EDC8D63423F455B100154CC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDC8D63323F455B100154CC9 /* Assets.xcassets */; };
@@ -16,9 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA3EE60324A4CD410027F772 /* Cubo Rojo Prueba.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Cubo Rojo Prueba.usdz"; sourceTree = "<group>"; };
+		CAE7CA0F249A80E30092AAD1 /* EscenasPrototiposConSoluciones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscenasPrototiposConSoluciones.swift; sourceTree = "<group>"; };
 		EDC8D62723F455AF00154CC9 /* Think and Build.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Think and Build.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC8D62A23F455AF00154CC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EDC8D62C23F455AF00154CC9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EDC8D62C23F455AF00154CC9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EDC8D62E23F455AF00154CC9 /* EscenasJuego.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = EscenasJuego.rcproject; sourceTree = "<group>"; };
 		EDC8D63123F455AF00154CC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDC8D63323F455B100154CC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,6 +44,7 @@
 		EDC8D61E23F455AD00154CC9 = {
 			isa = PBXGroup;
 			children = (
+				CA3EE60324A4CD410027F772 /* Cubo Rojo Prueba.usdz */,
 				EDC8D62923F455AF00154CC9 /* Think and Build */,
 				EDC8D62823F455AF00154CC9 /* Products */,
 			);
@@ -58,7 +63,8 @@
 			children = (
 				EDC8D62A23F455AF00154CC9 /* AppDelegate.swift */,
 				EDC8D62E23F455AF00154CC9 /* EscenasJuego.rcproject */,
-				EDC8D62C23F455AF00154CC9 /* ViewController.swift */,
+				CAE7CA0F249A80E30092AAD1 /* EscenasPrototiposConSoluciones.swift */,
+				EDC8D62C23F455AF00154CC9 /* MainViewController.swift */,
 				EDC8D63023F455AF00154CC9 /* Main.storyboard */,
 				EDC8D63323F455B100154CC9 /* Assets.xcassets */,
 				EDC8D63523F455B100154CC9 /* LaunchScreen.storyboard */,
@@ -128,6 +134,7 @@
 				EDC8D63723F455B100154CC9 /* LaunchScreen.storyboard in Resources */,
 				EDC8D63423F455B100154CC9 /* Assets.xcassets in Resources */,
 				EDC8D63223F455AF00154CC9 /* Main.storyboard in Resources */,
+				CA3EE60424A4CD410027F772 /* Cubo Rojo Prueba.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDC8D62D23F455AF00154CC9 /* ViewController.swift in Sources */,
+				EDC8D62D23F455AF00154CC9 /* MainViewController.swift in Sources */,
+				CAE7CA10249A80E30092AAD1 /* EscenasPrototiposConSoluciones.swift in Sources */,
 				EDC8D62B23F455AF00154CC9 /* AppDelegate.swift in Sources */,
 				EDC8D62F23F455AF00154CC9 /* EscenasJuego.rcproject in Sources */,
 			);
