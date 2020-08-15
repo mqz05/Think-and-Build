@@ -49,8 +49,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="qGJ-J4-JVA">
                                 <rect key="frame" x="40" y="40" width="420" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBW-qH-hkf">
-                                        <rect key="frame" x="0.0" y="0.0" width="31" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBW-qH-hkf">
+                                        <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Blue"/>
                                         <connections>
@@ -58,22 +58,22 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUh-5h-XRd">
-                                        <rect key="frame" x="121" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="124" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="Red"/>
                                         <connections>
                                             <action selector="accionTipoDeBloqueRojo:" destination="cT5-JQ-hdH" eventType="touchUpInside" id="Qt4-fF-bAx"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtO-hn-bV4">
-                                        <rect key="frame" x="241" y="0.0" width="44" height="30"/>
+                                        <rect key="frame" x="244" y="0.0" width="44" height="30"/>
                                         <state key="normal" title="Yellow"/>
                                         <connections>
                                             <action selector="accionTipoDeBloqueAmarillo:" destination="cT5-JQ-hdH" eventType="touchUpInside" id="b8p-Fj-eZz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7z-dx-yI3">
-                                        <rect key="frame" x="375" y="0.0" width="45" height="30"/>
-                                        <state key="normal" title="Purple"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7z-dx-yI3">
+                                        <rect key="frame" x="378" y="0.0" width="42" height="30"/>
+                                        <state key="normal" title="Green"/>
                                         <connections>
                                             <action selector="accionTipoDeBloqueVerde:" destination="cT5-JQ-hdH" eventType="touchUpInside" id="nqN-ar-CkB"/>
                                         </connections>
@@ -117,10 +117,17 @@
                                     <action selector="activarModoBuild:" destination="cT5-JQ-hdH" eventType="touchUpInside" id="v7T-mM-azq"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jx6-CH-9oh" userLabel="Timer">
+                                <rect key="frame" x="672.5" y="46.5" width="10.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="hPD-Za-99h" firstAttribute="centerX" secondItem="Ngd-a0-EAX" secondAttribute="centerX" id="13E-9Q-98r"/>
+                            <constraint firstItem="Jx6-CH-9oh" firstAttribute="bottom" secondItem="nfi-3G-Hgz" secondAttribute="bottom" id="3Xi-xh-GMs"/>
                             <constraint firstItem="4YP-Aq-QZP" firstAttribute="baseline" secondItem="lVg-Uf-qMB" secondAttribute="baseline" id="9Yl-rq-bg4"/>
                             <constraint firstItem="ajH-sO-1VY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qGJ-J4-JVA" secondAttribute="trailing" constant="8" symbolic="YES" id="9aQ-vm-nbf"/>
                             <constraint firstItem="hPD-Za-99h" firstAttribute="centerY" secondItem="MAA-FH-5H2" secondAttribute="centerY" id="IGb-LG-lqY"/>
@@ -129,6 +136,8 @@
                             <constraint firstItem="hPD-Za-99h" firstAttribute="leading" secondItem="Ngd-a0-EAX" secondAttribute="leading" id="O2q-3p-bem"/>
                             <constraint firstItem="hPD-Za-99h" firstAttribute="top" secondItem="Ngd-a0-EAX" secondAttribute="top" id="VAX-nE-C4A"/>
                             <constraint firstItem="Ngd-a0-EAX" firstAttribute="trailing" secondItem="nfi-3G-Hgz" secondAttribute="trailing" constant="26" id="Vbh-kf-gs9"/>
+                            <constraint firstItem="Jx6-CH-9oh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qGJ-J4-JVA" secondAttribute="trailing" constant="8" symbolic="YES" id="Yvo-6L-1qh"/>
+                            <constraint firstAttribute="trailing" secondItem="Jx6-CH-9oh" secondAttribute="trailing" constant="511" id="biL-n4-x5S"/>
                             <constraint firstItem="nfi-3G-Hgz" firstAttribute="top" secondItem="Ngd-a0-EAX" secondAttribute="top" constant="36" id="g0q-Lb-rpU"/>
                             <constraint firstItem="4YP-Aq-QZP" firstAttribute="centerX" secondItem="ajH-sO-1VY" secondAttribute="centerX" id="g7g-eT-KXA"/>
                             <constraint firstItem="qGJ-J4-JVA" firstAttribute="top" secondItem="Ngd-a0-EAX" secondAttribute="top" constant="40" id="hic-a1-inD"/>
@@ -150,6 +159,7 @@
                         <outlet property="botonNextLevel" destination="lVg-Uf-qMB" id="Tye-YF-lYX"/>
                         <outlet property="labelModoQuitarBloques" destination="ajH-sO-1VY" id="Bq0-gU-SXw"/>
                         <outlet property="switchModoQuitarBloques" destination="nfi-3G-Hgz" id="dVs-5X-Yzv"/>
+                        <outlet property="timerLabel" destination="Jx6-CH-9oh" id="496-pr-ebu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P8h-h1-j4o" sceneMemberID="firstResponder"/>

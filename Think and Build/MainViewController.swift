@@ -20,6 +20,11 @@ class MainViewController: UIViewController {
     var tableroJuego: EscenasJuego.TableroPrincipalDeJuego!
     
     // Controlador de Niveles y Fases
+    enum modoDeJuego {
+        case memorizacion, construccion, pausa
+    }
+    var modoDeJuegoActual: modoDeJuego = .memorizacion
+    
     enum nivelFase {
         case start, easy1, easy2, easy3, medium1, medium2, medium3, hard1, hard2, hard3, insane1, insane2, insane3, win
     }
@@ -33,6 +38,12 @@ class MainViewController: UIViewController {
     var escenaPrototipo: [Array<SIMD3<Float>>]!
     
     var numeroRandom: Int!
+    
+    // Timer
+    @IBOutlet weak var timerLabel: UILabel!
+    
+    var timer: Timer?
+    var tiempoTotal = 0
     
     // Objetos en la Interfaz
     @IBOutlet weak var botonModoBuild: UIButton!
@@ -155,6 +166,7 @@ class MainViewController: UIViewController {
     
     @IBAction func activarModoBuild(_ sender: Any) {
         mostrarInterfaz()
+        modoDeJuegoActual = .construccion
         
         self.arView.scene.anchors.removeAll()
         
@@ -169,6 +181,16 @@ class MainViewController: UIViewController {
             let casilla = tableroJuego.casillaEntities[i - 1]
             casilla.position = SIMD3(x: round(casilla.position.x * 10000) / 10000, y: round(casilla.position.y * 10000) / 10000, z: round(casilla.position.z * 10000) / 10000)
         }
+        
+        if faseActual == .easy {
+            empezarTimer(tiempo: 60)
+        } else if faseActual == .medium {
+            empezarTimer(tiempo: 105)
+        } else if faseActual == .hard {
+            empezarTimer(tiempo: 150)
+        } else if faseActual == .insane {
+            empezarTimer(tiempo: 195)
+        }
     }
     
     @IBAction func pasarDeNivel(_ sender: Any) {
@@ -180,12 +202,15 @@ class MainViewController: UIViewController {
         if revisarSolucion() == true {
             print("Pasas al siguiente nivel :D")
             /// Animación Pasar de Nivel
+            modoDeJuegoActual = .memorizacion
             ocultarInterfaz()
             pasarAlSiguenteNivel()
             
         } else {
             print("No puedes pasar al siguiente nivel D:")
             /// Animación Game Over
+            
+            //modoDeJuegoActual = .pausa
         }
     }
     
@@ -286,6 +311,40 @@ class MainViewController: UIViewController {
         nuevoBloque = ModelEntity.init(mesh: .generateBox(size: SIMD3(x: 0.075, y: 0.075, z: 0.075)), materials: [Material].init(arrayLiteral: SimpleMaterial.init(color: SimpleMaterial.Color.green, isMetallic: false)))
         nuevoBloque.name = "Bloque Verde"
         return nuevoBloque
+    }
+    
+    //
+    // Cargar Temporizador
+    //
+    private func empezarTimer(tiempo: Int) {
+        if let timer = self.timer {
+                timer.invalidate()
+                self.timer = nil
+        }
+        self.tiempoTotal = tiempo
+        self.timerLabel.text = calcularTiempoParaLabel(segundosTotales: tiempoTotal)
+        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(actualizarTimer), userInfo: nil, repeats: true)
+    }
+
+    @objc func actualizarTimer() {
+        if modoDeJuegoActual != .pausa {
+            self.timerLabel.text = calcularTiempoParaLabel(segundosTotales: tiempoTotal)
+                if tiempoTotal != 0 {
+                    tiempoTotal -= 1
+                } else {
+                    if modoDeJuegoActual == .memorizacion {
+                        activarModoBuild((Any).self)
+                    } else if modoDeJuegoActual == .construccion {
+                        pasarDeNivel((Any).self)
+                    }
+            }
+        }
+    }
+    
+    func calcularTiempoParaLabel(segundosTotales: Int) -> String {
+        let segundos: Int = segundosTotales % 60
+        let minutos: Int = (segundosTotales / 60) % 60
+        return String(format: "%02d:%02d", minutos, segundos)
     }
     
     //
@@ -394,7 +453,6 @@ class MainViewController: UIViewController {
                 
                 introducirPosicionDelBloqueNuevo(posicionBloqueNuevo: posicionBloqueNuevo)
             }
-            print(posicionBloqueNuevo)
         }
     }
     
@@ -418,7 +476,6 @@ class MainViewController: UIViewController {
                 
                 introducirPosicionDelBloqueNuevo(posicionBloqueNuevo: posicionBloqueNuevo)
             }
-            print(posicionBloqueNuevo)
         }
     }
     
@@ -441,7 +498,6 @@ class MainViewController: UIViewController {
                 
                 introducirPosicionDelBloqueNuevo(posicionBloqueNuevo: posicionBloqueNuevo)
             }
-            print(posicionBloqueNuevo)
         }
     }
     
@@ -464,7 +520,6 @@ class MainViewController: UIViewController {
                 
                 introducirPosicionDelBloqueNuevo(posicionBloqueNuevo: posicionBloqueNuevo)
             }
-            print(posicionBloqueNuevo)
         }
     }
     
@@ -487,7 +542,6 @@ class MainViewController: UIViewController {
                 
                 introducirPosicionDelBloqueNuevo(posicionBloqueNuevo: posicionBloqueNuevo)
             }
-            print(posicionBloqueNuevo)
         }
     }
     
@@ -510,7 +564,6 @@ class MainViewController: UIViewController {
                 
                 introducirPosicionDelBloqueNuevo(posicionBloqueNuevo: posicionBloqueNuevo)
             }
-            print(posicionBloqueNuevo)
         }
     }
     
@@ -636,11 +689,7 @@ class MainViewController: UIViewController {
             nivelFaseActual = .easy1
             faseActual = .easy
             
-            cargarEscenaPrototipo(fase: faseActual)
-            
         } else if nivelFaseActual == .easy1 || nivelFaseActual == .easy2 || nivelFaseActual == .easy3 {
-            
-            cargarEscenaPrototipo(fase: faseActual)
             
             if nivelFaseActual == .easy1 {
                 nivelFaseActual = .easy2
@@ -654,8 +703,6 @@ class MainViewController: UIViewController {
             }
         } else if nivelFaseActual == .medium1 || nivelFaseActual == .medium2 || nivelFaseActual == .medium3 {
             
-            cargarEscenaPrototipo(fase: faseActual)
-            
             if nivelFaseActual == .medium1 {
                 nivelFaseActual = .medium2
                 faseActual = .medium
@@ -667,8 +714,6 @@ class MainViewController: UIViewController {
                 faseActual = .hard
             }
         } else if nivelFaseActual == .hard1 || nivelFaseActual == .hard2 || nivelFaseActual == .hard3 {
-            
-            cargarEscenaPrototipo(fase: faseActual)
             
             if nivelFaseActual == .hard1 {
                 nivelFaseActual = .hard2
@@ -682,8 +727,6 @@ class MainViewController: UIViewController {
             }
         } else if nivelFaseActual == .insane1 || nivelFaseActual == .insane2 || nivelFaseActual == .insane3 {
             
-            cargarEscenaPrototipo(fase: faseActual)
-            
             if nivelFaseActual == .insane1 {
                 nivelFaseActual = .insane2
                 faseActual = .insane
@@ -694,8 +737,22 @@ class MainViewController: UIViewController {
                 nivelFaseActual = .win
                 faseActual = .win
                 // Añadir funcion de animacion de ¡WIN!
+                
             }
         }
+        
+        cargarEscenaPrototipo(fase: faseActual)
+        
+        if faseActual == .easy {
+            empezarTimer(tiempo: 20)
+        } else if faseActual == .medium {
+            empezarTimer(tiempo: 30)
+        } else if faseActual == .hard {
+            empezarTimer(tiempo: 40)
+        } else if faseActual == .insane {
+            empezarTimer(tiempo: 50)
+        }
+
     }
     
     
