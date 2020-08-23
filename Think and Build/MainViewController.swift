@@ -57,6 +57,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var botonModoBloqueAmarillo: UIButton!
     @IBOutlet weak var botonModoBloqueVerde: UIButton!
     
+    @IBOutlet weak var panelFinal: UIImageView!
+    
     // Modos de Bloques (Tipo de Bloques o Quitar Bloques)
     var modoQuitarBloques = false
     
@@ -83,6 +85,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        timerLabel.font = UIFont(name: "ChalkboardSE-Bold", size: 30)
         
         ocultarInterfaz()
         pasarAlSiguenteNivel()
@@ -321,9 +325,9 @@ class MainViewController: UIViewController {
                 timer.invalidate()
                 self.timer = nil
         }
-        self.tiempoTotal = tiempo
-        self.timerLabel.text = calcularTiempoParaLabel(segundosTotales: tiempoTotal)
-        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(actualizarTimer), userInfo: nil, repeats: true)
+        tiempoTotal = tiempo
+        timerLabel.text = calcularTiempoParaLabel(segundosTotales: tiempoTotal)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(actualizarTimer), userInfo: nil, repeats: true)
     }
 
     @objc func actualizarTimer() {
@@ -675,6 +679,18 @@ class MainViewController: UIViewController {
         botonModoBloqueRojo.isHidden = false
         botonModoBloqueAmarillo.isHidden = false
         botonModoBloqueVerde.isHidden = false
+    }
+    
+    func animacionWin() {
+        panelFinal.isHidden = false
+        UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            self.panelFinal.transform = CGAffineTransform(scaleX: 15, y: 15)
+
+        }, completion: nil)
+    }
+    
+    func animacionGameOver() {
+        
     }
     
     func pasarAlSiguenteNivel()  {
