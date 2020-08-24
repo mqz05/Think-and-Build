@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA356E1A24F405FD00A071EA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA356E1924F405FD00A071EA /* MenuViewController.swift */; };
 		CA3EE60424A4CD410027F772 /* Cubo Rojo Prueba.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CA3EE60324A4CD410027F772 /* Cubo Rojo Prueba.usdz */; };
-		CAE7CA10249A80E30092AAD1 /* EscenasPrototiposConSoluciones.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE7CA0F249A80E30092AAD1 /* EscenasPrototiposConSoluciones.swift */; };
+		CAE7CA10249A80E30092AAD1 /* SolucionesPrototipos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE7CA0F249A80E30092AAD1 /* SolucionesPrototipos.swift */; };
 		EDC8D62B23F455AF00154CC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8D62A23F455AF00154CC9 /* AppDelegate.swift */; };
 		EDC8D62D23F455AF00154CC9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8D62C23F455AF00154CC9 /* MainViewController.swift */; };
 		EDC8D62F23F455AF00154CC9 /* EscenasJuego.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = EDC8D62E23F455AF00154CC9 /* EscenasJuego.rcproject */; };
@@ -18,8 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA356E1924F405FD00A071EA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		CA3EE60324A4CD410027F772 /* Cubo Rojo Prueba.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Cubo Rojo Prueba.usdz"; sourceTree = "<group>"; };
-		CAE7CA0F249A80E30092AAD1 /* EscenasPrototiposConSoluciones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscenasPrototiposConSoluciones.swift; sourceTree = "<group>"; };
+		CAE7CA0F249A80E30092AAD1 /* SolucionesPrototipos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolucionesPrototipos.swift; sourceTree = "<group>"; };
 		EDC8D62723F455AF00154CC9 /* Think and Build.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Think and Build.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC8D62A23F455AF00154CC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDC8D62C23F455AF00154CC9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -63,7 +65,8 @@
 			children = (
 				EDC8D62A23F455AF00154CC9 /* AppDelegate.swift */,
 				EDC8D62E23F455AF00154CC9 /* EscenasJuego.rcproject */,
-				CAE7CA0F249A80E30092AAD1 /* EscenasPrototiposConSoluciones.swift */,
+				CAE7CA0F249A80E30092AAD1 /* SolucionesPrototipos.swift */,
+				CA356E1924F405FD00A071EA /* MenuViewController.swift */,
 				EDC8D62C23F455AF00154CC9 /* MainViewController.swift */,
 				EDC8D63023F455AF00154CC9 /* Main.storyboard */,
 				EDC8D63323F455B100154CC9 /* Assets.xcassets */,
@@ -146,7 +149,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDC8D62D23F455AF00154CC9 /* MainViewController.swift in Sources */,
-				CAE7CA10249A80E30092AAD1 /* EscenasPrototiposConSoluciones.swift in Sources */,
+				CA356E1A24F405FD00A071EA /* MenuViewController.swift in Sources */,
+				CAE7CA10249A80E30092AAD1 /* SolucionesPrototipos.swift in Sources */,
 				EDC8D62B23F455AF00154CC9 /* AppDelegate.swift in Sources */,
 				EDC8D62F23F455AF00154CC9 /* EscenasJuego.rcproject in Sources */,
 			);

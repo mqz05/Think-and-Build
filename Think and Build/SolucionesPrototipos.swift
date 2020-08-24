@@ -11,10 +11,6 @@ import ARKit
 import RealityKit
 
 
-// Tablero Prototipos
-var tableroPrototipos: EscenasJuego.Tablero!
-
-
 //
 // Soluciones Arrays
 //

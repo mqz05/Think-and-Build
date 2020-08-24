@@ -7,17 +7,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="aaX-69-tnL">
             <objects>
-                <viewController id="e77-QE-NCc" sceneMemberID="viewController">
+                <viewController id="e77-QE-NCc" customClass="MenuViewController" customModule="Think_and_Build" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c1M-co-suJ">
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfO-5Z-wxs">
-                                <rect key="frame" x="574" y="700" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfO-5Z-wxs" userLabel="botonEmpezarPartida">
+                                <rect key="frame" x="580" y="700" width="34" height="30"/>
+                                <state key="normal" title="Start"/>
                                 <connections>
                                     <segue destination="cT5-JQ-hdH" kind="showDetail" id="NsR-qJ-tiH"/>
                                 </connections>
@@ -30,6 +30,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uzl-L7-oUe"/>
                     </view>
+                    <connections>
+                        <outlet property="botonEmpezarPartida" destination="vfO-5Z-wxs" id="ynU-ot-SWE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGO-IT-Umf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,15 +106,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVg-Uf-qMB">
-                                <rect key="frame" x="1103" y="784" width="72" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVg-Uf-qMB">
+                                <rect key="frame" x="1077" y="767" width="72" height="30"/>
                                 <state key="normal" title="Next Level"/>
                                 <connections>
                                     <action selector="pasarDeNivel:" destination="cT5-JQ-hdH" eventType="touchUpInside" id="Nu5-TO-DFH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4YP-Aq-QZP">
-                                <rect key="frame" x="1007" y="784" width="39" height="30"/>
+                                <rect key="frame" x="982" y="767" width="39" height="30"/>
                                 <state key="normal" title="Build!"/>
                                 <connections>
                                     <action selector="activarModoBuild:" destination="cT5-JQ-hdH" eventType="touchUpInside" id="v7T-mM-azq"/>
@@ -123,33 +126,65 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Sc-mu-7HX" userLabel="Panel Final">
-                                <rect key="frame" x="568" y="399" width="59" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Sc-mu-7HX" userLabel="Panel Final">
+                                <rect key="frame" x="568" y="399" width="58" height="36"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8XE-vs-hf8">
+                                <rect key="frame" x="40" y="762" width="105" height="30"/>
+                                <state key="normal" title="Relocate Board"/>
+                                <connections>
+                                    <action selector="recolocarTablero:" destination="cT5-JQ-hdH" eventType="touchUpInside" id="x56-aY-eLM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reo-na-EZe">
+                                <rect key="frame" x="570.5" y="739" width="53" height="30"/>
+                                <state key="normal" title="READY!"/>
+                                <connections>
+                                    <action selector="empezarPartida:" destination="cT5-JQ-hdH" eventType="touchUpInside" id="I03-Am-v7o"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZH6-gn-yJQ">
+                                <rect key="frame" x="282" y="40" width="676" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="hPD-Za-99h" firstAttribute="centerX" secondItem="Ngd-a0-EAX" secondAttribute="centerX" id="13E-9Q-98r"/>
                             <constraint firstItem="Jx6-CH-9oh" firstAttribute="bottom" secondItem="nfi-3G-Hgz" secondAttribute="bottom" id="3Xi-xh-GMs"/>
-                            <constraint firstItem="4YP-Aq-QZP" firstAttribute="baseline" secondItem="lVg-Uf-qMB" secondAttribute="baseline" id="9Yl-rq-bg4"/>
+                            <constraint firstItem="Ngd-a0-EAX" firstAttribute="bottom" secondItem="8XE-vs-hf8" secondAttribute="bottom" constant="22" id="4Eu-L2-6ss"/>
+                            <constraint firstItem="reo-na-EZe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8XE-vs-hf8" secondAttribute="trailing" constant="8" symbolic="YES" id="8aR-4f-vvk"/>
+                            <constraint firstItem="Ngd-a0-EAX" firstAttribute="bottom" secondItem="reo-na-EZe" secondAttribute="bottom" constant="45" id="9AY-vC-pGO"/>
                             <constraint firstItem="ajH-sO-1VY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qGJ-J4-JVA" secondAttribute="trailing" constant="8" symbolic="YES" id="9aQ-vm-nbf"/>
+                            <constraint firstItem="4Sc-mu-7HX" firstAttribute="leading" secondItem="Ngd-a0-EAX" secondAttribute="leading" constant="568" id="Bdd-PX-zgU"/>
+                            <constraint firstItem="4Sc-mu-7HX" firstAttribute="top" secondItem="Ngd-a0-EAX" secondAttribute="top" constant="399" id="DKI-yR-OCO"/>
+                            <constraint firstItem="4Sc-mu-7HX" firstAttribute="centerY" secondItem="hPD-Za-99h" secondAttribute="centerY" id="FVp-uU-kJo"/>
                             <constraint firstItem="hPD-Za-99h" firstAttribute="centerY" secondItem="MAA-FH-5H2" secondAttribute="centerY" id="IGb-LG-lqY"/>
                             <constraint firstItem="lVg-Uf-qMB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ngd-a0-EAX" secondAttribute="leading" id="IvE-DJ-pWs"/>
-                            <constraint firstItem="lVg-Uf-qMB" firstAttribute="bottom" secondItem="Ngd-a0-EAX" secondAttribute="bottom" id="Jav-iS-eby"/>
+                            <constraint firstItem="lVg-Uf-qMB" firstAttribute="bottom" secondItem="Ngd-a0-EAX" secondAttribute="bottom" constant="-17" id="Jav-iS-eby"/>
                             <constraint firstItem="hPD-Za-99h" firstAttribute="leading" secondItem="Ngd-a0-EAX" secondAttribute="leading" id="O2q-3p-bem"/>
+                            <constraint firstItem="reo-na-EZe" firstAttribute="centerX" secondItem="4Sc-mu-7HX" secondAttribute="centerX" id="PLH-f7-yH9"/>
+                            <constraint firstItem="8XE-vs-hf8" firstAttribute="leading" secondItem="Ngd-a0-EAX" secondAttribute="leading" constant="40" id="Ssj-jY-ULp"/>
                             <constraint firstItem="hPD-Za-99h" firstAttribute="top" secondItem="Ngd-a0-EAX" secondAttribute="top" id="VAX-nE-C4A"/>
                             <constraint firstItem="Ngd-a0-EAX" firstAttribute="trailing" secondItem="nfi-3G-Hgz" secondAttribute="trailing" constant="26" id="Vbh-kf-gs9"/>
+                            <constraint firstItem="Ngd-a0-EAX" firstAttribute="bottom" secondItem="4YP-Aq-QZP" secondAttribute="bottom" constant="17" id="Wom-FO-Dzh"/>
+                            <constraint firstItem="4YP-Aq-QZP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8XE-vs-hf8" secondAttribute="trailing" constant="8" symbolic="YES" id="YRC-Ob-Z9T"/>
                             <constraint firstItem="Jx6-CH-9oh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qGJ-J4-JVA" secondAttribute="trailing" constant="8" symbolic="YES" id="Yvo-6L-1qh"/>
                             <constraint firstAttribute="trailing" secondItem="Jx6-CH-9oh" secondAttribute="trailing" constant="511" id="biL-n4-x5S"/>
+                            <constraint firstItem="lVg-Uf-qMB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4YP-Aq-QZP" secondAttribute="trailing" symbolic="YES" id="eQf-04-UbT"/>
                             <constraint firstItem="nfi-3G-Hgz" firstAttribute="top" secondItem="Ngd-a0-EAX" secondAttribute="top" constant="36" id="g0q-Lb-rpU"/>
-                            <constraint firstItem="4YP-Aq-QZP" firstAttribute="centerX" secondItem="ajH-sO-1VY" secondAttribute="centerX" id="g7g-eT-KXA"/>
                             <constraint firstItem="qGJ-J4-JVA" firstAttribute="top" secondItem="Ngd-a0-EAX" secondAttribute="top" constant="40" id="hic-a1-inD"/>
+                            <constraint firstItem="4YP-Aq-QZP" firstAttribute="baseline" secondItem="lVg-Uf-qMB" secondAttribute="baseline" id="ob7-Bz-41U"/>
                             <constraint firstItem="qGJ-J4-JVA" firstAttribute="top" secondItem="ajH-sO-1VY" secondAttribute="top" id="poW-Cr-U9r"/>
                             <constraint firstItem="qGJ-J4-JVA" firstAttribute="leading" secondItem="Ngd-a0-EAX" secondAttribute="leading" constant="40" id="rdd-bu-JCu"/>
+                            <constraint firstAttribute="trailing" secondItem="4YP-Aq-QZP" secondAttribute="trailing" constant="173" id="wI5-tY-Vtu"/>
                             <constraint firstItem="nfi-3G-Hgz" firstAttribute="leading" secondItem="ajH-sO-1VY" secondAttribute="trailing" constant="8" id="wIk-uK-FEO"/>
-                            <constraint firstItem="Ngd-a0-EAX" firstAttribute="trailing" secondItem="lVg-Uf-qMB" secondAttribute="trailing" constant="19" id="zlv-jO-Vrg"/>
+                            <constraint firstItem="reo-na-EZe" firstAttribute="centerX" secondItem="hPD-Za-99h" secondAttribute="centerX" id="yzb-I4-ukP"/>
+                            <constraint firstItem="Ngd-a0-EAX" firstAttribute="trailing" secondItem="lVg-Uf-qMB" secondAttribute="trailing" constant="45" id="zlv-jO-Vrg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ngd-a0-EAX"/>
                     </view>
@@ -162,9 +197,12 @@
                         <outlet property="botonModoBloqueVerde" destination="W7z-dx-yI3" id="Ofw-jt-ubF"/>
                         <outlet property="botonModoBuild" destination="4YP-Aq-QZP" id="FGv-SN-QL1"/>
                         <outlet property="botonNextLevel" destination="lVg-Uf-qMB" id="Tye-YF-lYX"/>
+                        <outlet property="botonReady" destination="reo-na-EZe" id="xXm-dS-iVE"/>
+                        <outlet property="botonRecolocarTableroJuego" destination="8XE-vs-hf8" id="1xH-z2-pEI"/>
                         <outlet property="labelModoQuitarBloques" destination="ajH-sO-1VY" id="Bq0-gU-SXw"/>
                         <outlet property="panelFinal" destination="4Sc-mu-7HX" id="oP8-Vq-BCX"/>
                         <outlet property="switchModoQuitarBloques" destination="nfi-3G-Hgz" id="dVs-5X-Yzv"/>
+                        <outlet property="textoAyuda" destination="ZH6-gn-yJQ" id="yqr-Yf-HaO"/>
                         <outlet property="timerLabel" destination="Jx6-CH-9oh" id="496-pr-ebu"/>
                     </connections>
                 </viewController>

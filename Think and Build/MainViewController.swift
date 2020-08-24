@@ -23,7 +23,7 @@ class MainViewController: UIViewController {
     enum modoDeJuego {
         case memorizacion, construccion, pausa
     }
-    var modoDeJuegoActual: modoDeJuego = .memorizacion
+    var modoDeJuegoActual: modoDeJuego = .pausa
     
     enum nivelFase {
         case start, easy1, easy2, easy3, medium1, medium2, medium3, hard1, hard2, hard3, insane1, insane2, insane3, win
@@ -48,6 +48,10 @@ class MainViewController: UIViewController {
     // Objetos en la Interfaz
     @IBOutlet weak var botonModoBuild: UIButton!
     @IBOutlet weak var botonNextLevel: UIButton!
+    
+    @IBOutlet weak var textoAyuda: UITextView!
+    @IBOutlet weak var botonRecolocarTableroJuego: UIButton!
+    @IBOutlet weak var botonReady: UIButton!
     
     @IBOutlet weak var switchModoQuitarBloques: UISwitch!
     @IBOutlet weak var labelModoQuitarBloques: UILabel!
@@ -85,14 +89,14 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        timerLabel.font = UIFont(name: "ChalkboardSE-Bold", size: 30)
-        
-        ocultarInterfaz()
-        pasarAlSiguenteNivel()
-        
         superficiePlana.planeDetection = .horizontal
         arView.session.run(superficiePlana)
+        
+        timerLabel.font = UIFont(name: "ChalkboardSE-Bold", size: 30)
+        textoAyuda.font = UIFont(name: "ChalkboardSE-Bold", size: 20)
+        textoAyuda.text = "Try to find a flat surface with enough light and move around slowly \nwith the device until the board is placed \n(Make sure the board is placed before pressing READY)"
+        
+        cargarTableroJuego()
     }
     
     
@@ -172,18 +176,18 @@ class MainViewController: UIViewController {
         mostrarInterfaz()
         modoDeJuegoActual = .construccion
         
-        self.arView.scene.anchors.removeAll()
-        
-        tableroJuego = try! EscenasJuego.loadTableroPrincipalDeJuego()
-        self.arView.scene.anchors.append(tableroJuego)
-        
-        for i in 1...64 {
-            tableroJuego.actions.allActions[i - 1].onAction = colocarBloqueSobreTablero(_:)
+        while tableroJuego.children.count != 1 {
+            tableroJuego.children.remove(at: tableroJuego.children.count - 1)
         }
         
-        for i in 1...64 {
-            let casilla = tableroJuego.casillaEntities[i - 1]
-            casilla.position = SIMD3(x: round(casilla.position.x * 10000) / 10000, y: round(casilla.position.y * 10000) / 10000, z: round(casilla.position.z * 10000) / 10000)
+        if modoDeJuegoActual == .construccion {
+            for i in 1...64 {
+                tableroJuego.actions.allActions[i - 1].onAction = colocarBloqueSobreTablero(_:)
+            }
+        } else {
+            for i in 1...64 {
+                tableroJuego.actions.allActions[i - 1].onAction = nil
+            }
         }
         
         if faseActual == .easy {
@@ -216,6 +220,30 @@ class MainViewController: UIViewController {
             
             //modoDeJuegoActual = .pausa
         }
+    }
+    
+    @IBAction func recolocarTablero(_ sender: Any) {
+        self.arView.scene.anchors.removeAll()
+        
+        tableroJuego = try! EscenasJuego.loadTableroPrincipalDeJuego()
+        self.arView.scene.anchors.append(tableroJuego)
+        
+        for i in 1...64 {
+            let casilla = tableroJuego.casillaEntities[i - 1]
+            casilla.position = SIMD3(x: round(casilla.position.x * 10000) / 10000, y: round(casilla.position.y * 10000) / 10000, z: round(casilla.position.z * 10000) / 10000)
+        }
+    }
+    
+    @IBAction func empezarPartida(_ sender: Any) {
+        botonReady.isHidden = true
+        botonRecolocarTableroJuego.isHidden = true
+        timerLabel.isHidden = false
+        textoAyuda.isHidden = true
+        
+        modoDeJuegoActual = .memorizacion
+        
+        ocultarInterfaz()
+        pasarAlSiguenteNivel()
     }
     
     @IBAction func acciónModoQuitarBloques(_ sender: Any) {
@@ -352,11 +380,32 @@ class MainViewController: UIViewController {
     }
     
     //
-    // Cargar Escenas Prototipo
+    // Cargera Tablero Juego y Cargar Escenas Prototipo
     //
+    func cargarTableroJuego() {
+        botonModoBuild.isHidden = true
+        botonNextLevel.isHidden = true
+        switchModoQuitarBloques.isHidden = true
+        labelModoQuitarBloques.isHidden = true
+        botonModoBloqueAzul.isHidden = true
+        botonModoBloqueRojo.isHidden = true
+        botonModoBloqueAmarillo.isHidden = true
+        botonModoBloqueVerde.isHidden = true
+        timerLabel.isHidden = true
+        
+        self.arView.scene.anchors.removeAll()
+        
+        tableroJuego = try! EscenasJuego.loadTableroPrincipalDeJuego()
+        self.arView.scene.anchors.append(tableroJuego)
+        
+        for i in 1...64 {
+            let casilla = tableroJuego.casillaEntities[i - 1]
+            casilla.position = SIMD3(x: round(casilla.position.x * 10000) / 10000, y: round(casilla.position.y * 10000) / 10000, z: round(casilla.position.z * 10000) / 10000)
+        }
+    }
     func cargarEscenaPrototipo(fase: fasesTotales) {
-        tableroPrototipos = try? EscenasJuego.loadTablero()
-        arView.scene.anchors.append(tableroPrototipos)
+        /*tableroPrototipos = try? EscenasJuego.loadTablero()
+        arView.scene.anchors.append(tableroPrototipos)*/
         
         if fase == .easy {
             numeroRandom = Int.random(in: 0...(arrayPrototiposEasyTotales.count - 1))
@@ -384,7 +433,7 @@ class MainViewController: UIViewController {
             for numeroDelBloque in 0...(bloquesAzulesPrototipo.count - 1) {
                 let bloqueAzul = crearBloqueAzul()
                 bloqueAzul.position = bloquesAzulesPrototipo[numeroDelBloque]
-                tableroPrototipos.addChild(bloqueAzul)
+                tableroJuego.addChild(bloqueAzul)
             }
         }
         
@@ -392,7 +441,7 @@ class MainViewController: UIViewController {
             for numeroDelBloque in 0...(bloquesRojosPrototipo.count - 1) {
                 let bloqueRojo = crearBloqueRojo()
                 bloqueRojo.position = bloquesRojosPrototipo[numeroDelBloque]
-                tableroPrototipos.addChild(bloqueRojo)
+                tableroJuego.addChild(bloqueRojo)
             }
         }
         
@@ -400,7 +449,7 @@ class MainViewController: UIViewController {
             for numeroDelBloque in 0...(bloquesAmarillosPrototipo.count - 1){
                 let bloqueAmarillo = crearBloqueAmarillo()
                 bloqueAmarillo.position = bloquesAmarillosPrototipo[numeroDelBloque]
-                tableroPrototipos.addChild(bloqueAmarillo)
+                tableroJuego.addChild(bloqueAmarillo)
             }
         }
         
@@ -408,7 +457,7 @@ class MainViewController: UIViewController {
             for numeroDelBloque in 0...(bloquesVerdesPrototipo.count - 1) {
                 let bloqueVerde = crearBloqueVerde()
                 bloqueVerde.position = bloquesVerdesPrototipo[numeroDelBloque]
-                tableroPrototipos.addChild(bloqueVerde)
+                tableroJuego.addChild(bloqueVerde)
             }
         }
     }
@@ -694,12 +743,25 @@ class MainViewController: UIViewController {
     }
     
     func pasarAlSiguenteNivel()  {
-        self.arView.scene.anchors.removeAll()
         arrayDePosicionesDeBloquesTotales.removeAll()
         arrayDePosicionesDeBloquesAzules.removeAll()
         arrayDePosicionesDeBloquesRojos.removeAll()
         arrayDePosicionesDeBloquesAmarillos.removeAll()
         arrayDePosicionesDeBloquesVerdes.removeAll()
+        
+        while tableroJuego.children.count != 1 {
+            tableroJuego.children.remove(at: tableroJuego.children.count - 1)
+        }
+        
+        if modoDeJuegoActual == .construccion {
+            for i in 1...64 {
+                tableroJuego.actions.allActions[i - 1].onAction = colocarBloqueSobreTablero(_:)
+            }
+        } else {
+            for i in 1...64 {
+                tableroJuego.actions.allActions[i - 1].onAction = nil
+            }
+        }
 
         if nivelFaseActual == .start && faseActual == .start {
             nivelFaseActual = .easy1
