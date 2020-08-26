@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CA356E1A24F405FD00A071EA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA356E1924F405FD00A071EA /* MenuViewController.swift */; };
-		CA3EE60424A4CD410027F772 /* Cubo Rojo Prueba.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CA3EE60324A4CD410027F772 /* Cubo Rojo Prueba.usdz */; };
+		CA3959E424F58EF800DBA2A3 /* CuboAzul.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CA3959E324F58EF800DBA2A3 /* CuboAzul.usdz */; };
+		CA3959E624F58F0300DBA2A3 /* CuboRojo.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CA3959E524F58F0300DBA2A3 /* CuboRojo.usdz */; };
+		CA3959E824F58F0A00DBA2A3 /* CuboAmarillo.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CA3959E724F58F0A00DBA2A3 /* CuboAmarillo.usdz */; };
+		CA3959EA24F58F5600DBA2A3 /* CuboVerde.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CA3959E924F58F5600DBA2A3 /* CuboVerde.usdz */; };
 		CAE7CA10249A80E30092AAD1 /* SolucionesPrototipos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE7CA0F249A80E30092AAD1 /* SolucionesPrototipos.swift */; };
 		EDC8D62B23F455AF00154CC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8D62A23F455AF00154CC9 /* AppDelegate.swift */; };
 		EDC8D62D23F455AF00154CC9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8D62C23F455AF00154CC9 /* MainViewController.swift */; };
@@ -20,7 +23,10 @@
 
 /* Begin PBXFileReference section */
 		CA356E1924F405FD00A071EA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		CA3EE60324A4CD410027F772 /* Cubo Rojo Prueba.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Cubo Rojo Prueba.usdz"; sourceTree = "<group>"; };
+		CA3959E324F58EF800DBA2A3 /* CuboAzul.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = CuboAzul.usdz; sourceTree = "<group>"; };
+		CA3959E524F58F0300DBA2A3 /* CuboRojo.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = CuboRojo.usdz; sourceTree = "<group>"; };
+		CA3959E724F58F0A00DBA2A3 /* CuboAmarillo.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = CuboAmarillo.usdz; sourceTree = "<group>"; };
+		CA3959E924F58F5600DBA2A3 /* CuboVerde.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = CuboVerde.usdz; sourceTree = "<group>"; };
 		CAE7CA0F249A80E30092AAD1 /* SolucionesPrototipos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolucionesPrototipos.swift; sourceTree = "<group>"; };
 		EDC8D62723F455AF00154CC9 /* Think and Build.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Think and Build.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC8D62A23F455AF00154CC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +52,10 @@
 		EDC8D61E23F455AD00154CC9 = {
 			isa = PBXGroup;
 			children = (
-				CA3EE60324A4CD410027F772 /* Cubo Rojo Prueba.usdz */,
+				CA3959E324F58EF800DBA2A3 /* CuboAzul.usdz */,
+				CA3959E524F58F0300DBA2A3 /* CuboRojo.usdz */,
+				CA3959E724F58F0A00DBA2A3 /* CuboAmarillo.usdz */,
+				CA3959E924F58F5600DBA2A3 /* CuboVerde.usdz */,
 				EDC8D62923F455AF00154CC9 /* Think and Build */,
 				EDC8D62823F455AF00154CC9 /* Products */,
 			);
@@ -135,9 +144,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDC8D63723F455B100154CC9 /* LaunchScreen.storyboard in Resources */,
+				CA3959EA24F58F5600DBA2A3 /* CuboVerde.usdz in Resources */,
+				CA3959E824F58F0A00DBA2A3 /* CuboAmarillo.usdz in Resources */,
 				EDC8D63423F455B100154CC9 /* Assets.xcassets in Resources */,
+				CA3959E424F58EF800DBA2A3 /* CuboAzul.usdz in Resources */,
+				CA3959E624F58F0300DBA2A3 /* CuboRojo.usdz in Resources */,
 				EDC8D63223F455AF00154CC9 /* Main.storyboard in Resources */,
-				CA3EE60424A4CD410027F772 /* Cubo Rojo Prueba.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

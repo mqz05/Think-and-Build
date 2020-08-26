@@ -204,19 +204,19 @@ class MainViewController: UIViewController {
     @IBAction func pasarDeNivel(_ sender: Any) {
         print("Bloques Azules: \(arrayDePosicionesDeBloquesAzules)")
         print("Bloques Rojos: \(arrayDePosicionesDeBloquesRojos)")
-        print("Bloques Verdes: \(arrayDePosicionesDeBloquesVerdes)")
         print("Bloques Amarillos: \(arrayDePosicionesDeBloquesAmarillos)")
+        print("Bloques Verdes: \(arrayDePosicionesDeBloquesVerdes)")
         
         if revisarSolucion() == true {
             print("Pasas al siguiente nivel :D")
-            /// Animación Pasar de Nivel
+            /// Animación de CORRECTO y  Pasar de Nivel
             modoDeJuegoActual = .memorizacion
             ocultarInterfaz()
             pasarAlSiguenteNivel()
             
         } else {
             print("No puedes pasar al siguiente nivel D:")
-            /// Animación Game Over
+            /// Animación de INCORRECTO y Game Over
             
             //modoDeJuegoActual = .pausa
         }
@@ -317,30 +317,40 @@ class MainViewController: UIViewController {
     
     func crearBloqueAzul() -> ModelEntity {
         var nuevoBloque: ModelEntity!
-        nuevoBloque =  ModelEntity.init(mesh: .generateBox(size: SIMD3(x: 0.075, y: 0.075, z: 0.075)), materials: [Material].init(arrayLiteral: SimpleMaterial.init(color: SimpleMaterial.Color.blue, isMetallic: false)))
+        let urlPath = Bundle.main.path(forResource: "CuboAzul", ofType: "usdz")
+        let url = URL(fileURLWithPath: urlPath!)
+        nuevoBloque = try? ModelEntity.loadModel(contentsOf: url)
+        nuevoBloque.scale = SIMD3(x: 0.005, y: 0.005, z: 0.005)
         nuevoBloque.name = "Bloque Azul"
         return nuevoBloque
     }
     
     func crearBloqueRojo() -> ModelEntity {
         var nuevoBloque: ModelEntity!
-        let urlPath = Bundle.main.path(forResource: "Cubo Rojo Prueba", ofType: "usdz")
+        let urlPath = Bundle.main.path(forResource: "CuboRojo", ofType: "usdz")
         let url = URL(fileURLWithPath: urlPath!)
         nuevoBloque = try? ModelEntity.loadModel(contentsOf: url)
+        nuevoBloque.scale = SIMD3(x: 0.005, y: 0.005, z: 0.005)
         nuevoBloque.name = "Bloque Rojo"
         return nuevoBloque
     }
     
     func crearBloqueAmarillo() -> ModelEntity {
         var nuevoBloque: ModelEntity!
-        nuevoBloque = ModelEntity.init(mesh: .generateBox(size: SIMD3(x: 0.075, y: 0.075, z: 0.075)), materials: [Material].init(arrayLiteral: SimpleMaterial.init(color: SimpleMaterial.Color.yellow, isMetallic: false)))
+        let urlPath = Bundle.main.path(forResource: "CuboAmarillo", ofType: "usdz")
+        let url = URL(fileURLWithPath: urlPath!)
+        nuevoBloque = try? ModelEntity.loadModel(contentsOf: url)
+        nuevoBloque.scale = SIMD3(x: 0.005, y: 0.005, z: 0.005)
         nuevoBloque.name = "Bloque Amarillo"
         return nuevoBloque
     }
     
     func crearBloqueVerde() -> ModelEntity {
         var nuevoBloque: ModelEntity!
-        nuevoBloque = ModelEntity.init(mesh: .generateBox(size: SIMD3(x: 0.075, y: 0.075, z: 0.075)), materials: [Material].init(arrayLiteral: SimpleMaterial.init(color: SimpleMaterial.Color.green, isMetallic: false)))
+        let urlPath = Bundle.main.path(forResource: "CuboVerde", ofType: "usdz")
+        let url = URL(fileURLWithPath: urlPath!)
+        nuevoBloque = try? ModelEntity.loadModel(contentsOf: url)
+        nuevoBloque.scale = SIMD3(x: 0.005, y: 0.005, z: 0.005)
         nuevoBloque.name = "Bloque Verde"
         return nuevoBloque
     }
@@ -404,8 +414,6 @@ class MainViewController: UIViewController {
         }
     }
     func cargarEscenaPrototipo(fase: fasesTotales) {
-        /*tableroPrototipos = try? EscenasJuego.loadTablero()
-        arView.scene.anchors.append(tableroPrototipos)*/
         
         if fase == .easy {
             numeroRandom = Int.random(in: 0...(arrayPrototiposEasyTotales.count - 1))
@@ -632,72 +640,70 @@ class MainViewController: UIViewController {
         crearPanelLateralDerechaDelBloque(bloque: bloque)
         crearPanelLateralIzquierdaDelBloque(bloque: bloque)
     }
+    func crearPanel() -> ModelEntity {
+        var material = SimpleMaterial()
+        material.metallic = .float(0.0)
+        material.roughness = .float(0.0)
+        material.baseColor = .color(UIColor.gray.withAlphaComponent(0.35))
+        
+        let panel = ModelEntity.init(mesh: .generatePlane(width: 0.07, height: 0.07))
+        panel.model?.materials = [material]
+        
+        panel.generateCollisionShapes(recursive: true)
+        
+        return panel
+    }
     
     func crearPanelEncimaDelBloque(bloque: ModelEntity) {
-        let panelEncimaDelBloque = ModelEntity.init(mesh: .generatePlane(width: 0.07, height: 0.07), materials: [Material].init(arrayLiteral: SimpleMaterial.init(color: SimpleMaterial.Color.white, isMetallic: false)))
+        let panelEncimaDelBloque = crearPanel()
         
         panelEncimaDelBloque.orientation = simd_quatf(angle: -(Float.pi/2), axis: [1, 0, 0])
-        
-        panelEncimaDelBloque.generateCollisionShapes(recursive: true)
-        panelEncimaDelBloque.name = "Panel Encima del Bloque"
-        
         panelEncimaDelBloque.position = SIMD3(x: (bloque.position.x), y: (bloque.position.y) + 0.038, z: (bloque.position.z))
+        panelEncimaDelBloque.name = "Panel Encima del Bloque"
         
         tableroJuego.addChild(panelEncimaDelBloque)
         seHaCreadoPanel = true
     }
     
     func crearPanelLateralFrontalDelBloque(bloque: ModelEntity) {
-        let panelLateralFrontalDelBloque = ModelEntity.init(mesh: .generatePlane(width: 0.07, height: 0.07), materials: [Material].init(arrayLiteral: SimpleMaterial.init(color: SimpleMaterial.Color.white, isMetallic: false)))
+        let panelLateralFrontalDelBloque = crearPanel()
         
         panelLateralFrontalDelBloque.orientation = simd_quatf(angle: Float.pi, axis: [0, 1, 0])
-        
-        panelLateralFrontalDelBloque.generateCollisionShapes(recursive: true)
-        panelLateralFrontalDelBloque.name = "Panel Lateral Frontal del Bloque"
-        
         panelLateralFrontalDelBloque.position = SIMD3(x: (bloque.position.x), y: (bloque.position.y), z: (bloque.position.z) - 0.038)
+        panelLateralFrontalDelBloque.name = "Panel Lateral Frontal del Bloque"
         
         tableroJuego.addChild(panelLateralFrontalDelBloque)
         seHaCreadoPanel = true
     }
     
     func crearPanelLateralTraseraDelBloque(bloque: ModelEntity) {
-        let panelLateralTraseraDelBloque = ModelEntity.init(mesh: .generatePlane(width: 0.07, height: 0.07), materials: [Material].init(arrayLiteral: SimpleMaterial.init(color: SimpleMaterial.Color.white, isMetallic: false)))
+        let panelLateralTraseraDelBloque = crearPanel()
         
         panelLateralTraseraDelBloque.orientation = simd_quatf(angle: 0, axis: [0, 1, 0])
-        
-        panelLateralTraseraDelBloque.generateCollisionShapes(recursive: true)
-        panelLateralTraseraDelBloque.name = "Panel Lateral Trasera del Bloque"
-        
         panelLateralTraseraDelBloque.position = SIMD3(x: (bloque.position.x), y: (bloque.position.y), z: (bloque.position.z) + 0.038)
+        panelLateralTraseraDelBloque.name = "Panel Lateral Trasera del Bloque"
         
         tableroJuego.addChild(panelLateralTraseraDelBloque)
         seHaCreadoPanel = true
     }
     
     func crearPanelLateralDerechaDelBloque(bloque: ModelEntity) {
-        let panelLateralDerechaDelBloque = ModelEntity.init(mesh: .generatePlane(width: 0.07, height: 0.07), materials: [Material].init(arrayLiteral: SimpleMaterial.init(color: SimpleMaterial.Color.white, isMetallic: false)))
+        let panelLateralDerechaDelBloque = crearPanel()
         
         panelLateralDerechaDelBloque.orientation = simd_quatf(angle: Float.pi/2, axis: [0, 1, 0])
-        
-        panelLateralDerechaDelBloque.generateCollisionShapes(recursive: true)
-        panelLateralDerechaDelBloque.name = "Panel Lateral Derecha del Bloque"
-        
         panelLateralDerechaDelBloque.position = SIMD3(x: (bloque.position.x) + 0.038, y: (bloque.position.y), z: (bloque.position.z))
+        panelLateralDerechaDelBloque.name = "Panel Lateral Derecha del Bloque"
         
         tableroJuego.addChild(panelLateralDerechaDelBloque)
         seHaCreadoPanel = true
     }
     
     func crearPanelLateralIzquierdaDelBloque(bloque: ModelEntity) {
-        let panelLateralIzquierdaDelBloque = ModelEntity.init(mesh: .generatePlane(width: 0.07, height: 0.07), materials: [Material].init(arrayLiteral: SimpleMaterial.init(color: SimpleMaterial.Color.white, isMetallic: false)))
+        let panelLateralIzquierdaDelBloque = crearPanel()
         
         panelLateralIzquierdaDelBloque.orientation = simd_quatf(angle: -(Float.pi/2), axis: [0, 1, 0])
-        
-        panelLateralIzquierdaDelBloque.generateCollisionShapes(recursive: true)
-        panelLateralIzquierdaDelBloque.name = "Panel Lateral Izquierda del Bloque"
-        
         panelLateralIzquierdaDelBloque.position = SIMD3(x: (bloque.position.x) - 0.038, y: (bloque.position.y), z: (bloque.position.z))
+        panelLateralIzquierdaDelBloque.name = "Panel Lateral Izquierda del Bloque"
         
         tableroJuego.addChild(panelLateralIzquierdaDelBloque)
         seHaCreadoPanel = true
@@ -730,16 +736,19 @@ class MainViewController: UIViewController {
         botonModoBloqueVerde.isHidden = false
     }
     
-    func animacionWin() {
+    func animacionPanelFinal() {
         panelFinal.isHidden = false
         UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.panelFinal.transform = CGAffineTransform(scaleX: 15, y: 15)
-
         }, completion: nil)
     }
     
+    func animacionWin() {
+        animacionPanelFinal()
+    }
+    
     func animacionGameOver() {
-        
+        animacionPanelFinal()
     }
     
     func pasarAlSiguenteNivel()  {

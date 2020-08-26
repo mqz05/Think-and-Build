@@ -50,16 +50,16 @@ var arrayPrototiposEasyTotales = [arrayPrototipoEasy1, arrayPrototipoEasy2, arra
 
 
 // Medium
-var arraySolucionesBloquesAzulesMediumPrototipo1: Array<SIMD3<Float>> = []
-var arraySolucionesBloquesRojosMediumPrototipo1: Array<SIMD3<Float>> = []
-var arraySolucionesBloquesAmarillosMediumPrototipo1: Array<SIMD3<Float>> = []
-var arraySolucionesBloquesVerdesMediumPrototipo1: Array<SIMD3<Float>> = []
+var arraySolucionesBloquesAzulesMediumPrototipo1: Array<SIMD3<Float>> = [SIMD3<Float>(0.2625, 0.0425, -0.2625), SIMD3<Float>(0.2625, 0.1175, -0.2625), SIMD3<Float>(0.2625, 0.1925, -0.2625), SIMD3<Float>(0.1875, 0.0425, -0.1875), SIMD3<Float>(0.1875, 0.1175, -0.1875), SIMD3<Float>(-0.2625, 0.0425, 0.2625), SIMD3<Float>(-0.2625, 0.1175, 0.2625), SIMD3<Float>(-0.1875, 0.0425, 0.1875), SIMD3<Float>(-0.1875, 0.1175, 0.1875), SIMD3<Float>(-0.1875, 0.1925, 0.1875)]
+var arraySolucionesBloquesRojosMediumPrototipo1: Array<SIMD3<Float>> = [SIMD3<Float>(-0.2625, 0.0425, -0.2625), SIMD3<Float>(-0.2625, 0.1175, -0.2625), SIMD3<Float>(-0.2625, 0.1925, -0.2625), SIMD3<Float>(-0.1875, 0.0425, -0.1875), SIMD3<Float>(-0.1875, 0.1175, -0.1875), SIMD3<Float>(0.2625, 0.0425, 0.2625), SIMD3<Float>(0.2625, 0.1175, 0.2625), SIMD3<Float>(0.1875, 0.0425, 0.1875), SIMD3<Float>(0.1875, 0.1175, 0.1875), SIMD3<Float>(0.1875, 0.1925, 0.1875)]
+var arraySolucionesBloquesAmarillosMediumPrototipo1: Array<SIMD3<Float>> = [SIMD3<Float>(-0.0375, 0.0425, -0.2625), SIMD3<Float>(0.0375, 0.0425, 0.2625), SIMD3<Float>(0.2625, 0.0425, -0.0375), SIMD3<Float>(-0.2625, 0.0425, 0.0375)]
+var arraySolucionesBloquesVerdesMediumPrototipo1: Array<SIMD3<Float>> = [SIMD3<Float>(0.0375, 0.0425, -0.2625), SIMD3<Float>(-0.2625, 0.0425, -0.0375), SIMD3<Float>(-0.0375, 0.0425, 0.2625), SIMD3<Float>(0.2625, 0.0425, 0.0375)]
 var arrayPrototipoMedium1 = [arraySolucionesBloquesAzulesMediumPrototipo1, arraySolucionesBloquesRojosMediumPrototipo1, arraySolucionesBloquesAmarillosMediumPrototipo1, arraySolucionesBloquesVerdesMediumPrototipo1]
 
-var arraySolucionesBloquesAzulesMediumPrototipo2: Array<SIMD3<Float>> = []
-var arraySolucionesBloquesRojosMediumPrototipo2: Array<SIMD3<Float>> = []
-var arraySolucionesBloquesAmarillosMediumPrototipo2: Array<SIMD3<Float>> = []
-var arraySolucionesBloquesVerdesMediumPrototipo2: Array<SIMD3<Float>> = []
+var arraySolucionesBloquesAzulesMediumPrototipo2: Array<SIMD3<Float>> = [SIMD3<Float>(0.2625, 0.0425, -0.1875), SIMD3<Float>(0.2625, 0.0425, -0.0375), SIMD3<Float>(0.2625, 0.0425, 0.1125), SIMD3<Float>(0.2625, 0.0425, 0.2625)]
+var arraySolucionesBloquesRojosMediumPrototipo2: Array<SIMD3<Float>> = [SIMD3<Float>(0.1875, 0.0425, -0.2625), SIMD3<Float>(0.0375, 0.0425, -0.2625), SIMD3<Float>(-0.1125, 0.0425, -0.2625), SIMD3<Float>(-0.2625, 0.0425, -0.2625)]
+var arraySolucionesBloquesAmarillosMediumPrototipo2: Array<SIMD3<Float>> = [SIMD3<Float>(0.1125, 0.0425, 0.2625), SIMD3<Float>(-0.0375, 0.0425, 0.2625), SIMD3<Float>(-0.1875, 0.0425, 0.2625)]
+var arraySolucionesBloquesVerdesMediumPrototipo2: Array<SIMD3<Float>> = [SIMD3<Float>(-0.2625, 0.0425, -0.1125), SIMD3<Float>(-0.2625, 0.0425, 0.0375), SIMD3<Float>(-0.2625, 0.0425, 0.1875)]
 var arrayPrototipoMedium2 = [arraySolucionesBloquesAzulesMediumPrototipo2, arraySolucionesBloquesRojosMediumPrototipo2, arraySolucionesBloquesAmarillosMediumPrototipo2, arraySolucionesBloquesVerdesMediumPrototipo2]
 
 var arraySolucionesBloquesAzulesMediumPrototipo3: Array<SIMD3<Float>> = []
@@ -67,6 +67,12 @@ var arraySolucionesBloquesRojosMediumPrototipo3: Array<SIMD3<Float>> = []
 var arraySolucionesBloquesAmarillosMediumPrototipo3: Array<SIMD3<Float>> = []
 var arraySolucionesBloquesVerdesMediumPrototipo3: Array<SIMD3<Float>> = []
 var arrayPrototipoMedium3 = [arraySolucionesBloquesAzulesMediumPrototipo3, arraySolucionesBloquesRojosMediumPrototipo3, arraySolucionesBloquesAmarillosMediumPrototipo3, arraySolucionesBloquesVerdesMediumPrototipo3]
+/*
+ 
+ 
+ 
+ 
+*/
 
 var arraySolucionesBloquesAzulesMediumPrototipo4: Array<SIMD3<Float>> = []
 var arraySolucionesBloquesRojosMediumPrototipo4: Array<SIMD3<Float>> = []
@@ -74,10 +80,10 @@ var arraySolucionesBloquesAmarillosMediumPrototipo4: Array<SIMD3<Float>> = []
 var arraySolucionesBloquesVerdesMediumPrototipo4: Array<SIMD3<Float>> = []
 var arrayPrototipoMedium4 = [arraySolucionesBloquesAzulesMediumPrototipo4, arraySolucionesBloquesRojosMediumPrototipo4, arraySolucionesBloquesAmarillosMediumPrototipo4, arraySolucionesBloquesVerdesMediumPrototipo4]
 
-var arraySolucionesBloquesAzulesMediumPrototipo5: Array<SIMD3<Float>> = []
-var arraySolucionesBloquesRojosMediumPrototipo5: Array<SIMD3<Float>> = []
-var arraySolucionesBloquesAmarillosMediumPrototipo5: Array<SIMD3<Float>> = []
-var arraySolucionesBloquesVerdesMediumPrototipo5: Array<SIMD3<Float>> = []
+var arraySolucionesBloquesAzulesMediumPrototipo5: Array<SIMD3<Float>> = [SIMD3<Float>(0.0375, 0.0425, 0.0375), SIMD3<Float>(0.0375, 0.1175, 0.0375), SIMD3<Float>(0.0375, 0.0425, -0.0375), SIMD3<Float>(0.0375, 0.1175, -0.0375), SIMD3<Float>(0.1125, 0.0425, 0.0375), SIMD3<Float>(0.1125, 0.1175, 0.0375), SIMD3<Float>(0.1125, 0.0425, -0.0375), SIMD3<Float>(0.1125, 0.1175, -0.0375), SIMD3<Float>(0.1125, 0.1925, -0.0375), SIMD3<Float>(0.1125, 0.1925, 0.0375), SIMD3<Float>(0.0375, 0.1925, 0.0375), SIMD3<Float>(0.0375, 0.1925, -0.0375)]
+var arraySolucionesBloquesRojosMediumPrototipo5: Array<SIMD3<Float>> = [SIMD3<Float>(-0.1125, 0.0425, -0.1875), SIMD3<Float>(-0.1125, 0.0425, -0.1125), SIMD3<Float>(-0.1125, 0.0425, -0.0375), SIMD3<Float>(-0.1125, 0.0425, 0.0375), SIMD3<Float>(-0.1125, 0.0425, 0.1125), SIMD3<Float>(-0.1125, 0.1175, 0.1125), SIMD3<Float>(-0.1125, 0.0425, 0.1875), SIMD3<Float>(-0.1125, 0.1175, 0.1875), SIMD3<Float>(-0.1125, 0.1175, 0.0375), SIMD3<Float>(-0.1125, 0.1175, -0.0375), SIMD3<Float>(-0.1125, 0.1175, -0.1125), SIMD3<Float>(-0.1125, 0.1175, -0.1875), SIMD3<Float>(-0.0375, 0.0425, -0.2625), SIMD3<Float>(-0.0375, 0.1175, -0.2625), SIMD3<Float>(-0.0375, 0.0425, -0.1875), SIMD3<Float>(-0.0375, 0.1175, -0.1875), SIMD3<Float>(-0.0375, 0.0425, -0.1125), SIMD3<Float>(-0.0375, 0.1175, -0.1125), SIMD3<Float>(-0.0375, 0.0425, -0.0375), SIMD3<Float>(-0.0375, 0.1175, -0.0375), SIMD3<Float>(-0.0375, 0.0425, 0.0375), SIMD3<Float>(-0.0375, 0.1175, 0.0375), SIMD3<Float>(-0.0375, 0.0425, 0.1125), SIMD3<Float>(-0.0375, 0.1175, 0.1125), SIMD3<Float>(-0.0375, 0.0425, 0.1875), SIMD3<Float>(-0.0375, 0.1175, 0.1875), SIMD3<Float>(-0.0375, 0.0425, 0.2625), SIMD3<Float>(-0.0375, 0.1175, 0.2625)]
+var arraySolucionesBloquesAmarillosMediumPrototipo5: Array<SIMD3<Float>> = [SIMD3<Float>(-0.1875, 0.0425, -0.0375), SIMD3<Float>(-0.1875, 0.0425, -0.1125), SIMD3<Float>(-0.2625, 0.0425, -0.0375), SIMD3<Float>(-0.2625, 0.0425, 0.0375), SIMD3<Float>(-0.1875, 0.0425, 0.0375), SIMD3<Float>(-0.1875, 0.0425, 0.1125)]
+var arraySolucionesBloquesVerdesMediumPrototipo5: Array<SIMD3<Float>> = [SIMD3<Float>(0.2625, 0.0425, 0.0375), SIMD3<Float>(0.1875, 0.0425, 0.0375), SIMD3<Float>(0.2625, 0.1175, 0.0375), SIMD3<Float>(0.2625, 0.1925, 0.0375), SIMD3<Float>(0.1875, 0.1175, 0.0375), SIMD3<Float>(0.2625, 0.2675, 0.0375), SIMD3<Float>(0.1875, 0.1925, 0.0375), SIMD3<Float>(0.1875, 0.2675, 0.0375), SIMD3<Float>(0.1875, 0.0425, -0.0375), SIMD3<Float>(0.1875, 0.1175, -0.0375), SIMD3<Float>(0.1875, 0.1925, -0.0375), SIMD3<Float>(0.1875, 0.2675, -0.0375), SIMD3<Float>(0.2625, 0.0425, -0.0375), SIMD3<Float>(0.2625, 0.1175, -0.0375), SIMD3<Float>(0.2625, 0.1925, -0.0375), SIMD3<Float>(0.2625, 0.2675, -0.0375)]
 var arrayPrototipoMedium5 = [arraySolucionesBloquesAzulesMediumPrototipo5, arraySolucionesBloquesRojosMediumPrototipo5, arraySolucionesBloquesAmarillosMediumPrototipo5, arraySolucionesBloquesVerdesMediumPrototipo5]
 
 var arrayPrototiposMediumTotales = [arrayPrototipoMedium1, arrayPrototipoMedium2, arrayPrototipoMedium3, arrayPrototipoMedium4, arrayPrototipoMedium5]
