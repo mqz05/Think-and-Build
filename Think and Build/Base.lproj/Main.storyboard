@@ -130,6 +130,21 @@
                                 <rect key="frame" x="568" y="399" width="58" height="36"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A3H-mv-4uX" userLabel="Imagen Tick">
+                                <rect key="frame" x="568" y="399" width="58" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLp-UA-nzO" userLabel="Barra de Progresion">
+                                <rect key="frame" x="24" y="399" width="58" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PNX-fA-bJg" userLabel="Imagen Cross">
+                                <rect key="frame" x="568" y="399" width="58" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8XE-vs-hf8">
                                 <rect key="frame" x="40" y="762" width="105" height="30"/>
                                 <state key="normal" title="Relocate Board"/>
@@ -175,7 +190,7 @@
                             <constraint firstItem="4YP-Aq-QZP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8XE-vs-hf8" secondAttribute="trailing" constant="8" symbolic="YES" id="YRC-Ob-Z9T"/>
                             <constraint firstItem="Jx6-CH-9oh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qGJ-J4-JVA" secondAttribute="trailing" constant="8" symbolic="YES" id="Yvo-6L-1qh"/>
                             <constraint firstAttribute="trailing" secondItem="Jx6-CH-9oh" secondAttribute="trailing" constant="511" id="biL-n4-x5S"/>
-                            <constraint firstItem="lVg-Uf-qMB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4YP-Aq-QZP" secondAttribute="trailing" symbolic="YES" id="eQf-04-UbT"/>
+                            <constraint firstItem="lVg-Uf-qMB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4YP-Aq-QZP" secondAttribute="trailing" constant="8" symbolic="YES" id="eQf-04-UbT"/>
                             <constraint firstItem="nfi-3G-Hgz" firstAttribute="top" secondItem="Ngd-a0-EAX" secondAttribute="top" constant="36" id="g0q-Lb-rpU"/>
                             <constraint firstItem="qGJ-J4-JVA" firstAttribute="top" secondItem="Ngd-a0-EAX" secondAttribute="top" constant="40" id="hic-a1-inD"/>
                             <constraint firstItem="4YP-Aq-QZP" firstAttribute="baseline" secondItem="lVg-Uf-qMB" secondAttribute="baseline" id="ob7-Bz-41U"/>
@@ -191,6 +206,7 @@
                     <navigationItem key="navigationItem" id="b9u-vN-dLy"/>
                     <connections>
                         <outlet property="arView" destination="hPD-Za-99h" id="8GS-MU-vwb"/>
+                        <outlet property="barraDeProgresion" destination="bLp-UA-nzO" id="GrP-DB-62i"/>
                         <outlet property="botonModoBloqueAmarillo" destination="dtO-hn-bV4" id="MGH-L0-3al"/>
                         <outlet property="botonModoBloqueAzul" destination="WBW-qH-hkf" id="wf7-ve-nYj"/>
                         <outlet property="botonModoBloqueRojo" destination="fUh-5h-XRd" id="Eyx-Tg-eAX"/>
@@ -199,6 +215,8 @@
                         <outlet property="botonNextLevel" destination="lVg-Uf-qMB" id="Tye-YF-lYX"/>
                         <outlet property="botonReady" destination="reo-na-EZe" id="xXm-dS-iVE"/>
                         <outlet property="botonRecolocarTableroJuego" destination="8XE-vs-hf8" id="1xH-z2-pEI"/>
+                        <outlet property="imagenCross" destination="PNX-fA-bJg" id="j5j-lJ-FEp"/>
+                        <outlet property="imagenTick" destination="A3H-mv-4uX" id="L3q-kn-ZQX"/>
                         <outlet property="labelModoQuitarBloques" destination="ajH-sO-1VY" id="Bq0-gU-SXw"/>
                         <outlet property="panelFinal" destination="4Sc-mu-7HX" id="oP8-Vq-BCX"/>
                         <outlet property="switchModoQuitarBloques" destination="nfi-3G-Hgz" id="dVs-5X-Yzv"/>

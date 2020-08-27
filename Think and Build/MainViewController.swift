@@ -61,6 +61,11 @@ class MainViewController: UIViewController {
     @IBOutlet weak var botonModoBloqueAmarillo: UIButton!
     @IBOutlet weak var botonModoBloqueVerde: UIButton!
     
+    @IBOutlet weak var barraDeProgresion: UIImageView!
+    
+    @IBOutlet weak var imagenTick: UIImageView!
+    @IBOutlet weak var imagenCross: UIImageView!
+    
     @IBOutlet weak var panelFinal: UIImageView!
     
     // Modos de Bloques (Tipo de Bloques o Quitar Bloques)
@@ -105,65 +110,67 @@ class MainViewController: UIViewController {
     //
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        guard let touchLocation = (touches.first?.location(in: arView)), let tappedEntity = arView.hitTest(touchLocation, query: .nearest, mask: .default).first?.entity else { return }
-        
-        if seHaCreadoPanel == true && modoQuitarBloques == false {
-            if tappedEntity.name == "Panel Encima del Bloque" {
-                colocarBloqueEncimaDelBloque(_: tappedEntity)
-                
-            } else if tappedEntity.name == "Panel Lateral Frontal del Bloque" {
-                colocarBloqueLateralFrontalDelBloque(_: tappedEntity)
-                
-            } else if tappedEntity.name == "Panel Lateral Trasera del Bloque" {
-                colocarBloqueLateralTraseraDelBloque(_: tappedEntity)
-                
-            } else if tappedEntity.name == "Panel Lateral Derecha del Bloque" {
-                colocarBloqueLateralDerechaDelBloque(_: tappedEntity)
-                
-            } else if tappedEntity.name == "Panel Lateral Izquierda del Bloque" {
-                colocarBloqueLateralIzquierdaDelBloque(_: tappedEntity)
-            }
+        if modoDeJuegoActual == .construccion {
             
-        } else if modoQuitarBloques == true {
-            if tappedEntity.name == "Bloque Azul" || tappedEntity.name == "Bloque Rojo" || tappedEntity.name == "Bloque Amarillo" || tappedEntity.name == "Bloque Verde" {
-                for panelesDeBloques in 1...tableroJuego.children.count {
-                    let objeto = tableroJuego.children[panelesDeBloques - 1]
-                    if (objeto.name == "Panel Lateral Izquierda del Bloque" && objeto.position.z == tappedEntity.position.z && objeto.position.y == tappedEntity.position.y + 1000 && objeto.position.x == tappedEntity.position.x - 0.038) || (objeto.name == "Panel Lateral Derecha del Bloque" && objeto.position.z == tappedEntity.position.z && objeto.position.y == tappedEntity.position.y + 1000 && objeto.position.x == tappedEntity.position.x + 0.038) || (objeto.name == "Panel Lateral Trasera del Bloque" && objeto.position.x == tappedEntity.position.x && objeto.position.y == tappedEntity.position.y + 1000 && objeto.position.z == tappedEntity.position.z + 0.038) || (objeto.name == "Panel Lateral Frontal del Bloque" && objeto.position.x == tappedEntity.position.x && objeto.position.y == tappedEntity.position.y + 1000 && objeto.position.z == tappedEntity.position.z - 0.038) || (objeto.name == "Panel Encima del Bloque" && objeto.position.z == tappedEntity.position.z && objeto.position.x == tappedEntity.position.x && (round(objeto.position.y * 100) / 100 == round((tappedEntity.position.y + 1000.038) * 100) / 100)) {
-                        
-                        objeto.isEnabled = false
-                    }
+            guard let touchLocation = (touches.first?.location(in: arView)), let tappedEntity = arView.hitTest(touchLocation, query: .nearest, mask: .default).first?.entity else { return }
+            
+            if seHaCreadoPanel == true && modoQuitarBloques == false {
+                if tappedEntity.name == "Panel Encima del Bloque" {
+                    colocarBloqueEncimaDelBloque(_: tappedEntity)
+                
+                } else if tappedEntity.name == "Panel Lateral Frontal del Bloque" {
+                    colocarBloqueLateralFrontalDelBloque(_: tappedEntity)
+                    
+                } else if tappedEntity.name == "Panel Lateral Trasera del Bloque" {
+                    colocarBloqueLateralTraseraDelBloque(_: tappedEntity)
+                
+                } else if tappedEntity.name == "Panel Lateral Derecha del Bloque" {
+                    colocarBloqueLateralDerechaDelBloque(_: tappedEntity)
+                    
+                } else if tappedEntity.name == "Panel Lateral Izquierda del Bloque" {
+                    colocarBloqueLateralIzquierdaDelBloque(_: tappedEntity)
                 }
                 
-                tappedEntity.isEnabled = false
-                tappedEntity.removeFromParent()
-                
-                for (index, valor) in arrayDePosicionesDeBloquesTotales.enumerated() {
-                    if valor == tappedEntity.position {
-                        arrayDePosicionesDeBloquesTotales.remove(at: index)
+            } else if modoQuitarBloques == true {
+                if tappedEntity.name == "Bloque Azul" || tappedEntity.name == "Bloque Rojo" || tappedEntity.name == "Bloque Amarillo" || tappedEntity.name == "Bloque Verde" {
+                    for panelesDeBloques in 1...tableroJuego.children.count {
+                        let objeto = tableroJuego.children[panelesDeBloques - 1]
+                        if (objeto.name == "Panel Lateral Izquierda del Bloque" && objeto.position.z == tappedEntity.position.z && objeto.position.y == tappedEntity.position.y + 1000 && objeto.position.x == tappedEntity.position.x - 0.038) || (objeto.name == "Panel Lateral Derecha del Bloque" && objeto.position.z == tappedEntity.position.z && objeto.position.y == tappedEntity.position.y + 1000 && objeto.position.x == tappedEntity.position.x + 0.038) || (objeto.name == "Panel Lateral Trasera del Bloque" && objeto.position.x == tappedEntity.position.x && objeto.position.y == tappedEntity.position.y + 1000 && objeto.position.z == tappedEntity.position.z + 0.038) || (objeto.name == "Panel Lateral Frontal del Bloque" && objeto.position.x == tappedEntity.position.x && objeto.position.y == tappedEntity.position.y + 1000 && objeto.position.z == tappedEntity.position.z - 0.038) || (objeto.name == "Panel Encima del Bloque" && objeto.position.z == tappedEntity.position.z && objeto.position.x == tappedEntity.position.x && (round(objeto.position.y * 100) / 100 == round((tappedEntity.position.y + 1000.038) * 100) / 100)) {
+                            
+                            objeto.isEnabled = false
+                        }
                     }
-                }
-                for (index, valor) in arrayDePosicionesDeBloquesAzules.enumerated() {
-                    if valor == tappedEntity.position {
-                        arrayDePosicionesDeBloquesAzules.remove(at: index)
+                    
+                    tappedEntity.isEnabled = false
+                    tappedEntity.removeFromParent()
+                    
+                    for (index, valor) in arrayDePosicionesDeBloquesTotales.enumerated() {
+                        if valor == tappedEntity.position {
+                            arrayDePosicionesDeBloquesTotales.remove(at: index)
+                        }
                     }
-                }
-                for (index, valor) in arrayDePosicionesDeBloquesRojos.enumerated() {
-                    if valor == tappedEntity.position {
-                        arrayDePosicionesDeBloquesRojos.remove(at: index)
+                    for (index, valor) in arrayDePosicionesDeBloquesAzules.enumerated() {
+                        if valor == tappedEntity.position {
+                            arrayDePosicionesDeBloquesAzules.remove(at: index)
+                        }
                     }
-                }
-                for (index, valor) in arrayDePosicionesDeBloquesAmarillos.enumerated() {
-                    if valor == tappedEntity.position {
-                        arrayDePosicionesDeBloquesAmarillos.remove(at: index)
+                    for (index, valor) in arrayDePosicionesDeBloquesRojos.enumerated() {
+                        if valor == tappedEntity.position {
+                            arrayDePosicionesDeBloquesRojos.remove(at: index)
+                        }
                     }
-                }
-                for (index, valor) in arrayDePosicionesDeBloquesVerdes.enumerated() {
-                    if valor == tappedEntity.position {
-                        arrayDePosicionesDeBloquesVerdes.remove(at: index)
+                    for (index, valor) in arrayDePosicionesDeBloquesAmarillos.enumerated() {
+                        if valor == tappedEntity.position {
+                            arrayDePosicionesDeBloquesAmarillos.remove(at: index)
+                        }
                     }
-                }
+                    for (index, valor) in arrayDePosicionesDeBloquesVerdes.enumerated() {
+                        if valor == tappedEntity.position {
+                            arrayDePosicionesDeBloquesVerdes.remove(at: index)
+                        }
+                    }
 
+                }
             }
         }
     }
@@ -207,18 +214,15 @@ class MainViewController: UIViewController {
         print("Bloques Amarillos: \(arrayDePosicionesDeBloquesAmarillos)")
         print("Bloques Verdes: \(arrayDePosicionesDeBloquesVerdes)")
         
-        if revisarSolucion() == true {
-            print("Pasas al siguiente nivel :D")
-            /// Animación de CORRECTO y  Pasar de Nivel
-            modoDeJuegoActual = .memorizacion
-            ocultarInterfaz()
-            pasarAlSiguenteNivel()
+        if modoDeJuegoActual != .pausa {
             
-        } else {
-            print("No puedes pasar al siguiente nivel D:")
-            /// Animación de INCORRECTO y Game Over
+            modoDeJuegoActual = .pausa
             
-            //modoDeJuegoActual = .pausa
+            if revisarSolucion() == true {
+                animacionCorrectoPasarNivel()
+            } else {
+                animacionIncorrectoGameOver()
+            }
         }
     }
     
@@ -239,6 +243,7 @@ class MainViewController: UIViewController {
         botonRecolocarTableroJuego.isHidden = true
         timerLabel.isHidden = false
         textoAyuda.isHidden = true
+        barraDeProgresion.isHidden = false
         
         modoDeJuegoActual = .memorizacion
         
@@ -413,6 +418,7 @@ class MainViewController: UIViewController {
             casilla.position = SIMD3(x: round(casilla.position.x * 10000) / 10000, y: round(casilla.position.y * 10000) / 10000, z: round(casilla.position.z * 10000) / 10000)
         }
     }
+    
     func cargarEscenaPrototipo(fase: fasesTotales) {
         
         if fase == .easy {
@@ -422,12 +428,14 @@ class MainViewController: UIViewController {
         } else if fase == .medium {
             numeroRandom = Int.random(in: 0...(arrayPrototiposMediumTotales.count - 1))
             escenaPrototipo = arrayPrototiposMediumTotales[numeroRandom]
+            print(escenaPrototipo!)
+            print(numeroRandom!)
             
         } else if fase == .hard {
             numeroRandom = Int.random(in: 0...(arrayPrototiposHardTotales.count - 1))
             escenaPrototipo = arrayPrototiposHardTotales[numeroRandom]
             
-        } else {
+        } else if fase == .insane {
             numeroRandom = Int.random(in: 0...(arrayPrototiposInsaneTotales.count - 1))
             escenaPrototipo = arrayPrototiposInsaneTotales[numeroRandom]
         }
@@ -495,24 +503,27 @@ class MainViewController: UIViewController {
     //
     
     func colocarBloqueSobreTablero(_ entity: Entity?) {
-           guard entity != nil else { return }
-           
-        if modoQuitarBloques == false {
-            let nuevoBloque = crearTipoDeBloqueSeleccionado()
-            let posicionBloqueNuevo = SIMD3(x: (entity?.position.x)!, y: (entity?.position.y)! + 0.04, z: (entity?.position.z)!)
-            nuevoBloque.position = posicionBloqueNuevo
+        if modoDeJuegoActual == .construccion {
             
-            tableroJuego.addChild(nuevoBloque)
-
-            if arrayDePosicionesDeBloquesTotales.contains(posicionBloqueNuevo) {
-                print("¡Ya hay un bloque ahí!")
-                tableroJuego.removeChild(nuevoBloque)
-            
-            } else {
-                print("¡Un nuevo bloque ha sido colocado con éxito!")
-                crearTodosLosPanelesDelBloque(bloque: nuevoBloque)
+            guard entity != nil else { return }
+               
+            if modoQuitarBloques == false {
+                let nuevoBloque = crearTipoDeBloqueSeleccionado()
+                let posicionBloqueNuevo = SIMD3(x: (entity?.position.x)!, y: (entity?.position.y)! + 0.04, z: (entity?.position.z)!)
+                nuevoBloque.position = posicionBloqueNuevo
                 
-                introducirPosicionDelBloqueNuevo(posicionBloqueNuevo: posicionBloqueNuevo)
+                tableroJuego.addChild(nuevoBloque)
+
+                if arrayDePosicionesDeBloquesTotales.contains(posicionBloqueNuevo) {
+                    print("¡Ya hay un bloque ahí!")
+                    tableroJuego.removeChild(nuevoBloque)
+                
+                } else {
+                    print("¡Un nuevo bloque ha sido colocado con éxito!")
+                    crearTodosLosPanelesDelBloque(bloque: nuevoBloque)
+                    
+                    introducirPosicionDelBloqueNuevo(posicionBloqueNuevo: posicionBloqueNuevo)
+                }
             }
         }
     }
@@ -640,13 +651,14 @@ class MainViewController: UIViewController {
         crearPanelLateralDerechaDelBloque(bloque: bloque)
         crearPanelLateralIzquierdaDelBloque(bloque: bloque)
     }
+    
     func crearPanel() -> ModelEntity {
         var material = SimpleMaterial()
         material.metallic = .float(0.0)
         material.roughness = .float(0.0)
         material.baseColor = .color(UIColor.gray.withAlphaComponent(0.35))
         
-        let panel = ModelEntity.init(mesh: .generatePlane(width: 0.07, height: 0.07))
+        let panel = ModelEntity.init(mesh: .generatePlane(width: 0.065, height: 0.065))
         panel.model?.materials = [material]
         
         panel.generateCollisionShapes(recursive: true)
@@ -711,7 +723,7 @@ class MainViewController: UIViewController {
     
     
     //
-    // Ocultar o Mostrar Interfaz y Pasar de Nivel
+    // Ocultar o Mostrar Interfaz, Pasar de Nivel y Animaciones
     //
     
     func ocultarInterfaz() {
@@ -736,6 +748,44 @@ class MainViewController: UIViewController {
         botonModoBloqueVerde.isHidden = false
     }
     
+    func animacionCorrectoPasarNivel() {
+        imagenTick.isHidden = false
+        UIView.animate(withDuration: 0.75, delay: 0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
+            self.imagenTick.transform = CGAffineTransform(scaleX: 10, y: 10)
+        }, completion: { finished in
+            self.animacionQuitarTickPasarNivel()
+        })
+    }
+    
+    func animacionQuitarTickPasarNivel() {
+        UIView.animate(withDuration: 0.4, delay: 1.5, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            self.imagenTick.transform = CGAffineTransform(scaleX: 2.5, y: 2.5)
+        }, completion: { finished in
+            self.imagenTick.isHidden = true
+            self.modoDeJuegoActual = .memorizacion
+            self.ocultarInterfaz()
+            self.pasarAlSiguenteNivel()
+        })
+    }
+    
+    func animacionIncorrectoGameOver() {
+        imagenCross.isHidden = false
+        UIView.animate(withDuration: 0.75, delay: 0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
+            self.imagenCross.transform = CGAffineTransform(scaleX: 10, y: 10)
+        }, completion: { finished in
+            self.animacionQuitarCrossGameOver()
+        })
+    }
+    
+    func animacionQuitarCrossGameOver() {
+        UIView.animate(withDuration: 0.4, delay: 1.5, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            self.imagenCross.transform = CGAffineTransform(scaleX: 2.5, y: 2.5)
+        }, completion: { finished in
+            self.imagenCross.isHidden = true
+            self.perform(#selector(self.animacionGameOver), with: nil, afterDelay: 0.75)
+        })
+    }
+    
     func animacionPanelFinal() {
         panelFinal.isHidden = false
         UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
@@ -747,7 +797,7 @@ class MainViewController: UIViewController {
         animacionPanelFinal()
     }
     
-    func animacionGameOver() {
+    @objc func animacionGameOver() {
         animacionPanelFinal()
     }
     
@@ -781,50 +831,63 @@ class MainViewController: UIViewController {
             if nivelFaseActual == .easy1 {
                 nivelFaseActual = .easy2
                 faseActual = .easy
+                //barraDeProgresion.image = UIImage(named: "")
             } else if nivelFaseActual == .easy2 {
                 nivelFaseActual = .easy3
                 faseActual = .easy
+                //barraDeProgresion.image = UIImage(named: "")
             } else if nivelFaseActual == .easy3 {
                 nivelFaseActual = .medium1
                 faseActual = .medium
+                //barraDeProgresion.image = UIImage(named: "")
             }
         } else if nivelFaseActual == .medium1 || nivelFaseActual == .medium2 || nivelFaseActual == .medium3 {
             
             if nivelFaseActual == .medium1 {
                 nivelFaseActual = .medium2
                 faseActual = .medium
+                //barraDeProgresion.image = UIImage(named: "")
             } else if nivelFaseActual == .medium2 {
                 nivelFaseActual = .medium3
                 faseActual = .medium
+                //barraDeProgresion.image = UIImage(named: "")
             } else if nivelFaseActual == .medium3 {
                 nivelFaseActual = .hard1
                 faseActual = .hard
+                //barraDeProgresion.image = UIImage(named: "")
             }
         } else if nivelFaseActual == .hard1 || nivelFaseActual == .hard2 || nivelFaseActual == .hard3 {
             
             if nivelFaseActual == .hard1 {
                 nivelFaseActual = .hard2
                 faseActual = .hard
+                //barraDeProgresion.image = UIImage(named: "")
             } else if nivelFaseActual == .hard2 {
                 nivelFaseActual = .hard3
                 faseActual = .hard
+                //barraDeProgresion.image = UIImage(named: "")
             } else if nivelFaseActual == .hard3 {
                 nivelFaseActual = .insane1
                 faseActual = .insane
+                //barraDeProgresion.image = UIImage(named: "")
             }
         } else if nivelFaseActual == .insane1 || nivelFaseActual == .insane2 || nivelFaseActual == .insane3 {
             
             if nivelFaseActual == .insane1 {
                 nivelFaseActual = .insane2
                 faseActual = .insane
+                //barraDeProgresion.image = UIImage(named: "")
             } else if nivelFaseActual == .insane2 {
                 nivelFaseActual = .insane3
                 faseActual = .insane
+                //barraDeProgresion.image = UIImage(named: "")
             } else if nivelFaseActual == .insane3 {
                 nivelFaseActual = .win
                 faseActual = .win
-                // Añadir funcion de animacion de ¡WIN!
+                modoDeJuegoActual = .pausa
+                //barraDeProgresion.image = UIImage(named: "")
                 
+                animacionWin()
             }
         }
         
@@ -839,34 +902,8 @@ class MainViewController: UIViewController {
         } else if faseActual == .insane {
             empezarTimer(tiempo: 50)
         }
-
     }
     
-    
-    func comprobarArrays(arrayPosiciones: [SIMD3<Float>], arraySolucion: [SIMD3<Float>]) -> Bool {
-        
-        var correctoIncorrecto: Bool!
-        var indexCorrectos: [Int]! = []
-        
-        if arrayPosiciones.count == arraySolucion.count {
-            for (index, posicion) in arrayPosiciones.enumerated() {
-                for (_, posicionSolucion) in arraySolucion.enumerated() {
-                    if posicion == posicionSolucion {
-                        indexCorrectos.append(index)
-                    }
-                }
-            }
-            if indexCorrectos.count == arraySolucion.count {
-                correctoIncorrecto = true
-            } else {
-                correctoIncorrecto = false
-            }
-        } else {
-            correctoIncorrecto = false
-        }
-        
-        return correctoIncorrecto
-    }
     
     //
     // Revisar la Solución
@@ -874,7 +911,6 @@ class MainViewController: UIViewController {
     
     func revisarSolucion() -> Bool {
 
-        let numeroDePrototipo = (numeroRandom + 1)
         var correctoIncorrecto: Bool!
         
         if faseActual == .easy {
@@ -926,7 +962,7 @@ class MainViewController: UIViewController {
             }
             
         } else if faseActual == .medium {
-            if numeroDePrototipo == 1 {
+            if escenaPrototipo == arrayPrototipoMedium1 {
                 if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesMediumPrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosMediumPrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosMediumPrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesMediumPrototipo1) {
                     print("¡Correcto!")
                     correctoIncorrecto = true
@@ -934,7 +970,7 @@ class MainViewController: UIViewController {
                     print("¡Incorrecto! Inténtalo de nuevo")
                     correctoIncorrecto = false
                 }
-            } else if numeroDePrototipo == 2 {
+            } else if escenaPrototipo == arrayPrototipoMedium2 {
                 if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesMediumPrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosMediumPrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosMediumPrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesMediumPrototipo2){
                     print("¡Correcto!")
                     correctoIncorrecto = true
@@ -942,7 +978,7 @@ class MainViewController: UIViewController {
                     print("¡Incorrecto! Inténtalo de nuevo")
                     correctoIncorrecto = false
                 }
-            } else if numeroDePrototipo == 3 {
+            } else if escenaPrototipo == arrayPrototipoMedium3 {
                 if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesMediumPrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosMediumPrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosMediumPrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesMediumPrototipo3){
                     print("¡Correcto!")
                     correctoIncorrecto = true
@@ -950,7 +986,7 @@ class MainViewController: UIViewController {
                     print("¡Incorrecto! Inténtalo de nuevo")
                     correctoIncorrecto = false
                 }
-            } else if numeroDePrototipo == 4 {
+            } else if escenaPrototipo == arrayPrototipoMedium4 {
                 if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesMediumPrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosMediumPrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosMediumPrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesMediumPrototipo4){
                     print("¡Correcto!")
                     correctoIncorrecto = true
@@ -958,7 +994,7 @@ class MainViewController: UIViewController {
                     print("¡Incorrecto! Inténtalo de nuevo")
                     correctoIncorrecto = false
                 }
-            } else if numeroDePrototipo == 5 {
+            } else if escenaPrototipo == arrayPrototipoMedium5 {
                 if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesMediumPrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosMediumPrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosMediumPrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesMediumPrototipo5){
                     print("¡Correcto!")
                     correctoIncorrecto = true
@@ -973,7 +1009,7 @@ class MainViewController: UIViewController {
             }
                 
         } else if faseActual == .hard {
-            if numeroDePrototipo == 1 {
+            if escenaPrototipo == arrayPrototipoHard1 {
                 if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesHardPrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosHardPrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosHardPrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesHardPrototipo1) {
                     print("¡Correcto!")
                     correctoIncorrecto = true
@@ -981,7 +1017,7 @@ class MainViewController: UIViewController {
                     print("¡Incorrecto! Inténtalo de nuevo")
                     correctoIncorrecto = false
                 }
-            } else if numeroDePrototipo == 2 {
+            } else if escenaPrototipo == arrayPrototipoHard2 {
                 if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesHardPrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosHardPrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosHardPrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesHardPrototipo2){
                     print("¡Correcto!")
                     correctoIncorrecto = true
@@ -989,7 +1025,7 @@ class MainViewController: UIViewController {
                     print("¡Incorrecto! Inténtalo de nuevo")
                     correctoIncorrecto = false
                 }
-            } else if numeroDePrototipo == 3 {
+            } else if escenaPrototipo == arrayPrototipoHard3 {
                 if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesHardPrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosHardPrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosHardPrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesHardPrototipo3){
                     print("¡Correcto!")
                     correctoIncorrecto = true
@@ -997,7 +1033,7 @@ class MainViewController: UIViewController {
                     print("¡Incorrecto! Inténtalo de nuevo")
                     correctoIncorrecto = false
                 }
-            } else if numeroDePrototipo == 4 {
+            } else if escenaPrototipo == arrayPrototipoHard4 {
                 if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesHardPrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosHardPrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosHardPrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesHardPrototipo4){
                     print("¡Correcto!")
                     correctoIncorrecto = true
@@ -1005,7 +1041,7 @@ class MainViewController: UIViewController {
                     print("¡Incorrecto! Inténtalo de nuevo")
                     correctoIncorrecto = false
                 }
-            } else if numeroDePrototipo == 5 {
+            } else if escenaPrototipo == arrayPrototipoHard5 {
                 if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesHardPrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosHardPrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosHardPrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesHardPrototipo5){
                     print("¡Correcto!")
                     correctoIncorrecto = true
@@ -1020,7 +1056,7 @@ class MainViewController: UIViewController {
             }
             
         } else if faseActual == .insane {
-            if numeroDePrototipo == 1 {
+            if escenaPrototipo == arrayPrototipoInsane1 {
                 if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesInsanePrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosInsanePrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosInsanePrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesInsanePrototipo1) {
                     print("¡Correcto!")
                     correctoIncorrecto = true
@@ -1028,7 +1064,7 @@ class MainViewController: UIViewController {
                     print("¡Incorrecto! Inténtalo de nuevo")
                     correctoIncorrecto = false
                 }
-            } else if numeroDePrototipo == 2 {
+            } else if escenaPrototipo == arrayPrototipoInsane2 {
                 if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesInsanePrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosInsanePrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosInsanePrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesInsanePrototipo2){
                     print("¡Correcto!")
                     correctoIncorrecto = true
@@ -1036,7 +1072,7 @@ class MainViewController: UIViewController {
                     print("¡Incorrecto! Inténtalo de nuevo")
                     correctoIncorrecto = false
                 }
-            } else if numeroDePrototipo == 3 {
+            } else if escenaPrototipo == arrayPrototipoInsane3 {
                 if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesInsanePrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosInsanePrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosInsanePrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesInsanePrototipo3){
                     print("¡Correcto!")
                     correctoIncorrecto = true
@@ -1044,7 +1080,7 @@ class MainViewController: UIViewController {
                     print("¡Incorrecto! Inténtalo de nuevo")
                     correctoIncorrecto = false
                 }
-            } else if numeroDePrototipo == 4 {
+            } else if escenaPrototipo == arrayPrototipoInsane4 {
                 if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesInsanePrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosInsanePrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosInsanePrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesInsanePrototipo4){
                     print("¡Correcto!")
                     correctoIncorrecto = true
@@ -1052,7 +1088,7 @@ class MainViewController: UIViewController {
                     print("¡Incorrecto! Inténtalo de nuevo")
                     correctoIncorrecto = false
                 }
-            } else if numeroDePrototipo == 5 {
+            } else if escenaPrototipo == arrayPrototipoInsane5 {
                 if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesInsanePrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosInsanePrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosInsanePrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesInsanePrototipo5){
                     print("¡Correcto!")
                     correctoIncorrecto = true
@@ -1065,6 +1101,31 @@ class MainViewController: UIViewController {
             if correctoIncorrecto == true {
                 arrayPrototiposInsaneTotales.remove(at: numeroRandom)
             }
+        }
+        
+        return correctoIncorrecto
+    }
+    
+    func comprobarArrays(arrayPosiciones: [SIMD3<Float>], arraySolucion: [SIMD3<Float>]) -> Bool {
+        
+        var correctoIncorrecto: Bool!
+        var indexCorrectos: [Int]! = []
+        
+        if arrayPosiciones.count == arraySolucion.count {
+            for (index, posicion) in arrayPosiciones.enumerated() {
+                for (_, posicionSolucion) in arraySolucion.enumerated() {
+                    if posicion == posicionSolucion {
+                        indexCorrectos.append(index)
+                    }
+                }
+            }
+            if indexCorrectos.count == arraySolucion.count {
+                correctoIncorrecto = true
+            } else {
+                correctoIncorrecto = false
+            }
+        } else {
+            correctoIncorrecto = false
         }
         
         return correctoIncorrecto
