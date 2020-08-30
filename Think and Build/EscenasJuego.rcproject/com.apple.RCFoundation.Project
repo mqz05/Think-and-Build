@@ -5248,7 +5248,7 @@
                           "font",
                           {
                             "typeName" : "String",
-                            "value" : "ChalkboardSE-Regular"
+                            "value" : "ChalkboardSE-Bold"
                           }
                         ],
                         [
@@ -6326,162 +6326,7 @@
                     }
                   },
                   "8F46A9BF-861A-4B10-A20E-83D363A96EC2" : null,
-                  "8F29435F-90F0-4C93-A950-03D9B16F32C2" : {
-                    "overrides" : {
-                      "arguments" : [
-                        [
-                          "boundHeight",
-                          {
-                            "typeName" : "Double",
-                            "value" : 1.5
-                          }
-                        ],
-                        [
-                          "boundWidth",
-                          {
-                            "typeName" : "Double",
-                            "value" : 6
-                          }
-                        ],
-                        [
-                          "depth",
-                          {
-                            "typeName" : "Double",
-                            "value" : 0.22
-                          }
-                        ],
-                        [
-                          "font",
-                          {
-                            "typeName" : "String",
-                            "value" : "Helvetica"
-                          }
-                        ],
-                        [
-                          "hasBackground",
-                          {
-                            "typeName" : "Bool",
-                            "value" : false
-                          }
-                        ],
-                        [
-                          "height",
-                          {
-                            "typeName" : "Double",
-                            "value" : 0.10000000000000001
-                          }
-                        ],
-                        [
-                          "horizontalAlignment",
-                          {
-                            "typeName" : "String",
-                            "value" : "center"
-                          }
-                        ],
-                        [
-                          "material",
-                          {
-                            "typeName" : "String",
-                            "value" : "standard"
-                          }
-                        ],
-                        [
-                          "materialColor",
-                          {
-                            "typeName" : "double4",
-                            "value" : [
-                              1,
-                              1,
-                              1,
-                              1
-                            ]
-                          }
-                        ],
-                        [
-                          "oneLine",
-                          {
-                            "typeName" : "Bool",
-                            "value" : false
-                          }
-                        ],
-                        [
-                          "precision",
-                          {
-                            "typeName" : "String",
-                            "value" : "normal"
-                          }
-                        ],
-                        [
-                          "text",
-                          {
-                            "typeName" : "String",
-                            "value" : "(Z, X)"
-                          }
-                        ],
-                        [
-                          "verticalAlignment",
-                          {
-                            "typeName" : "String",
-                            "value" : "bottom"
-                          }
-                        ],
-                        [
-                          "verticalPosition",
-                          {
-                            "typeName" : "String",
-                            "value" : "middle"
-                          }
-                        ],
-                        [
-                          "wordWrap",
-                          {
-                            "typeName" : "Bool",
-                            "value" : true
-                          }
-                        ]
-                      ],
-                      "factory" : {
-                        "identifier" : "com.apple.rc.af.CoreAssetFactories.Text",
-                        "version" : "0.0"
-                      },
-                      "runtimeAttributes" : [
-                        [
-                          "RuntimeIdentifier",
-                          {
-                            "typeName" : "UUID",
-                            "value" : "4283F34C-1840-47C4-B5F2-C83E39BFCB8A"
-                          }
-                        ],
-                        [
-                          "entityName",
-                          {
-                            "typeName" : "String",
-                            "value" : "Múltiple"
-                          }
-                        ]
-                      ]
-                    },
-                    "transform" : {
-                      "matrix" : [
-                        0.99997222423553467,
-                        0,
-                        0,
-                        0,
-                        0,
-                        6.7291701270733029e-05,
-                        -0.99997115135192871,
-                        0,
-                        0,
-                        0.99997353553771973,
-                        6.7291861341800541e-05,
-                        0,
-                        0.40259158611297607,
-                        0.0024246091488748789,
-                        -0.43622753024101257,
-                        1
-                      ]
-                    }
-                  },
+                  "8F29435F-90F0-4C93-A950-03D9B16F32C2" : null,
                   "8F222060-BFA9-4FA0-B16C-2CB035805589" : null,
                   "9A0BF390-C92D-4002-94E5-6F7F5D6033F0" : null,
                   "9A04FEA0-FA4E-4E6E-890D-85785AEA7451" : null,
@@ -7910,7 +7755,7 @@
                           "font",
                           {
                             "typeName" : "String",
-                            "value" : "ChalkboardSE-Regular"
+                            "value" : "ChalkboardSE-Bold"
                           }
                         ],
                         [
@@ -11009,7 +10854,7 @@
                           "font",
                           {
                             "typeName" : "String",
-                            "value" : "ChalkboardSE-Regular"
+                            "value" : "ChalkboardSE-Bold"
                           }
                         ],
                         [
@@ -11665,7 +11510,7 @@
                           "font",
                           {
                             "typeName" : "String",
-                            "value" : "ChalkboardSE-Regular"
+                            "value" : "ChalkboardSE-Bold"
                           }
                         ],
                         [
@@ -11810,21 +11655,21 @@
               "title" : "Tablero Principal de Juego",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.99799656867980957,
-                  -4.3958436890534358e-07,
-                  -0.06326863169670105,
+                  0.99799650907516479,
+                  -4.3958434048363415e-07,
+                  -0.063268624246120453,
                   0,
-                  -0.06298944354057312,
-                  0.093819513916969299,
-                  -0.9935944676399231,
+                  -0.062989450991153717,
+                  0.093819528818130493,
+                  -0.99359458684921265,
                   0,
-                  0.0059362617321312428,
-                  0.99558925628662109,
-                  0.093631602823734283,
+                  0.0059362612664699554,
+                  0.99558919668197632,
+                  0.093631595373153687,
                   0,
-                  0.40881267189979553,
-                  1.8086721897125244,
-                  0.0029909014701843262,
+                  0.26541057229042053,
+                  1.2877705097198486,
+                  -0.088584840297698975,
                   1
                 ],
                 "sceneTransform" : [

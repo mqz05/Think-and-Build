@@ -41,6 +41,7 @@ class MainViewController: UIViewController {
     
     // Timer
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var marcoTimer: UIImageView!
     
     var timer: Timer?
     var tiempoTotal = 0
@@ -56,6 +57,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var switchModoQuitarBloques: UISwitch!
     @IBOutlet weak var marcoModoQuitarBloques: UIImageView!
     
+    @IBOutlet weak var marcoBloques: UIImageView!
+    
     @IBOutlet weak var botonModoBloqueAzul: UIButton!
     @IBOutlet weak var botonModoBloqueRojo: UIButton!
     @IBOutlet weak var botonModoBloqueAmarillo: UIButton!
@@ -69,6 +72,12 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var imagenTick: UIImageView!
     @IBOutlet weak var imagenCross: UIImageView!
+    
+    @IBOutlet weak var imagenWin: UIImageView!
+    @IBOutlet weak var imagenGameOver: UIImageView!
+    
+    @IBOutlet weak var imagenCoronaWin: UIImageView!
+    @IBOutlet weak var botonHome: UIButton!
     
     @IBOutlet weak var panelFinal: UIImageView!
     
@@ -103,6 +112,7 @@ class MainViewController: UIViewController {
         arView.session.run(superficiePlana)
         
         timerLabel.font = UIFont(name: "ChalkboardSE-Bold", size: 30)
+        timerLabel.textColor = UIColor.black
         textoAyuda.font = UIFont(name: "ChalkboardSE-Bold", size: 20)
         textoAyuda.text = "Try to find a flat surface with enough light and move around slowly \nwith the device until the board is placed \n(Make sure the board is placed before pressing READY)"
         
@@ -250,6 +260,7 @@ class MainViewController: UIViewController {
         botonReady.isHidden = true
         botonRecolocarTableroJuego.isHidden = true
         timerLabel.isHidden = false
+        marcoTimer.isHidden = false
         textoAyuda.isHidden = true
         barraDeProgresion.isHidden = false
         
@@ -412,6 +423,8 @@ class MainViewController: UIViewController {
         botonModoBloqueRojo.isHidden = true
         botonModoBloqueAmarillo.isHidden = true
         botonModoBloqueVerde.isHidden = true
+        marcoTimer.isHidden = true
+        marcoBloques.isHidden = true
         timerLabel.isHidden = true
         
         self.arView.scene.anchors.removeAll()
@@ -739,6 +752,7 @@ class MainViewController: UIViewController {
         botonModoBloqueRojo.isHidden = true
         botonModoBloqueAmarillo.isHidden = true
         botonModoBloqueVerde.isHidden = true
+        marcoBloques.isHidden = true
     }
     
     func mostrarInterfaz() {
@@ -750,6 +764,7 @@ class MainViewController: UIViewController {
         botonModoBloqueRojo.isHidden = false
         botonModoBloqueAmarillo.isHidden = false
         botonModoBloqueVerde.isHidden = false
+        marcoBloques.isHidden = false
     }
     
     func animacionCorrectoPasarNivel() {
@@ -758,7 +773,6 @@ class MainViewController: UIViewController {
             self.imagenTick.transform = CGAffineTransform(scaleX: 10, y: 10)
         }, completion: { finished in
             self.animacionQuitarTickPasarNivel()
-            
         })
     }
     
@@ -794,16 +808,27 @@ class MainViewController: UIViewController {
     func animacionPanelFinal() {
         panelFinal.isHidden = false
         UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
-            self.panelFinal.transform = CGAffineTransform(scaleX: 15, y: 15)
+            self.panelFinal.transform = CGAffineTransform(scaleX: 18, y: 18)
         }, completion: nil)
     }
     
     func animacionWin() {
         animacionPanelFinal()
+        UIView.animate(withDuration: 1, delay: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            self.imagenWin.alpha = 1
+            self.imagenCoronaWin.alpha = 1
+        }, completion: { finished in
+            self.botonHome.isHidden = false
+        })
     }
     
     @objc func animacionGameOver() {
         animacionPanelFinal()
+        UIView.animate(withDuration: 1, delay: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            self.imagenGameOver.alpha = 1
+        }, completion: { finished in
+            self.botonHome.isHidden = false
+        })
     }
     
     func animacionSubirBarraDeProgreso1(siguienteBarraDeProgreso: String) {
