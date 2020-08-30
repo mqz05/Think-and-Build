@@ -137,6 +137,13 @@
                                     <action selector="pasarDeNivel:" destination="cT5-JQ-hdH" eventType="touchUpInside" id="Nu5-TO-DFH"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Timer" translatesAutoresizingMaskIntoConstraints="NO" id="pfw-J2-DYz" userLabel="Marco Timer">
+                                <rect key="frame" x="84" y="657" width="172" height="157"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="172" id="RTa-Iy-VoO"/>
+                                    <constraint firstAttribute="height" constant="157" id="vai-nV-2ws"/>
+                                </constraints>
+                            </imageView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Panel Final" translatesAutoresizingMaskIntoConstraints="NO" id="4Sc-mu-7HX" userLabel="Panel Final">
                                 <rect key="frame" x="620" y="400" width="58" height="36"/>
                             </imageView>
@@ -220,22 +227,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jx6-CH-9oh" userLabel="Timer">
-                                <rect key="frame" x="115" y="715" width="91" height="54"/>
+                                <rect key="frame" x="119" y="724" width="86" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="91" id="8Fy-OY-sFK"/>
-                                    <constraint firstAttribute="height" constant="54" id="nnc-Rp-wZg"/>
+                                    <constraint firstAttribute="width" constant="86" id="8Fy-OY-sFK"/>
+                                    <constraint firstAttribute="height" constant="35" id="nnc-Rp-wZg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Timer" translatesAutoresizingMaskIntoConstraints="NO" id="pfw-J2-DYz" userLabel="Marco Timer">
-                                <rect key="frame" x="84" y="657" width="172" height="157"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="172" id="RTa-Iy-VoO"/>
-                                    <constraint firstAttribute="height" constant="157" id="vai-nV-2ws"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -252,11 +252,11 @@
                             <constraint firstItem="4Sc-mu-7HX" firstAttribute="leading" secondItem="Ngd-a0-EAX" secondAttribute="leading" constant="620" id="Bdd-PX-zgU"/>
                             <constraint firstItem="PGj-zt-6GV" firstAttribute="trailing" secondItem="ReY-hk-O6c" secondAttribute="trailing" id="ByX-Xg-kfO"/>
                             <constraint firstItem="4Sc-mu-7HX" firstAttribute="top" secondItem="Ngd-a0-EAX" secondAttribute="top" constant="400" id="DKI-yR-OCO"/>
-                            <constraint firstItem="Ngd-a0-EAX" firstAttribute="bottom" secondItem="Jx6-CH-9oh" secondAttribute="bottom" constant="45" id="E0J-SK-SBW"/>
+                            <constraint firstItem="Ngd-a0-EAX" firstAttribute="bottom" secondItem="Jx6-CH-9oh" secondAttribute="bottom" constant="55" id="E0J-SK-SBW"/>
                             <constraint firstItem="4YP-Aq-QZP" firstAttribute="top" secondItem="8XE-vs-hf8" secondAttribute="top" id="Ekz-XT-JUl"/>
                             <constraint firstItem="P3o-XX-Z1e" firstAttribute="centerX" secondItem="PJY-Ch-NlA" secondAttribute="centerX" constant="8" id="EvX-1C-gei"/>
                             <constraint firstItem="4Sc-mu-7HX" firstAttribute="centerY" secondItem="hPD-Za-99h" secondAttribute="centerY" constant="1" id="FVp-uU-kJo"/>
-                            <constraint firstItem="reo-na-EZe" firstAttribute="leading" secondItem="Jx6-CH-9oh" secondAttribute="trailing" constant="341" id="G2F-qr-sf1"/>
+                            <constraint firstItem="reo-na-EZe" firstAttribute="leading" secondItem="Jx6-CH-9oh" secondAttribute="trailing" constant="342" id="G2F-qr-sf1"/>
                             <constraint firstItem="ReY-hk-O6c" firstAttribute="leading" secondItem="Ngd-a0-EAX" secondAttribute="leading" constant="525" id="G8L-kf-Ydz"/>
                             <constraint firstItem="A3H-mv-4uX" firstAttribute="leading" secondItem="PNX-fA-bJg" secondAttribute="leading" id="HOc-vY-0tk"/>
                             <constraint firstItem="8XE-vs-hf8" firstAttribute="leading" secondItem="Ngd-a0-EAX" secondAttribute="leading" constant="45" id="Hdf-D1-BCb"/>
