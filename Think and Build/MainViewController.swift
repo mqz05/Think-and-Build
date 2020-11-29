@@ -444,19 +444,19 @@ class MainViewController: UIViewController {
     func cargarEscenaPrototipo(fase: fasesTotales) {
         
         if fase == .easy {
-            numeroRandom = Int.random(in: 0...(arrayPrototiposEasyTotales.count - 1))
+            numeroRandom = generarNumeroRandom(rango: 0...(arrayPrototiposEasyTotales.count - 1))
             escenaPrototipo = arrayPrototiposEasyTotales[numeroRandom]
             
         } else if fase == .medium {
-            numeroRandom = Int.random(in: 0...(arrayPrototiposMediumTotales.count - 1))
+            numeroRandom = generarNumeroRandom(rango: 0...(arrayPrototiposMediumTotales.count - 1))
             escenaPrototipo = arrayPrototiposMediumTotales[numeroRandom]
             
         } else if fase == .hard {
-            numeroRandom = Int.random(in: 0...(arrayPrototiposHardTotales.count - 1))
+            numeroRandom = generarNumeroRandom(rango: 0...(arrayPrototiposHardTotales.count - 1))
             escenaPrototipo = arrayPrototiposHardTotales[numeroRandom]
             
         } else if fase == .insane {
-            numeroRandom = Int.random(in: 0...(arrayPrototiposInsaneTotales.count - 1))
+            numeroRandom = generarNumeroRandom(rango: 0...(arrayPrototiposInsaneTotales.count - 1))
             escenaPrototipo = arrayPrototiposInsaneTotales[numeroRandom]
         }
         

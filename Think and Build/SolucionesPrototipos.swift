@@ -150,3 +150,16 @@ var arrayPrototipoInsane5 = [arraySolucionesBloquesAzulesInsanePrototipo5, array
 
 var arrayPrototiposInsaneTotales = [arrayPrototipoInsane1, arrayPrototipoInsane2, arrayPrototipoInsane3, arrayPrototipoInsane4, arrayPrototipoInsane5]
 
+
+
+func generarPrototipoRandom(prototipo1: Array<SIMD3<Float>>, prototipo2: Array<SIMD3<Float>>) {
+    let numeroBloquesPrototipo1 = prototipo1.count
+    let numeroBloquesPrototipo2 = prototipo2.count
+    
+    let numeroRandom = generarNumeroRandom(rango: 1...3)
+}
+
+func generarNumeroRandom(rango: ClosedRange<Int>) -> Int {
+    let numeroRandom = Int.random(in: rango)
+    return numeroRandom
+}
