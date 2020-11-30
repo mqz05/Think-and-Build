@@ -119,6 +119,9 @@ class MainViewController: UIViewController {
         textoAyuda.font = UIFont(name: "ChalkboardSE-Bold", size: 20)
         textoAyuda.text = "Try to find a flat surface with enough light and move around slowly \nwith the device until the board is placed \n(Make sure the board is placed before pressing READY)"
         
+        faseActual = .start
+        nivelFaseActual = .start
+        
         cargarTableroJuego()
     }
     
