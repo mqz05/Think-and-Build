@@ -219,6 +219,7 @@
                                 </constraints>
                                 <state key="normal" image="Boton Home"/>
                                 <connections>
+                                    <action selector="acabarPartida:" destination="cT5-JQ-hdH" eventType="touchUpInside" id="D2v-Qx-zeC"/>
                                     <segue destination="e77-QE-NCc" kind="showDetail" id="04l-o2-gIb"/>
                                 </connections>
                             </button>

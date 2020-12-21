@@ -276,6 +276,15 @@ class MainViewController: UIViewController {
         pasarAlSiguenteNivel()
     }
     
+    @IBAction func acabarPartida(_ sender: Any) {
+        arView.session.pause()
+        arView.scene.anchors.removeAll()
+        arView.isHidden = true
+        arView.isUserInteractionEnabled = false
+        tableroJuego.children.removeAll()
+        self.removeFromParent()
+    }
+    
     @IBAction func acciónModoQuitarBloques(_ sender: Any) {
         if (sender as AnyObject).isOn {
             modoQuitarBloques = true
@@ -532,7 +541,7 @@ class MainViewController: UIViewController {
                
             if modoQuitarBloques == false {
                 let nuevoBloque = crearTipoDeBloqueSeleccionado()
-                let posicionBloqueNuevo = SIMD3(x: (entity?.position.x)!, y: (entity?.position.y)! + 0.04, z: (entity?.position.z)!)
+                let posicionBloqueNuevo: SIMD3 = SIMD3(x: (entity?.position.x)!, y: (entity?.position.y)! + 0.04, z: (entity?.position.z)!)
                 nuevoBloque.position = posicionBloqueNuevo
                 
                 tableroJuego.addChild(nuevoBloque)
@@ -556,7 +565,7 @@ class MainViewController: UIViewController {
         
         if modoQuitarBloques == false {
             let nuevoBloque = crearTipoDeBloqueSeleccionado()
-            let posicionBloqueNuevo = SIMD3(x: (entity?.position.x)!, y: round(((entity?.position.y)! + 0.037) * 10000) / 10000, z: (entity?.position.z)!)
+            let posicionBloqueNuevo: SIMD3 = SIMD3(x: (entity?.position.x)!, y: round(((entity?.position.y)! + 0.037) * 10000) / 10000, z: (entity?.position.z)!)
             nuevoBloque.position = posicionBloqueNuevo
             
             tableroJuego.addChild(nuevoBloque)
@@ -578,7 +587,7 @@ class MainViewController: UIViewController {
            guard entity != nil else { return }
         if modoQuitarBloques == false {
             let nuevoBloque = crearTipoDeBloqueSeleccionado()
-            let posicionBloqueNuevo = SIMD3(x: (entity?.position.x)!, y: round(((entity?.position.y)!) * 10000) / 10000, z: round(((entity?.position.z)! - 0.037) * 10000) / 10000)
+            let posicionBloqueNuevo: SIMD3 = SIMD3(x: (entity?.position.x)!, y: round(((entity?.position.y)!) * 10000) / 10000, z: round(((entity?.position.z)! - 0.037) * 10000) / 10000)
             nuevoBloque.position = posicionBloqueNuevo
             
             tableroJuego.addChild(nuevoBloque)
@@ -600,7 +609,7 @@ class MainViewController: UIViewController {
            guard entity != nil else { return }
         if modoQuitarBloques == false {
             let nuevoBloque = crearTipoDeBloqueSeleccionado()
-            let posicionBloqueNuevo = SIMD3(x: (entity?.position.x)!, y: round(((entity?.position.y)!) * 10000) / 10000, z: round(((entity?.position.z)! + 0.037) * 10000) / 10000)
+            let posicionBloqueNuevo: SIMD3 = SIMD3(x: (entity?.position.x)!, y: round(((entity?.position.y)!) * 10000) / 10000, z: round(((entity?.position.z)! + 0.037) * 10000) / 10000)
             nuevoBloque.position = posicionBloqueNuevo
             
             tableroJuego.addChild(nuevoBloque)

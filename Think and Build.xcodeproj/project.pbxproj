@@ -320,6 +320,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=100 -Xfrontend -warn-long-expression-type-checking=100";
 				PRODUCT_BUNDLE_IDENTIFIER = "muqi.Think-and-Build";
 				PRODUCT_NAME = "Think & Build";
 				SWIFT_VERSION = 5.0;
