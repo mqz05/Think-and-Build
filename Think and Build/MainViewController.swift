@@ -111,6 +111,9 @@ class MainViewController: UIViewController {
         superficiePlana.planeDetection = .horizontal
         arView.session.run(superficiePlana)
         
+        nivelFaseActual = .start
+        faseActual = .start
+        
         timerLabel.font = UIFont(name: "ChalkboardSE-Bold", size: 30)
         timerLabel.textColor = UIColor.black
         textoAyuda.font = UIFont(name: "ChalkboardSE-Bold", size: 20)
