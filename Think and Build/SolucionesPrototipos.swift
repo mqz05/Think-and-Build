@@ -150,3 +150,80 @@ var arrayPrototipoInsane5 = [arraySolucionesBloquesAzulesInsanePrototipo5, array
 
 var arrayPrototiposInsaneTotales = [arrayPrototipoInsane1, arrayPrototipoInsane2, arrayPrototipoInsane3, arrayPrototipoInsane4, arrayPrototipoInsane5]
 
+
+
+func generarPrototipoRandom(prototipo1: Array<Array<SIMD3<Float>>>, prototipo2: Array<Array<SIMD3<Float>>>) -> Array<Array<SIMD3<Float>>> {
+    
+    var prototipoModificado = prototipo1
+    
+    /*let numeroBloquesTotalesPrototipo1: Int = prototipo1[0].count + prototipo1[1].count + prototipo1[2].count + prototipo1[3].count
+    let numeroBloquesTotalesPrototipo2: Int = prototipo2[0].count + prototipo2[1].count + prototipo2[2].count + prototipo2[3].count*/
+    
+    let numeroRandomDeBloquesCambiados = generarNumeroRandom(rango: 1...3)
+    
+    var arrayNumeroColorBloque1: Array<Int>! = []
+    var arrayNumeroColorBloque2: Array<Int>! = []
+    
+    var arrayBloquesCambiados1: Array<Int>! = []
+    var arrayBloquesCambiados2: Array<Int>! = []
+    
+    for _ in 0...numeroRandomDeBloquesCambiados {
+        var numeroColorBloque1 = generarNumeroRandom(rango: 0...3)
+        var colorBloqueCambiado1 = prototipo1[numeroColorBloque1]
+        arrayNumeroColorBloque1.append(numeroColorBloque1)
+        
+        while colorBloqueCambiado1.count == 0 {
+            numeroColorBloque1 = generarNumeroRandom(rango: 0...3)
+            colorBloqueCambiado1 = prototipo1[numeroColorBloque1]
+        }
+        
+        var numeroBloque1 = generarNumeroRandom(rango: 0...colorBloqueCambiado1.count - 1)
+        
+        for (_, x) in arrayBloquesCambiados1.enumerated() {
+            while numeroBloque1 == x {
+                numeroBloque1 = generarNumeroRandom(rango: 0...colorBloqueCambiado1.count - 1)
+                
+                //return
+            }
+        }
+        arrayBloquesCambiados1.append(numeroBloque1)
+    }
+    
+    for _ in 0...numeroRandomDeBloquesCambiados {
+        var numeroColorBloque2 = generarNumeroRandom(rango: 0...3)
+        var colorBloqueCambiado2 = prototipo2[numeroColorBloque2]
+        arrayNumeroColorBloque2.append(numeroColorBloque2)
+        
+        while colorBloqueCambiado2.count == 0 {
+            numeroColorBloque2 = generarNumeroRandom(rango: 0...3)
+            colorBloqueCambiado2 = prototipo2[numeroColorBloque2]
+        }
+        
+        var numeroBloque2 = generarNumeroRandom(rango: 0...colorBloqueCambiado2.count - 1)
+        
+        for (_, x) in arrayBloquesCambiados1.enumerated() {
+            while numeroBloque2 == x {
+                numeroBloque2 = generarNumeroRandom(rango: 0...colorBloqueCambiado2.count - 1)
+                
+                //return
+            }
+        }
+        arrayBloquesCambiados2.append(numeroBloque2)
+    }
+    
+    for i in 0...numeroRandomDeBloquesCambiados {
+        prototipoModificado[arrayNumeroColorBloque1[i]].remove(at: arrayBloquesCambiados1[i])
+    }
+    
+    for i in 0...numeroRandomDeBloquesCambiados {
+        prototipoModificado[arrayNumeroColorBloque2[i]].append(prototipo2[arrayNumeroColorBloque2[i]][arrayBloquesCambiados2[i]])
+        print("hey")
+    }
+    
+    return prototipoModificado
+}
+
+func generarNumeroRandom(rango: ClosedRange<Int>) -> Int {
+    let numeroRandom = Int.random(in: rango)
+    return numeroRandom
+}

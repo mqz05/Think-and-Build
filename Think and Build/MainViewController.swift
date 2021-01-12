@@ -37,8 +37,6 @@ class MainViewController: UIViewController {
     
     var escenaPrototipo: [Array<SIMD3<Float>>]!
     
-    var numeroRandom: Int!
-    
     // Timer
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var marcoTimer: UIImageView!
@@ -455,21 +453,24 @@ class MainViewController: UIViewController {
     
     func cargarEscenaPrototipo(fase: fasesTotales) {
         
+        let numeroRandom1 = generarNumeroRandom(rango: 0...4)
+        var numeroRandom2 = generarNumeroRandom(rango: 0...4)
+        
+        while numeroRandom1 == numeroRandom2 {
+            numeroRandom2 = generarNumeroRandom(rango: 0...4)
+        }
+        
         if fase == .easy {
-            numeroRandom = Int.random(in: 0...(arrayPrototiposEasyTotales.count - 1))
-            escenaPrototipo = arrayPrototiposEasyTotales[numeroRandom]
+            escenaPrototipo = generarPrototipoRandom(prototipo1: arrayPrototiposEasyTotales[numeroRandom1], prototipo2: arrayPrototiposEasyTotales[numeroRandom2])
             
         } else if fase == .medium {
-            numeroRandom = Int.random(in: 0...(arrayPrototiposMediumTotales.count - 1))
-            escenaPrototipo = arrayPrototiposMediumTotales[numeroRandom]
+            escenaPrototipo = generarPrototipoRandom(prototipo1: arrayPrototiposMediumTotales[numeroRandom1], prototipo2: arrayPrototiposMediumTotales[numeroRandom2])
             
         } else if fase == .hard {
-            numeroRandom = Int.random(in: 0...(arrayPrototiposHardTotales.count - 1))
-            escenaPrototipo = arrayPrototiposHardTotales[numeroRandom]
+            escenaPrototipo = generarPrototipoRandom(prototipo1: arrayPrototiposHardTotales[numeroRandom1], prototipo2: arrayPrototiposHardTotales[numeroRandom2])
             
         } else if fase == .insane {
-            numeroRandom = Int.random(in: 0...(arrayPrototiposInsaneTotales.count - 1))
-            escenaPrototipo = arrayPrototiposInsaneTotales[numeroRandom]
+            escenaPrototipo = generarPrototipoRandom(prototipo1: arrayPrototiposInsaneTotales[numeroRandom1], prototipo2: arrayPrototiposInsaneTotales[numeroRandom2])
         }
         
         let bloquesAzulesPrototipo = escenaPrototipo[0]
@@ -985,6 +986,19 @@ class MainViewController: UIViewController {
     //
     
     func revisarSolucion() -> Bool {
+        
+        var correctoIncorrecto: Bool!
+        
+        if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: escenaPrototipo[0]) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: escenaPrototipo[1]) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: escenaPrototipo[2]) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: escenaPrototipo[3]) {
+            correctoIncorrecto = true
+        } else {
+            correctoIncorrecto = false
+        }
+        return correctoIncorrecto
+    }
+    
+    /*
+    func revisarSolucion() -> Bool {
 
         var correctoIncorrecto: Bool!
         
@@ -1139,7 +1153,7 @@ class MainViewController: UIViewController {
         }
         
         return correctoIncorrecto
-    }
+    }*/
     
     func comprobarArrays(arrayPosiciones: [SIMD3<Float>], arraySolucion: [SIMD3<Float>]) -> Bool {
         
