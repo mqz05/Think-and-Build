@@ -156,68 +156,52 @@ func generarPrototipoRandom(prototipo1: Array<Array<SIMD3<Float>>>, prototipo2: 
     
     var prototipoModificado = prototipo1
     
-    /*let numeroBloquesTotalesPrototipo1: Int = prototipo1[0].count + prototipo1[1].count + prototipo1[2].count + prototipo1[3].count
-    let numeroBloquesTotalesPrototipo2: Int = prototipo2[0].count + prototipo2[1].count + prototipo2[2].count + prototipo2[3].count*/
-    
     let numeroRandomDeBloquesCambiados = generarNumeroRandom(rango: 1...3)
     
-    var arrayNumeroColorBloque1: Array<Int>! = []
-    var arrayNumeroColorBloque2: Array<Int>! = []
+    var arrayNumerosColoresSeleccionados1: Array<Int>! = []
+    var arrayNumerosColoresSeleccionados2: Array<Int>! = []
     
     var arrayBloquesCambiados1: Array<Int>! = []
     var arrayBloquesCambiados2: Array<Int>! = []
     
     for _ in 0...numeroRandomDeBloquesCambiados {
-        var numeroColorBloque1 = generarNumeroRandom(rango: 0...3)
-        var colorBloqueCambiado1 = prototipo1[numeroColorBloque1]
-        arrayNumeroColorBloque1.append(numeroColorBloque1)
+        var colorBloque1 = generarNumeroRandom(rango: 0...3)
+        var arrayColorSeleccionado1 = prototipo1[colorBloque1]
         
-        while colorBloqueCambiado1.count == 0 {
-            numeroColorBloque1 = generarNumeroRandom(rango: 0...3)
-            colorBloqueCambiado1 = prototipo1[numeroColorBloque1]
+        while arrayColorSeleccionado1.count == 0 {
+            colorBloque1 = generarNumeroRandom(rango: 0...3)
+            arrayColorSeleccionado1 = prototipo1[colorBloque1]
         }
         
-        var numeroBloque1 = generarNumeroRandom(rango: 0...colorBloqueCambiado1.count - 1)
+        arrayNumerosColoresSeleccionados1.append(colorBloque1)
         
-        for (_, x) in arrayBloquesCambiados1.enumerated() {
-            while numeroBloque1 == x {
-                numeroBloque1 = generarNumeroRandom(rango: 0...colorBloqueCambiado1.count - 1)
-                
-                //return
-            }
-        }
+        let numeroBloque1 = generarNumeroRandom(rango: 0...arrayColorSeleccionado1.count - 1)
+        
         arrayBloquesCambiados1.append(numeroBloque1)
     }
     
     for _ in 0...numeroRandomDeBloquesCambiados {
-        var numeroColorBloque2 = generarNumeroRandom(rango: 0...3)
-        var colorBloqueCambiado2 = prototipo2[numeroColorBloque2]
-        arrayNumeroColorBloque2.append(numeroColorBloque2)
+        var colorBloque2 = generarNumeroRandom(rango: 0...3)
+        var arrayColorSeleccionado2 = prototipo2[colorBloque2]
         
-        while colorBloqueCambiado2.count == 0 {
-            numeroColorBloque2 = generarNumeroRandom(rango: 0...3)
-            colorBloqueCambiado2 = prototipo2[numeroColorBloque2]
+        while arrayColorSeleccionado2.count == 0 {
+            colorBloque2 = generarNumeroRandom(rango: 0...3)
+            arrayColorSeleccionado2 = prototipo2[colorBloque2]
         }
         
-        var numeroBloque2 = generarNumeroRandom(rango: 0...colorBloqueCambiado2.count - 1)
+        arrayNumerosColoresSeleccionados2.append(colorBloque2)
         
-        for (_, x) in arrayBloquesCambiados1.enumerated() {
-            while numeroBloque2 == x {
-                numeroBloque2 = generarNumeroRandom(rango: 0...colorBloqueCambiado2.count - 1)
-                
-                //return
-            }
-        }
+        let numeroBloque2 = generarNumeroRandom(rango: 0...arrayColorSeleccionado2.count - 1)
+        
         arrayBloquesCambiados2.append(numeroBloque2)
     }
     
     for i in 0...numeroRandomDeBloquesCambiados {
-        prototipoModificado[arrayNumeroColorBloque1[i]].remove(at: arrayBloquesCambiados1[i])
+        prototipoModificado[arrayNumerosColoresSeleccionados1[i]].remove(at: arrayBloquesCambiados1[i])
     }
     
     for i in 0...numeroRandomDeBloquesCambiados {
-        prototipoModificado[arrayNumeroColorBloque2[i]].append(prototipo2[arrayNumeroColorBloque2[i]][arrayBloquesCambiados2[i]])
-        print("hey")
+        prototipoModificado[arrayNumerosColoresSeleccionados2[i]].append(prototipo2[arrayNumerosColoresSeleccionados2[i]][arrayBloquesCambiados2[i]])
     }
     
     return prototipoModificado
