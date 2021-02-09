@@ -11,6 +11,28 @@ import ARKit
 import RealityKit
 
 class MainViewController: UIViewController {
+    /*
+    init() {
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(clear),
+            name: UIApplication.didReceiveMemoryWarningNotification,
+            object: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func clear() {
+        cache.removeAllObjects()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self,
+        name: UIApplication.didReceiveMemoryWarningNotification,
+        object: nil)
+    }*/
+    
     
     // ARView, Tablero y Prototipos
     @IBOutlet weak var arView: ARView!
@@ -35,6 +57,10 @@ class MainViewController: UIViewController {
     }
     var faseActual: fasesTotales = .start
     
+    var modoRandom = false
+    
+    var numeroRandomDeNivel: Int!
+    
     var escenaPrototipo: [Array<SIMD3<Float>>]!
     
     // Timer
@@ -50,6 +76,9 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var textoAyuda: UITextView!
     @IBOutlet weak var botonRecolocarTableroJuego: UIButton!
+    
+    @IBOutlet weak var switchModoRandom: UISwitch!
+    
     @IBOutlet weak var botonReady: UIButton!
     
     @IBOutlet weak var switchModoQuitarBloques: UISwitch!
@@ -106,11 +135,9 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         superficiePlana.planeDetection = .horizontal
         arView.session.run(superficiePlana)
-        
-        nivelFaseActual = .start
-        faseActual = .start
         
         timerLabel.font = UIFont(name: "ChalkboardSE-Bold", size: 30)
         timerLabel.textColor = UIColor.black
@@ -267,6 +294,7 @@ class MainViewController: UIViewController {
         marcoTimer.isHidden = false
         textoAyuda.isHidden = true
         barraDeProgresion.isHidden = false
+        switchModoRandom.isHidden = true
         
         modoDeJuegoActual = .memorizacion
         
@@ -303,6 +331,14 @@ class MainViewController: UIViewController {
                 }
             }
             print("Hey! Now you are placing blocks!")
+        }
+    }
+    
+    @IBAction func accionCambiarModoRandom(_ sender: Any) {
+        if (sender as AnyObject).isOn {
+            modoRandom = true
+        } else {
+            modoRandom = false
         }
     }
     
@@ -453,24 +489,46 @@ class MainViewController: UIViewController {
     
     func cargarEscenaPrototipo(fase: fasesTotales) {
         
-        let numeroRandom1 = generarNumeroRandom(rango: 0...4)
-        var numeroRandom2 = generarNumeroRandom(rango: 0...4)
-        
-        while numeroRandom1 == numeroRandom2 {
-            numeroRandom2 = generarNumeroRandom(rango: 0...4)
-        }
-        
-        if fase == .easy {
-            escenaPrototipo = generarPrototipoRandom(prototipo1: arrayPrototiposEasyTotales[numeroRandom1], prototipo2: arrayPrototiposEasyTotales[numeroRandom2])
+        if modoRandom == true {
             
-        } else if fase == .medium {
-            escenaPrototipo = generarPrototipoRandom(prototipo1: arrayPrototiposMediumTotales[numeroRandom1], prototipo2: arrayPrototiposMediumTotales[numeroRandom2])
+            let numeroRandom1 = generarNumeroRandom(rango: 0...4)
+            var numeroRandom2 = generarNumeroRandom(rango: 0...4)
             
-        } else if fase == .hard {
-            escenaPrototipo = generarPrototipoRandom(prototipo1: arrayPrototiposHardTotales[numeroRandom1], prototipo2: arrayPrototiposHardTotales[numeroRandom2])
+            while numeroRandom1 == numeroRandom2 {
+                numeroRandom2 = generarNumeroRandom(rango: 0...4)
+            }
             
-        } else if fase == .insane {
-            escenaPrototipo = generarPrototipoRandom(prototipo1: arrayPrototiposInsaneTotales[numeroRandom1], prototipo2: arrayPrototiposInsaneTotales[numeroRandom2])
+            if fase == .easy {
+                escenaPrototipo = generarPrototipoRandom(prototipo1: arrayPrototiposEasyTotales[numeroRandom1], prototipo2: arrayPrototiposEasyTotales[numeroRandom2])
+                
+            } else if fase == .medium {
+                escenaPrototipo = generarPrototipoRandom(prototipo1: arrayPrototiposMediumTotales[numeroRandom1], prototipo2: arrayPrototiposMediumTotales[numeroRandom2])
+                
+            } else if fase == .hard {
+                escenaPrototipo = generarPrototipoRandom(prototipo1: arrayPrototiposHardTotales[numeroRandom1], prototipo2: arrayPrototiposHardTotales[numeroRandom2])
+                
+            } else if fase == .insane {
+                escenaPrototipo = generarPrototipoRandom(prototipo1: arrayPrototiposInsaneTotales[numeroRandom1], prototipo2: arrayPrototiposInsaneTotales[numeroRandom2])
+            }
+            
+        } else if modoRandom == false {
+            
+            if fase == .easy {
+                numeroRandomDeNivel = generarNumeroRandom(rango: 0...(arrayPrototiposEasyTotales.count - 1))
+                escenaPrototipo = arrayPrototiposEasyTotales[numeroRandomDeNivel]
+                print(arrayPrototiposEasyTotales[numeroRandomDeNivel])
+            } else if fase == .medium {
+                numeroRandomDeNivel = generarNumeroRandom(rango: 0...(arrayPrototiposMediumTotales.count - 1))
+                escenaPrototipo = arrayPrototiposMediumTotales[numeroRandomDeNivel]
+                
+            } else if fase == .hard {
+                numeroRandomDeNivel = generarNumeroRandom(rango: 0...(arrayPrototiposHardTotales.count - 1))
+                escenaPrototipo = arrayPrototiposHardTotales[numeroRandomDeNivel]
+                
+            } else if fase == .insane {
+                numeroRandomDeNivel = generarNumeroRandom(rango: 0...(arrayPrototiposInsaneTotales.count - 1))
+                escenaPrototipo = arrayPrototiposInsaneTotales[numeroRandomDeNivel]
+            }
         }
         
         let bloquesAzulesPrototipo = escenaPrototipo[0]
@@ -994,6 +1052,22 @@ class MainViewController: UIViewController {
         } else {
             correctoIncorrecto = false
         }
+        
+        if correctoIncorrecto == true && modoRandom == false {
+            if faseActual == .easy {
+                arrayPrototiposEasyTotales.remove(at: numeroRandomDeNivel)
+                
+            } else if faseActual == .medium {
+                arrayPrototiposMediumTotales.remove(at: numeroRandomDeNivel)
+                
+            } else if faseActual == .hard {
+                arrayPrototiposHardTotales.remove(at: numeroRandomDeNivel)
+                
+            } else if faseActual == .insane {
+                arrayPrototiposInsaneTotales.remove(at: numeroRandomDeNivel)
+            }
+        }
+        
         return correctoIncorrecto
     }
     

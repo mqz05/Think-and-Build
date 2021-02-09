@@ -158,12 +158,6 @@ func generarPrototipoRandom(prototipo1: Array<Array<SIMD3<Float>>>, prototipo2: 
     
     let numeroRandomDeBloquesCambiados = generarNumeroRandom(rango: 1...3)
     
-    var arrayNumerosColoresSeleccionados1: Array<Int>! = []
-    var arrayNumerosColoresSeleccionados2: Array<Int>! = []
-    
-    var arrayBloquesCambiados1: Array<Int>! = []
-    var arrayBloquesCambiados2: Array<Int>! = []
-    
     for _ in 0...numeroRandomDeBloquesCambiados {
         var colorBloque1 = generarNumeroRandom(rango: 0...3)
         var arrayColorSeleccionado1 = prototipo1[colorBloque1]
@@ -173,11 +167,9 @@ func generarPrototipoRandom(prototipo1: Array<Array<SIMD3<Float>>>, prototipo2: 
             arrayColorSeleccionado1 = prototipo1[colorBloque1]
         }
         
-        arrayNumerosColoresSeleccionados1.append(colorBloque1)
-        
         let numeroBloque1 = generarNumeroRandom(rango: 0...arrayColorSeleccionado1.count - 1)
         
-        arrayBloquesCambiados1.append(numeroBloque1)
+        prototipoModificado[colorBloque1].remove(at: numeroBloque1)
     }
     
     for _ in 0...numeroRandomDeBloquesCambiados {
@@ -189,19 +181,9 @@ func generarPrototipoRandom(prototipo1: Array<Array<SIMD3<Float>>>, prototipo2: 
             arrayColorSeleccionado2 = prototipo2[colorBloque2]
         }
         
-        arrayNumerosColoresSeleccionados2.append(colorBloque2)
-        
         let numeroBloque2 = generarNumeroRandom(rango: 0...arrayColorSeleccionado2.count - 1)
         
-        arrayBloquesCambiados2.append(numeroBloque2)
-    }
-    
-    for i in 0...numeroRandomDeBloquesCambiados {
-        prototipoModificado[arrayNumerosColoresSeleccionados1[i]].remove(at: arrayBloquesCambiados1[i])
-    }
-    
-    for i in 0...numeroRandomDeBloquesCambiados {
-        prototipoModificado[arrayNumerosColoresSeleccionados2[i]].append(prototipo2[arrayNumerosColoresSeleccionados2[i]][arrayBloquesCambiados2[i]])
+        prototipoModificado[colorBloque2].append(prototipo2[colorBloque2][numeroBloque2])
     }
     
     return prototipoModificado

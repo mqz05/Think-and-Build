@@ -237,6 +237,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sgj-xb-roS" userLabel="Switch Modo Random">
+                                <rect key="frame" x="1098" y="40" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="accionCambiarModoRandom:" destination="cT5-JQ-hdH" eventType="valueChanged" id="JK3-cW-knk"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -332,6 +339,7 @@
                         <outlet property="marcoTimer" destination="pfw-J2-DYz" id="BP0-lf-XY1"/>
                         <outlet property="panelFinal" destination="4Sc-mu-7HX" id="oP8-Vq-BCX"/>
                         <outlet property="switchModoQuitarBloques" destination="nfi-3G-Hgz" id="dVs-5X-Yzv"/>
+                        <outlet property="switchModoRandom" destination="sgj-xb-roS" id="QYO-dy-s1t"/>
                         <outlet property="textoAyuda" destination="ZH6-gn-yJQ" id="yqr-Yf-HaO"/>
                         <outlet property="timerLabel" destination="Jx6-CH-9oh" id="496-pr-ebu"/>
                     </connections>
