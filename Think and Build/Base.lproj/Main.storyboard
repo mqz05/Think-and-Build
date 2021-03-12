@@ -244,6 +244,14 @@
                                     <action selector="accionCambiarModoRandom:" destination="cT5-JQ-hdH" eventType="valueChanged" id="JK3-cW-knk"/>
                                 </connections>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3e-0i-Syo">
+                                <rect key="frame" x="1131" y="452" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="PRINT"/>
+                                <connections>
+                                    <action selector="accionBotonPrint:" destination="cT5-JQ-hdH" eventType="touchUpInside" id="W27-9e-Lcz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -324,6 +332,7 @@
                         <outlet property="botonModoBloqueVerde" destination="GZm-UO-LNT" id="r1D-qZ-U37"/>
                         <outlet property="botonModoBuild" destination="4YP-Aq-QZP" id="FGv-SN-QL1"/>
                         <outlet property="botonNextLevel" destination="lVg-Uf-qMB" id="Tye-YF-lYX"/>
+                        <outlet property="botonPrint" destination="G3e-0i-Syo" id="5US-hC-qQs"/>
                         <outlet property="botonReady" destination="reo-na-EZe" id="xXm-dS-iVE"/>
                         <outlet property="botonRecolocarTableroJuego" destination="8XE-vs-hf8" id="1xH-z2-pEI"/>
                         <outlet property="imagenCoronaWin" destination="lXz-bk-Giz" id="mXX-OH-OwY"/>

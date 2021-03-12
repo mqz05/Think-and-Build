@@ -34,6 +34,12 @@ class MainViewController: UIViewController {
     }*/
     
     
+    
+    
+    @IBOutlet weak var botonPrint: UIButton!
+    
+    
+    
     // ARView, Tablero y Prototipos
     @IBOutlet weak var arView: ARView!
     
@@ -309,6 +315,11 @@ class MainViewController: UIViewController {
         arView.isUserInteractionEnabled = false
         tableroJuego.children.removeAll()
         self.removeFromParent()
+        
+        
+        // PROBAR
+        self.view = nil
+        
     }
     
     @IBAction func acciónModoQuitarBloques(_ sender: Any) {
@@ -731,6 +742,16 @@ class MainViewController: UIViewController {
     }
     
     
+    
+    @IBAction func accionBotonPrint(_ sender: Any) {
+    
+        print("Bloques Azules: \(arrayDePosicionesDeBloquesAzules)")
+        print("Bloques Rojos: \(arrayDePosicionesDeBloquesRojos)")
+        print("Bloques Amarillos: \(arrayDePosicionesDeBloquesAmarillos)")
+        print("Bloques Verdes: \(arrayDePosicionesDeBloquesVerdes)")
+    
+    }
+    
     //
     // Paneles de los Bloques
     //
@@ -1071,163 +1092,6 @@ class MainViewController: UIViewController {
         return correctoIncorrecto
     }
     
-    /*
-    func revisarSolucion() -> Bool {
-
-        var correctoIncorrecto: Bool!
-        
-        if faseActual == .easy {
-            if escenaPrototipo == arrayPrototipoEasy1 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesEasyPrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosEasyPrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosEasyPrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesEasyPrototipo1) {
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            } else if escenaPrototipo == arrayPrototipoEasy2 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesEasyPrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosEasyPrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosEasyPrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesEasyPrototipo2){
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            } else if escenaPrototipo == arrayPrototipoEasy3 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesEasyPrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosEasyPrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosEasyPrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesEasyPrototipo3){
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            } else if escenaPrototipo == arrayPrototipoEasy4 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesEasyPrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosEasyPrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosEasyPrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesEasyPrototipo4){
-                     
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            } else if escenaPrototipo == arrayPrototipoEasy5 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesEasyPrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosEasyPrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosEasyPrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesEasyPrototipo5){
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            }
-            
-            if correctoIncorrecto == true {
-                arrayPrototiposEasyTotales.remove(at: numeroRandom)
-            }
-            
-        } else if faseActual == .medium {
-            if escenaPrototipo == arrayPrototipoMedium1 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesMediumPrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosMediumPrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosMediumPrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesMediumPrototipo1) {
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            } else if escenaPrototipo == arrayPrototipoMedium2 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesMediumPrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosMediumPrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosMediumPrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesMediumPrototipo2){
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            } else if escenaPrototipo == arrayPrototipoMedium3 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesMediumPrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosMediumPrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosMediumPrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesMediumPrototipo3){
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            } else if escenaPrototipo == arrayPrototipoMedium4 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesMediumPrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosMediumPrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosMediumPrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesMediumPrototipo4){
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            } else if escenaPrototipo == arrayPrototipoMedium5 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesMediumPrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosMediumPrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosMediumPrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesMediumPrototipo5){
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            }
-            
-            if correctoIncorrecto == true {
-                arrayPrototiposMediumTotales.remove(at: numeroRandom)
-            }
-                
-        } else if faseActual == .hard {
-            if escenaPrototipo == arrayPrototipoHard1 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesHardPrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosHardPrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosHardPrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesHardPrototipo1) {
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            } else if escenaPrototipo == arrayPrototipoHard2 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesHardPrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosHardPrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosHardPrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesHardPrototipo2){
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            } else if escenaPrototipo == arrayPrototipoHard3 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesHardPrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosHardPrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosHardPrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesHardPrototipo3){
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            } else if escenaPrototipo == arrayPrototipoHard4 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesHardPrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosHardPrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosHardPrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesHardPrototipo4){
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            } else if escenaPrototipo == arrayPrototipoHard5 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesHardPrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosHardPrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosHardPrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesHardPrototipo5){
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            }
-            
-            if correctoIncorrecto == true {
-                arrayPrototiposHardTotales.remove(at: numeroRandom)
-            }
-            
-        } else if faseActual == .insane {
-            if escenaPrototipo == arrayPrototipoInsane1 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesInsanePrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosInsanePrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosInsanePrototipo1) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesInsanePrototipo1) {
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            } else if escenaPrototipo == arrayPrototipoInsane2 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesInsanePrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosInsanePrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosInsanePrototipo2) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesInsanePrototipo2){
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            } else if escenaPrototipo == arrayPrototipoInsane3 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesInsanePrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosInsanePrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosInsanePrototipo3) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesInsanePrototipo3){
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            } else if escenaPrototipo == arrayPrototipoInsane4 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesInsanePrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosInsanePrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosInsanePrototipo4) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesInsanePrototipo4){
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            } else if escenaPrototipo == arrayPrototipoInsane5 {
-                if comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAzules, arraySolucion: arraySolucionesBloquesAzulesInsanePrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesRojos, arraySolucion: arraySolucionesBloquesRojosInsanePrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesAmarillos, arraySolucion: arraySolucionesBloquesAmarillosInsanePrototipo5) && comprobarArrays(arrayPosiciones: arrayDePosicionesDeBloquesVerdes, arraySolucion: arraySolucionesBloquesVerdesInsanePrototipo5){
-                    correctoIncorrecto = true
-                } else {
-                    correctoIncorrecto = false
-                }
-            }
-            
-            if correctoIncorrecto == true {
-                arrayPrototiposInsaneTotales.remove(at: numeroRandom)
-            }
-        }
-        
-        return correctoIncorrecto
-    }*/
     
     func comprobarArrays(arrayPosiciones: [SIMD3<Float>], arraySolucion: [SIMD3<Float>]) -> Bool {
         

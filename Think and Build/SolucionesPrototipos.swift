@@ -193,3 +193,47 @@ func generarNumeroRandom(rango: ClosedRange<Int>) -> Int {
     let numeroRandom = Int.random(in: rango)
     return numeroRandom
 }
+
+
+
+/*
+ 
+ NUEVOS POSIBLES PROTOTIPOS:
+ 
+ - Easy:
+    var arraySolucionesBloquesAzulesEasyPrototipo6: Array<SIMD3<Float>> = []
+    var arraySolucionesBloquesRojosEasyPrototipo6: Array<SIMD3<Float>> = []
+    var arraySolucionesBloquesAmarillosEasyPrototipo6: Array<SIMD3<Float>> = []
+    var arraySolucionesBloquesVerdesEasyPrototipo6: Array<SIMD3<Float>> = []
+    var arrayPrototipoEasy6 = [arraySolucionesBloquesAzulesEasyPrototipo6, arraySolucionesBloquesRojosEasyPrototipo6, arraySolucionesBloquesAmarillosEasyPrototipo6, arraySolucionesBloquesVerdesEasyPrototipo6]
+    
+    
+    
+    
+    
+    
+ - Medium:
+    
+    
+    
+    
+    
+    
+    
+ - Hard:
+     
+    
+    
+    
+    
+    
+    
+    
+    
+ - Insane:
+    
+    
+    
+    
+    
+ */
