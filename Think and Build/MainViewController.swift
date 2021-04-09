@@ -70,6 +70,7 @@ class MainViewController: UIViewController {
     var escenaPrototipo: [Array<SIMD3<Float>>]!
     
     // Timer
+    @IBOutlet weak var timerView: UIView!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var marcoTimer: UIImageView!
     
