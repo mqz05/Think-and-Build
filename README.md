@@ -33,7 +33,7 @@ The goal of this project is to provide students with an entertaining way to **st
 ---
 
 ## **Demo**  <a name="demo"></a> 
-Watch the **demo video** filmed in 2019 to see Think & Build in action:  
+Watch the [**demo video**](https://www.youtube.com/watch?v=hwposYsbxZU) filmed in 2019 to see Think & Build in action (click on the image to go to YouTube):  
 
 [![YouTube link to demo video](https://img.youtube.com/vi/hwposYsbxZU/0.jpg)](https://www.youtube.com/watch?v=hwposYsbxZU)
 
