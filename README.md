@@ -33,15 +33,16 @@ The goal of this project is to provide students with an entertaining way to **st
 ---
 
 ## **Demo**  <a name="demo"></a> 
-Check out this **4-year-old demo video** to see Think & Build in action:  
-[Insert Link to Video]  
+Watch the **demo video** filmed in 2019 to see Think & Build in action:  
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hwposYsbxZU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 
 ---
 
 ## **Technologies Used**  
 - **Programming Language:** Swift  
-- **Framework:** ARKit (for augmented reality features)  
-- **Tools:** Xcode, Git  
+- **Framework:** ARKit (for augmented reality features), UIKit
+- **Tools:** Xcode, Reality Composer, Git  
 
 ---
 
