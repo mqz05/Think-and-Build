@@ -7,6 +7,23 @@ Think & Build is an **augmented reality (AR) video game** designed to enhance me
 This project was developed as part of personal project while I was beggining to immerse myself into coding and demonstrates my skills in **Swift programming, AR development, and game design**.  
 
 ---
+## **Demo**  <a name="demo"></a> 
+Watch the [**demo video**](https://www.youtube.com/watch?v=hwposYsbxZU) filmed in 2019 to see Think & Build in action (click on the image to go to YouTube):  
+
+[![YouTube link to demo video](https://img.youtube.com/vi/hwposYsbxZU/0.jpg)](https://www.youtube.com/watch?v=hwposYsbxZU)
+
+Here are some screenshots of the game in action:  
+
+- Gameplay:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f72d82bd-93dc-4786-bdcf-2fd4ed7baebe" width="45%">&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/user-attachments/assets/79d4c7ac-1058-4bab-9e5d-f0064137bb44" width="45%">
+  <br>
+  <img src="https://github.com/user-attachments/assets/88ce9b67-48cb-4cfd-9e4b-cf39251ffc46" width="45%">&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/user-attachments/assets/6b4e6344-6200-4ad5-b81b-53e07748ba74" width="45%">
+</p>
+
+---
 
 ## **Features**  
 - **4 Types of Blocks:** Red, blue, yellow, and green blocks for building structures.  
@@ -29,13 +46,6 @@ This project was developed as part of personal project while I was beggining to 
 
 ## **Motivation**  
 The goal of this project is to provide students with an entertaining way to **stimulate and improve their memory skills**. By encouraging friendly competition and engagement, Think & Build aims to make memory training an enjoyable and rewarding experience.  
-
----
-
-## **Demo**  <a name="demo"></a> 
-Watch the [**demo video**](https://www.youtube.com/watch?v=hwposYsbxZU) filmed in 2019 to see Think & Build in action (click on the image to go to YouTube):  
-
-[![YouTube link to demo video](https://img.youtube.com/vi/hwposYsbxZU/0.jpg)](https://www.youtube.com/watch?v=hwposYsbxZU)
 
 ---
 
